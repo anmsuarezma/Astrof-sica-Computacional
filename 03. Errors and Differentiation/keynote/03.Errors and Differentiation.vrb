@@ -1,0 +1,30 @@
+\frametitle{Differentiation of an Analytic Function in an Unevenly Spaced Grid}
+\small
+
+We want to evaluate $f'(x)$ at $x = x_i$. \\
+Consider the steps $\delta x_1 = x_i - x_{i-1}$
+and $\delta x_2 = x_{i+1} - x_i$.\\
+
+\pause
+Then,
+\begin{equation}
+\begin{aligned}
+f(x_i + \delta x_2) &= f(x_i) + \delta x_2 f'(x_i) + \frac{\delta x_2^2}{2} f''(x_i) +
+\mathcal{O}(\delta x_2^3) \\
+f(x_i - \delta x_1) &= f(x_i) - \delta x_1 f'(x_i) + \frac{\delta x_1^2}{2} f''(x_i) +
+\mathcal{O}(\delta x_1^3)
+\end{aligned}
+\end{equation}
+
+\pause
+
+Eliminating $f''(x_i)$ and solving for $f'(x_i)$,
+\begin{equation}
+\begin{aligned}
+f'(x_i) &= \frac{\delta x_1}{\delta x_2(\delta x_1+\delta x_2)} f(x_{i+1}) - \frac{\delta x_1 - \delta x_2}{\delta x_2 \delta x_1} f(x_i)
+- \frac{\delta x_2}{\delta x_1(\delta x_1 + \delta x_2)} f(x_{i-1}) \,.
+\end{aligned}
+\end{equation}
+\pause
+If $\delta x_1 = \delta x_2 = \delta x$ this reduces to the standard difference equation (\ref{eq:secondOrder}).
+\normalsize

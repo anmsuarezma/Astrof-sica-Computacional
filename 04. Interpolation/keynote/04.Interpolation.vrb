@@ -1,14 +1,5 @@
 \frametitle{Lagrange Interpolation}
-This is generalized this to an $n$-th degree polynomial that
-passes through all $n+1$ data points:
-\begin{equation}
-p(x) = \sum_{j=0}^{n} f(x_j) L_{nj}(x) + \mathcal{O}(h^{n+1})\,,
-\end{equation}
-with
-\begin{equation}
-L_{nj}(x) = \prod_{k\ne j}^{n} \frac{x-x_k}{x_j - x_k}\,.
-\end{equation}
-
-Note that this clearly satisfies the interpolating condition,
-$p(x_i) = f(x_i)$.
+\begin{figure}
+\includegraphics[scale=0.3]{interpolationExample.jpeg}
+\end{figure}
 

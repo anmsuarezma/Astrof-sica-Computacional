@@ -1,0 +1,6 @@
+\beamer@sectionintoc {1}{Sources of Error}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{Round-off Error}{3}{0}{1}
+\beamer@subsectionintoc {1}{2}{Truncation Error}{5}{0}{1}
+\beamer@sectionintoc {2}{Finite Differences}{8}{0}{2}
+\beamer@subsectionintoc {2}{1}{Differentiation of a Discrete Function}{8}{0}{2}
+\beamer@subsectionintoc {2}{2}{Differentiation of an Analytic Function}{12}{0}{2}

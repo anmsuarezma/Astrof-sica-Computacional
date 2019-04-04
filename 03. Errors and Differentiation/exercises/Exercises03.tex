@@ -1,0 +1,52 @@
+\documentclass[10pt,letterpaper,notitlepage]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\begin{document}
+\title{Computational Astrophysics}
+\author{Exercises 3 }
+\maketitle
+
+\begin{enumerate}
+\item \textit{First Derivative at a point}\\
+Write a module to calculate numerically the derivative of a function using forward, backward and central differences. Use this module in a program to calculate the derivative of 
+\begin{equation}
+f(x) = x - \sin x
+\end{equation}
+at the point $x = 0$. 
+
+\item \textit{First Derivative of a function}\\
+Modify the above module to calculate the derivative of a function in an interval and to store the results in a .txt file. Use this module in a program to  calculate the derivative of 
+\begin{equation}
+f(x) = x - \sin x
+\end{equation}
+in the interval $-1 \leq x \leq 1$.
+
+a) Plot the function and the obtained values of its derivative in the given interval.\\
+b) Plot the obtained values of the derivative and the analytic derivative of the function, in order to compare your results with the exact values. Is there an appreciable difference?
+
+\item  \textit{Second Derivative of a Function} \\
+Using the Taylor expansions for $f(x_0 +\delta x)$ and $f(x_0 - \delta x)$, find the difference approximation to the second derivative of $f$ at $x_0$.
+
+
+\item \textit{Second Derivative of a function}\\
+Write a module to calculate numerically the second derivative of a function according to the above results. Use this module in a program to calculate the derivative of 
+\begin{equation}
+f(x) = x - \sin x
+\end{equation}
+at the point $x=0$.\\
+Modify the above module to calculate the derivative of a function in an interval and use it in a program to calculate the derivative of the same function in the interval $-1 \leq x \leq 1$.
+
+
+a) Plot the function and its first and second derivatives in the given interval.\\
+b) Plot the obtained values of the second derivative and the analytic second derivative of the function, in order to compare your results with the exact values. Is there an appreciable difference?
+
+
+
+\end{enumerate}
+
+Happy Coding !!
+
+\end{document}

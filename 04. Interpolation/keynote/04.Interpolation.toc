@@ -1,0 +1,4 @@
+\beamer@sectionintoc {1}{Interpolation}{3}{0}{1}
+\beamer@subsubsectionintoc {1}{0}{1}{Linear Interpolation}{6}{0}{1}
+\beamer@subsubsectionintoc {1}{0}{2}{Quadratic Interpolation}{8}{0}{1}
+\beamer@subsubsectionintoc {1}{0}{3}{Lagrange Interpolation}{10}{0}{1}

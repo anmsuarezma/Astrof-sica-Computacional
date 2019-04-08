@@ -1,0 +1,15 @@
+\frametitle{Cubic Natural Spline Interpolation}
+Defining $d_i = 2(h_{i-1} + h_i)$ and $b_i = 6\left(\frac{g_i}{h_i}
+- \frac{g_{i-1}}{h_{i-1}}\right)$, we can write
+\begin{equation}
+A p'' = b \hspace{1em}\text{ with } A_{ij} = \left\{ \begin{array}{ll}
+d_i &\text{if } i=j\,,\\
+h_i &\text{if } i=j-1\,,\\
+h_{i-1}&\text{if } i=j+1\,,\\
+0&\text{otherwise}.
+\end{array}\right.
+\end{equation}
+\pause
+
+The coefficient matrix $A_{ij}$ is real, symmetric, and tri-diagonal.\\
+The solution of such a linear system of equations will be presented later in the course.

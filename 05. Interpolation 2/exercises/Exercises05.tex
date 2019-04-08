@@ -1,0 +1,37 @@
+\documentclass[10pt,letterpaper,notitlepage]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\begin{document}
+\title{Computational Astrophysics}
+\author{Exercises 5 }
+\maketitle
+
+\begin{enumerate}
+
+\item Consider the Lagrangian interpolation of the function  $f(x) = \frac{1}{25 x^2 + 1}$ for $n=6$, $n=8$, $n=10$ and $n=12$ 
+done in Exercises 4. Now, discretize the domain with $m=100$ equally spaced points in the interval
+  $[-1,1]$. Compute the Error-Norm-2 (EN2), defined as
+  \begin{equation*}
+    \text{EN2} = \frac{1}{m} \sqrt{ \sum_{i=1}^m 
+      \left(\frac{p(x)-f(x)}{f(x)}\right)  ^2 }\,,
+  \end{equation*}
+ for the 4 cases $n=\{6,8,10,12\}$.
+
+\item Now discretize the same function with $m_2 = 50$ equally spaced points in the interval
+  $[-1,1]$. Implement a routine that interpolates $f(x)$ piecewise
+  linearly between these $m_2$ data points  and evaluate EN2
+  at the $m= 100$ points used above. Compare your result to the
+  results of both exercises.
+  
+  \item Consider once more the function  $f(x) = \frac{1}{25 x^2 + 1}$. Discretize the domain with $m=21$ equally spaced points in the interval $[-1,1]$ and evaluate numerically its first derivative (centered finite difference inside the interval and one-side derivative on the boundaries). \\
+Using this information, implement a routine that generates a piecewise cubic Hermite interpolating
+polynomial in the interval. \\
+Plot the function and the interpolating polynomial.  
+\end{enumerate}
+
+Happy Coding !!
+
+\end{document}

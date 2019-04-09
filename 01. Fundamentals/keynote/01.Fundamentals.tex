@@ -1,0 +1,446 @@
+\documentclass[11pt]{beamer}
+\usetheme{Warsaw}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+%\author{}
+%\title{}
+%\setbeamercovered{transparent} 
+%\setbeamertemplate{navigation symbols}{} 
+%\logo{} 
+%\institute{} 
+%\date{} 
+%\subject{} 
+\begin{document}
+
+\begin{frame}
+\title{Computational Astrophysics}
+\author{E. Larrañaga}
+\institute{Observatorio Astronómico Nacional\\
+Universidad Nacional de Colombia}
+\titlepage
+\end{frame}
+
+\begin{frame}{Outline}
+\tableofcontents
+\end{frame}
+
+\section{Fundamentals of Python}
+
+\subsection{Print and Importing Modules}
+\begin{frame}[fragile]{Hello World!}
+\begin{semiverbatim}
+# Print the Hello World! statment
+print("Hello World!")
+\end{semiverbatim}
+\end{frame}
+
+\begin{frame}[fragile]{Importing a Module}
+\begin{semiverbatim}
+# import the math module
+import math
+
+x = math.pi  
+print("An approximte value of pi is \%8.5f" \% x)
+
+\end{semiverbatim}
+\end{frame}
+
+\begin{frame}[fragile]{Print Formatting}
+\footnotesize
+\begin{semiverbatim}
+\%[width][.precision]type 
+\end{semiverbatim}
+\pause
+\begin{semiverbatim}
+[width] : total number of digits (including the decimal point)
+[.precision] : digits in the decimal part of the number
+\end{semiverbatim}
+\pause
+\begin{semiverbatim}
+type: 
+d (Integer)
+f (Float)
+e (Scientific Notation)
+g (Same as "e" if exponent is greater than -4 or less than precision, 
+	"f" otherwise)
+	
+...
+\end{semiverbatim}
+\end{frame}
+
+\begin{frame}[fragile]{Importing Modules I}
+\begin{semiverbatim}
+# import the sys and math modules
+import sys , math
+
+x = math.pi / 2.0 
+print(math.sin(x))
+
+sys.exit()       # leave program here 
+
+print("This will NOT print!!")
+
+\end{semiverbatim}
+\end{frame}
+
+
+\begin{frame}[fragile]{Importing Modules II}
+\begin{semiverbatim}
+# import the sys and math modules
+import sys 
+import math as m
+
+x = m.pi / 2.0 
+print(m.sin(x))
+
+sys.exit()       # leave program here 
+
+print("This will not print!!")
+
+\end{semiverbatim}
+\end{frame}
+
+\begin{frame}[fragile]{Importing Modules III}
+\begin{semiverbatim}
+# import the sys and math modules
+import sys 
+from math import pi, sin
+
+x = pi / 2.0 
+print(sin(x))
+
+sys.exit()       # leave program here 
+
+print("This will not print!!")
+
+\end{semiverbatim}
+\end{frame}
+
+\begin{frame}[fragile]{Importing Modules IV}
+\begin{semiverbatim}
+# import the sys and math modules
+import sys 
+from math import * 
+
+x = pi / 2.0 
+print(sin(x))
+
+sys.exit()       # leave program here 
+
+print("This will not print!!")
+
+\end{semiverbatim}
+\end{frame}
+
+
+\subsection{Simple Math}
+\begin{frame}[fragile]{Simple Math I}
+\small
+\begin{semiverbatim}
+import math as m
+
+# Simple math operations
+a = 2.0
+b = 1.0
+c = a + b
+d = c**2 		# square c
+e = m.sqrt(c) 	# take the sqrt of c 
+f = d/c 		# divide d by c
+
+# Print results 
+print(a,b,c) 
+print(d)
+print(e)
+print(f)
+\end{semiverbatim}
+\end{frame}
+
+\begin{frame}[fragile]{Simple Math II}
+\footnotesize
+\begin{semiverbatim}
+import math as m
+# Trigonometry 
+pi = m.pi
+theta = 2*pi
+print(m.sin(theta)) 
+print(m.cos(theta))
+print(m.tan(theta))
+
+# Other Operations
+a = 5.0
+print(m.exp(a))
+print(m.log(a))
+print(m.sinh(a))
+\end{semiverbatim}
+\end{frame}
+
+
+\section{Numerical Python Module Numpy}
+\begin{frame}[fragile]{Numpy Arrays I}
+\footnotesize
+\begin{semiverbatim}
+import numpy as np
+
+a = np.array([0.0, 1.0, 2.0, 3.0])
+b = np.arange(10)
+c = np.zeros(10,float)
+d = np.zeros(10,int)
+e = np.ones(10)
+f = np.random.random(10)
+
+print(a)
+print(b)
+print(c)
+print(d)
+print(e)
+print(f)
+\end{semiverbatim}
+\end{frame}
+
+\begin{frame}[fragile]{Numpy Arrays II}
+\footnotesize
+\begin{semiverbatim}
+import numpy as np
+
+a = np.array([[1, 2, 3], [4, 5, 6],[7, 8, 9]])
+b = np.array([np.arange(3), np.arange(3),np.arange(3)])
+c = np.zeros([3, 3],float)
+d = np.ones([3, 3])
+e = np.random.random([3, 3])
+
+print(a)
+print(b)
+print(c)
+print(d)
+print(e)
+\end{semiverbatim}
+\end{frame}
+
+\begin{frame}[fragile]{Numpy Arrays Functions}
+\footnotesize
+\begin{semiverbatim}
+import numpy as np
+
+a = np.random.random([3, 4])
+
+print(a)
+print(np.ndim(a))    # Number of dimensions
+print(len(a))            # Size of the first dimension
+print(len(a[0, :]))    # Size of the second dimension
+print(a.max())         # Max entry
+print(a.min())          # Min entry
+print(a.sum())         # Sum of all the elements
+print(a[0,:].sum())  # Sum of first row
+print(a[:,0].sum())  # Sum of first column
+\end{semiverbatim}
+\end{frame}
+
+
+\section{Conditional Statements and Indentation}
+\begin{frame}[fragile]{Conditional Statements and Indentation I}
+\footnotesize
+\begin{semiverbatim}
+import numpy as np
+
+# get a random number in the range [0.0,1.0)
+a = np.random.random()
+
+if a < 0.5:
+    print ("a = \%5.6g is < 0.5!" \% a) 
+    print ("Small a!")
+else:
+    print ("a = \%5.6g is >= 0.5!" \% a) 
+    print ("Large a!")
+\end{semiverbatim}
+\end{frame}
+
+\begin{frame}[fragile]{Conditional Statements and Indentation II}
+\footnotesize
+\begin{semiverbatim}
+import numpy as np
+
+# get a random number in the range [0.0,1.0)
+a = np.random.random()
+
+if a < 0.3:
+    print("a = \%5.6g is < 0.3 " \% a) 
+    print("Small a!")
+elif a>= 0.3 and a<0.6:
+    print("0.3 <= a = \%5.6g < 0.6 " \% a) 
+    print("Medium a!")
+else:
+    print("a = \%5.6g is >= 0.6 " \% a) 
+    print("Large a!")
+
+\end{semiverbatim}
+\end{frame}
+
+\subsection{Loops}
+\begin{frame}[fragile]{Loops I}
+\begin{semiverbatim}
+for i in range(100): 
+    print(i)
+
+\end{semiverbatim}
+\end{frame}
+
+\begin{frame}[fragile]{Loops II}
+\begin{semiverbatim}
+for i in range(1,100,2): 
+    print(i)
+
+\end{semiverbatim}
+\end{frame}
+
+\begin{frame}[fragile]{Loops III}
+\begin{semiverbatim}
+i = 0
+while i<100: 
+    print(i)
+    i = i + 1
+
+\end{semiverbatim}
+\end{frame}
+
+
+\section{Introduction to Functions}
+\begin{frame}[fragile]{Functions I}
+\begin{semiverbatim}
+def myfunction(x):
+    return x**2 + 5
+
+a = 2.0
+print(myfunction(a))
+
+print(myfunction(3.5))
+\end{semiverbatim}
+\end{frame}
+
+\begin{frame}[fragile]{Functions II}
+\begin{semiverbatim}
+def myfunction(x,y):
+	return x**2, x + y
+
+a = 2
+b = 3
+
+c,d = myfunction(a,b)
+
+print(c)
+print(d)
+\end{semiverbatim}
+\end{frame}
+
+\section{Basic File I/O}
+\subsection{Reading Files}
+\begin{frame}[fragile]{Reading Files I}
+\begin{semiverbatim}
+# Open the file
+infile = open("example_file1.txt","r")
+
+# Read the data
+indata = infile.readlines()
+
+# Close the file again
+infile.close()
+
+print(indata)
+\end{semiverbatim}
+\end{frame}
+
+\begin{frame}[fragile]{Reading Files II}
+\begin{semiverbatim}
+import numpy as np
+
+# Open the file
+infile = open("example_file2.txt","r")
+
+# Read the data
+indata = infile.readlines()
+
+# Close the file again
+infile.close()
+
+print(indata)
+\end{semiverbatim}
+\end{frame}
+
+\begin{frame}[fragile]{Reading Files II (cont.)}
+\begin{semiverbatim}
+# get number of data lines in the file 
+# (-1, because first line is a comment) 
+n = len(indata) - 1
+
+# allocate two numpy arrays 
+time = np.zeros(n)
+data = np.zeros(n)
+\end{semiverbatim}
+\end{frame}
+
+\begin{frame}[fragile]{Reading Files II (cont.)}
+\begin{semiverbatim}
+# parse the data (separated by a comma in the file)
+for i in range(n):
+    splitline = indata[i+1][:-1].split(',')
+    time[i] = float(splitline[0])
+    data[i] = float(splitline[1])
+
+print(time)
+print(data)
+\end{semiverbatim}
+\end{frame}
+
+\subsection{Writting Files}
+\begin{frame}[fragile]{Writting Files}
+\tiny
+\begin{semiverbatim}
+import numpy as np
+
+# open the file for writting
+outfile = open("outfile.txt","w")
+
+# how many lines do we want to output 
+n = 100
+
+# write a header
+headerstring = "# This is header for the data\\n" 
+outfile.write(headerstring)
+
+# write some random data with a formatting
+for i in range(n):
+    ran1 = np.random.random()
+    ran2 = np.random.random()
+    outstring = "\%10.10E,\%10.10E\\n" \% (ran1,ran2) 
+    outfile.write(outstring)
+
+#close the file
+outfile.close()
+\end{semiverbatim}
+\end{frame}
+
+\begin{frame}[fragile]{Reading and Writting Files with Numpy}
+\small
+\begin{semiverbatim}
+import numpy as np
+
+# read file
+data = np.loadtxt("example_file3.txt",comments="#")
+print(data)
+
+# do something with data, e.g., square each entry 
+data[: , :] = data [: , :]**2
+print(data)
+
+# write result 
+np.savetxt("outfile3.txt",data,fmt="\%10.10E",\\
+    header="This is a data file")
+\end{semiverbatim}
+\end{frame}
+
+
+
+
+\end{document}

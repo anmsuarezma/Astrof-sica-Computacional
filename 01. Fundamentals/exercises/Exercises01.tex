@@ -1,0 +1,54 @@
+\documentclass[10pt,letterpaper,notitlepage]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\begin{document}
+\title{Computational Astrophysics}
+\author{Exercises 1 - Week 1}
+\maketitle
+
+\begin{enumerate}
+\item  \textit{Radius of a Star} \\
+a) Write a Python program with a function which calculates the radius of a star from its luminosity $L_{*} / L_{\odot}$ (luminosity of the star in units of the solar luminosity) and its effective temperature $T_{eff} / \textrm{K}$ (temperature in Kelvin) according to the equation
+\begin{equation}
+L_{*} = 4 \pi \sigma_{SB} R_{*}^2 T_{eff}^4 .
+\end{equation}
+
+The radius of the star, $R_{*}$ must be returned in units of solar radii, $R_{\odot}$.\\
+\textit{Hint:} It is not necessary to know the exact value of the constant $\sigma_{SB}$, but only to know that the effective temperature of the Sun is
+$T_{eff} = 5778 K$. \\
+
+b) Calculate the radius of a white dwarf having an effective temperature of $T_{eff} = 144 kK$ and a luminosity of $log(L_{*} /L_{\odot}) = 3.8$. \\
+% (Answer R = 0.13 R_{\odot}).
+
+\textit{Extra work}: Implement some routine to catch any invalid input such as, for example, a negative temperature or luminosity.
+
+
+\item \textit{Star Information}\\
+
+The file \verb$stars_data.txt$ contains a list with the name of some of the nearest stars and some of their properties such as distance from the Sun in light-years, the apparent brightness and the luminosity. \\
+Write a Python program which reads the file with the information and stores the data in a numpy array. The program must include:\\
+
+a) A function that returns a list of the stars in order of distance from the Sun and writes it into a .txt file.\\
+
+b) A function that returns a list of the stars in order of luminosity and writes it into a .txt file.
+
+
+
+\textit{Note:} The apparent brightness is how bright the stars look in our sky compared to the brightness of Sirius A. The Luminosity, or True brightness, is how bright the stars would look if all were at the same distance compared to the Sun.
+
+\item \textit{Lorentz Gamma Function}\\
+
+Write a program with a function that calculates the Lorentz gamma function,
+\begin{equation}
+\gamma (\beta) = \frac{1}{\sqrt{1-\beta^2}},
+\end{equation}
+with $0 \leq \beta < 1$.  Include a function that writes a file with two columns : the first column must have the values of the velocity $\beta$ between $0$ and $1$ in increments of $0.01$. The second column must have the values of the corresponding values of the Lorentz gamma function. Include an adequate header for the file.
+
+\end{enumerate}
+
+Happy Coding !!
+
+\end{document}

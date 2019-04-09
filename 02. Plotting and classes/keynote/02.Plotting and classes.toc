@@ -1,0 +1,6 @@
+\beamer@sectionintoc {1}{Basics of Plotting with matplotlib}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{Data Plotting}{3}{0}{1}
+\beamer@subsectionintoc {1}{2}{Curve and Function Plotting}{7}{0}{1}
+\beamer@sectionintoc {2}{Classes}{10}{0}{2}
+\beamer@subsectionintoc {2}{1}{Subclasses}{21}{0}{2}
+\beamer@sectionintoc {3}{Modules}{24}{0}{3}

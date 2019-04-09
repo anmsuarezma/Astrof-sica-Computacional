@@ -1,0 +1,50 @@
+\documentclass[10pt,letterpaper,notitlepage]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\begin{document}
+\title{Computational Astrophysics}
+\author{Exercises 2 - Week 1}
+\maketitle
+
+\begin{enumerate}
+\item \textit{Lorentz Gamma Function}\\
+Write a program that reads the file written by the program that calculates the Lorentz gamma function in Exercises 01 and plots the corresponding curve for values of $\beta$ between $0$ and $1$.
+
+\item \textit{Elliptic Orbits}\\
+As is well known, planets in the Solar System move in ellipses described by the general equation
+\begin{equation}
+r = \frac{a(1-e^2)}{1+e \cos \phi}
+\end{equation}
+where $0 \leq e <1$ is the eccentricity and $a>0$ is the semimajor axis.Write a Python program that plots the ellipse describe by the above equation for given values of $e$ and $a$.
+
+\item  \textit{Gaussian Function} \\
+One of the most used functions in physics ans astronomy is the Gaussian function,
+\begin{equation}
+f(x) = \frac{1}{\sqrt{2 \pi} s} \exp{\left[ - \frac{1}{2} \left( \frac{x-m}{s}\right)^2 \right]}
+\end{equation}
+
+a) Write a Python program using classes to evaluate and plot the Gaussian function for given values of the real constants $m$ and $s>0$.\\
+
+b) The plot must be saved as .jpg and .pdf files.
+
+
+\item \textit{Planck Function}\\
+
+a) Write a Python module with a definition of Planck's function,
+\begin{equation}
+B_\lambda (T) = \frac{2hc^2/\lambda^5}{e^{hc/\lambda k_BT} - 1}
+\end{equation}
+where $c=3\times 10^8 \textrm{ m/s}^s$, $k_B = 1.3806503 \times 10{-23} \textrm{ J K}^{-1}$ and $h = 6.62606876 \times 10^{-34} \textrm{ J s}$. \\
+b) Write a Python program that uses the above module to plot Plank's function for a given value of temperature $T$ as function of $\lambda$.
+
+
+
+
+\end{enumerate}
+
+Happy Coding !!
+
+\end{document}

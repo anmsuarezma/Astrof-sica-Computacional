@@ -1,0 +1,52 @@
+\headcommand {\slideentry {0}{0}{1}{1/1}{}{0}}
+\headcommand {\beamer@framepages {1}{1}}
+\headcommand {\slideentry {0}{0}{2}{2/2}{}{0}}
+\headcommand {\beamer@framepages {2}{2}}
+\headcommand {\beamer@sectionpages {1}{2}}
+\headcommand {\beamer@subsectionpages {1}{2}}
+\headcommand {\sectionentry {1}{Basics of Plotting with matplotlib}{3}{Basics of Plotting with matplotlib}{0}}
+\headcommand {\beamer@subsectionpages {3}{2}}
+\headcommand {\beamer@subsectionentry {0}{1}{1}{3}{Data Plotting}}
+\headcommand {\slideentry {1}{1}{1}{3/3}{Data Plotting}{0}}
+\headcommand {\beamer@framepages {3}{3}}
+\headcommand {\slideentry {1}{1}{2}{4/4}{Data Plotting}{0}}
+\headcommand {\beamer@framepages {4}{4}}
+\headcommand {\slideentry {1}{1}{3}{5/5}{Data Plotting}{0}}
+\headcommand {\beamer@framepages {5}{5}}
+\headcommand {\slideentry {1}{1}{4}{6/6}{Data Plotting}{0}}
+\headcommand {\beamer@framepages {6}{6}}
+\headcommand {\beamer@subsectionpages {3}{6}}
+\headcommand {\beamer@subsectionentry {0}{1}{2}{7}{Curve and Function Plotting}}
+\headcommand {\slideentry {1}{2}{1}{7/7}{Curve and Function Plotting}{0}}
+\headcommand {\beamer@framepages {7}{7}}
+\headcommand {\slideentry {1}{2}{2}{8/8}{Curve and Function Plotting}{0}}
+\headcommand {\beamer@framepages {8}{8}}
+\headcommand {\slideentry {1}{2}{3}{9/9}{Curve and Function Plotting}{0}}
+\headcommand {\beamer@framepages {9}{9}}
+\headcommand {\beamer@sectionpages {3}{9}}
+\headcommand {\beamer@subsectionpages {7}{9}}
+\headcommand {\sectionentry {2}{Classes}{10}{Classes}{0}}
+\headcommand {\slideentry {2}{0}{1}{10/13}{}{0}}
+\headcommand {\beamer@framepages {10}{13}}
+\headcommand {\slideentry {2}{0}{2}{14/15}{}{0}}
+\headcommand {\beamer@framepages {14}{15}}
+\headcommand {\slideentry {2}{0}{3}{16/18}{}{0}}
+\headcommand {\beamer@framepages {16}{18}}
+\headcommand {\slideentry {2}{0}{4}{19/20}{}{0}}
+\headcommand {\beamer@framepages {19}{20}}
+\headcommand {\beamer@subsectionpages {10}{20}}
+\headcommand {\beamer@subsectionentry {0}{2}{1}{21}{Subclasses}}
+\headcommand {\slideentry {2}{1}{1}{21/23}{Subclasses}{0}}
+\headcommand {\beamer@framepages {21}{23}}
+\headcommand {\beamer@sectionpages {10}{23}}
+\headcommand {\beamer@subsectionpages {21}{23}}
+\headcommand {\sectionentry {3}{Modules}{24}{Modules}{0}}
+\headcommand {\slideentry {3}{0}{1}{24/24}{}{0}}
+\headcommand {\beamer@framepages {24}{24}}
+\headcommand {\slideentry {3}{0}{2}{25/25}{}{0}}
+\headcommand {\beamer@framepages {25}{25}}
+\headcommand {\beamer@partpages {1}{25}}
+\headcommand {\beamer@subsectionpages {24}{25}}
+\headcommand {\beamer@sectionpages {24}{25}}
+\headcommand {\beamer@documentpages {25}}
+\headcommand {\gdef \inserttotalframenumber {16}}

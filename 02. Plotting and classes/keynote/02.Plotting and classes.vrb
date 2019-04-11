@@ -1,0 +1,13 @@
+\frametitle{Writing and Using a Module}
+usingmymodule.py
+
+\tiny
+\begin{semiverbatim}
+import mymodule as mym
+
+print("\\nn        lambda (m)")
+for n in range(2,16):
+    print (n,"        ", mym.BalmerLines(n))
+
+print()
+\end{semiverbatim}

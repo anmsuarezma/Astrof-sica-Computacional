@@ -1,0 +1,10 @@
+\beamer@sectionintoc {1}{Fundamentals of Python}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{Print and Importing Modules}{3}{0}{1}
+\beamer@subsectionintoc {1}{2}{Simple Math}{12}{0}{1}
+\beamer@sectionintoc {2}{Numerical Python Module Numpy}{14}{0}{2}
+\beamer@sectionintoc {3}{Conditional Statements and Indentation}{17}{0}{3}
+\beamer@subsectionintoc {3}{1}{Loops}{19}{0}{3}
+\beamer@sectionintoc {4}{Introduction to Functions}{22}{0}{4}
+\beamer@sectionintoc {5}{Basic File I/O}{24}{0}{5}
+\beamer@subsectionintoc {5}{1}{Reading Files}{24}{0}{5}
+\beamer@subsectionintoc {5}{2}{Writting Files}{28}{0}{5}

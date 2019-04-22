@@ -1,0 +1,109 @@
+\documentclass[11pt]{article}
+\pagestyle{plain}
+\usepackage{latexsym,exscale,amsfonts,amsmath,amssymb,array}
+\usepackage{color}
+\usepackage[colorlinks]{hyperref}
+\setlength{\topmargin}{-2.3cm}
+\setlength{\textheight}{23.8cm}
+\setlength{\oddsidemargin}{-0.5cm}
+\setlength{\textwidth}{17cm}
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{.4cm}
+\newcommand{\totaldiffx}{\frac{d}{dx}}
+\newcommand{\pardiffx}{\frac{\partial}{\partial x}}
+\newcommand{\luft}{\:\!}
+
+\usepackage{graphicx}
+\usepackage[latin1]{inputenc}
+\usepackage{mathpazo}
+\usepackage[T1]{fontenc}
+\usepackage[comma,numbers,sort&compress]{natbib}
+
+
+\begin{document}
+\begin{center}
+\large \bf Computational Astrophysics \rm \\
+2019\\
+{\small Exercises 06}
+\end{center}
+
+\begin{enumerate}
+\item {\bf Newton-Cotes Integration} 
+\begin{enumerate}
+\item[(a)] Integrate $f(x) = \sin{x}$ from $x = 0$ to $x = \pi$
+  using (1) the midpoint rule, (2) the trapezoidal rule, and (2)
+  Simpson's rule. Show how the three converge with decreasing step
+  size $h$ and compare their errors. (You may need to take
+  special care of boundary points!)
+\item[(b)] Compute the integral
+\begin{equation*}
+I = \int_{0}^\pi x \, \sin{x}\, dx
+\end{equation*}
+using (1) the midpoint rule, (2) the trapezoidal rule, and (3)
+Simpson's rule. Compare the errors and show how the three converge
+with decreasing step size $h$.
+\end{enumerate}
+
+
+\item {\bf Number Density of Electrons in an Astrophysical Environment}
+
+In high temperature astrophysical environments ($T \gtrsim 10^9\,\mathrm{K} \sim
+80\,\mathrm{keV}$), the reaction 
+\begin{equation}
+\gamma \leftrightarrow e^- + e^+
+\end{equation}
+comes into equilibrium. We will assume the
+limit of $k_B T = 20\,\mathrm{MeV} \gg m_ec^2$, when the electrons
+become relativistic, i.e. $E_{e^-} \sim E_{e^+} = pc$ where $p$ is the
+momentum of the electrons and positrons and $c$ is the speed of light.
+
+In such an environment, the number density of electrons/positrons is given by
+\begin{equation}
+n_{e^\pm} = {2 \over (2\pi\hbar)^3}\int { d^3\vec{p} \over
+  e^{\beta c p} + 1} = {8\pi \over (2\pi\hbar)^3}\int_0^\infty {p^2 dp \over
+  e^{\beta c p} + 1}.
+\end{equation}
+Making the substitution of $x= \beta p c$ to make the integral
+dimensionless and using $\beta = 1/(k_B T)$ we obtain
+
+\begin{equation}
+n_{e^\pm}  =  {8\pi (k_BT)^3 \over (2\pi\hbar
+  c)^3}\int_0^\infty  {x^2 dx \over
+  e^{x} + 1}.
+\end{equation}
+ 
+ Note that in this deduction we have considered that the chemical potential of the
+electrons (and therefore positrons) is 0.
+
+\begin{enumerate}
+\item[(a)] Use any of the presented integration methods to determine what
+  is the total number density of electrons in this environment. Try different conditions to ensure convergence. 
+
+\item[(b)] This formula not only has the total number of
+  electrons (and positrons) but also encodes the spectral distribution
+  (${dn_{e^\pm} \over dE}$, i.e. $n_{e^\pm} = \int {dn_{e^\pm}\over
+    dE} dE$).\\
+  Such distributions are used in computational
+  astrophysics all the time, but must be discretized into a finite
+  number of energy groups. Hence, create energy groups with $\Delta E =
+  5\,$MeV and evaluate $[dn_{e^\pm}/dE]_i = [n_{e^\pm}]_i / \Delta E$
+  for each bin $i$, using any method you like. Verify your
+  method by confirming that,
+
+\begin{equation}
+\sum_{i=0}^{\infty}\left[{dn_{e^\pm}\over
+    dE}\right]_i \times \Delta E = n_{e^\pm}\,.
+\end{equation}
+
+Note that you will not have to calculate an infinite number of $\left[{dn_{e^\pm}\over
+    dE}\right]_i$, but rather high enough until
+the values are negliable, $E \sim 150\,\mathrm{MeV}$. \newline
+
+
+\end{enumerate}
+\end{enumerate}
+
+
+
+
+\end{document}

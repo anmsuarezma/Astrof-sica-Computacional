@@ -48,14 +48,8 @@
 \headcommand {\beamer@subsubsectionentry {0}{3}{0}{1}{29}{Change of Interval}}
 \headcommand {\slideentry {3}{0}{5}{29/29}{}{0}}
 \headcommand {\beamer@framepages {29}{29}}
-\headcommand {\slideentry {3}{0}{6}{30/31}{}{0}}
-\headcommand {\beamer@framepages {30}{31}}
-\headcommand {\slideentry {3}{0}{7}{32/33}{}{0}}
-\headcommand {\beamer@framepages {32}{33}}
-\headcommand {\slideentry {3}{0}{8}{34/35}{}{0}}
-\headcommand {\beamer@framepages {34}{35}}
-\headcommand {\beamer@partpages {1}{35}}
-\headcommand {\beamer@subsectionpages {24}{35}}
-\headcommand {\beamer@sectionpages {24}{35}}
-\headcommand {\beamer@documentpages {35}}
-\headcommand {\gdef \inserttotalframenumber {19}}
+\headcommand {\beamer@partpages {1}{29}}
+\headcommand {\beamer@subsectionpages {24}{29}}
+\headcommand {\beamer@sectionpages {24}{29}}
+\headcommand {\beamer@documentpages {29}}
+\headcommand {\gdef \inserttotalframenumber {16}}

@@ -1,0 +1,340 @@
+\documentclass[11pt]{beamer}
+\usetheme{Rochester}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+%\author{}
+%\title{}
+%\setbeamercovered{transparent} 
+%\setbeamertemplate{navigation symbols}{} 
+%\logo{} 
+%\institute{} 
+%\date{} 
+%\subject{} 
+\begin{document}
+
+\begin{frame}
+\title{Computational Astrophysics}
+\author{E. Larrañaga}
+\institute{Observatorio Astronómico Nacional\\
+Universidad Nacional de Colombia}
+\titlepage
+\end{frame}
+
+\begin{frame}{Outline}
+\tableofcontents
+\end{frame}
+
+\section{Integration]}
+
+\begin{frame}[fragile]{Integration}
+We want to evaluate numerically the integral
+\begin{equation}
+Q = \int_a^b f(x) dx\,\, ,
+\end{equation}
+where $f(x)$ may be a well behaved analytical  function or a function given as discrete data $f(x_i)$.
+\end{frame}
+
+
+
+\section{Integration based on Piecewise Polynomial Interpolation}
+
+\begin{frame}[fragile]{Integration based on Piecewise Polynomial Interpolation}
+Suppose that we know the values of $f(x)$ at a finite set of points
+(nodes) $\{x_j\}$, $(j=0,\cdots,n)$,  in the interval $[a,b]$. \\
+\pause
+\bigskip
+
+It is possible to replace $f(x)$ with an interpolated polynomial $p(x)$ whose analytic
+integral is known.\\
+\pause
+\bigskip
+
+This integration, based on interpolation polynomials, is
+generally called \textit{Newton-Cotes quadrature formulae}.
+\end{frame}
+
+\begin{frame}[fragile]{Integration based on Piecewise Polynomial Interpolation}
+
+Now, consider that the full interval over which
+we intend to integrate can be broken down into $N$ sub-intervals
+$[a_i,b_i]$ that encompass $N+1$ nodes $x_i$ ($i=0,\cdots,N$) at
+which we know the integrand $f(x)$.\\
+\pause
+\bigskip
+
+The full integral $Q$ can be written as the sum of the sub-integrals $Q_i$:
+\begin{equation}
+Q = \sum_{i=0}^{N-1} Q_i = \sum_{i=0}^{N-1} \int_{a_i}^{b_i} f(x) dx\,\,.
+\end{equation}
+\pause
+
+There are many ways to evaluate these sub-integrals.
+\end{frame}
+
+\subsection{MidPoint Rule}
+\begin{frame}[fragile]{MidPoint Rule}
+The simplest approximation is to assume that the function $f(x)$ is
+constant on the interval $[a_i,b_i]$.\\
+\pause
+\bigskip
+
+Hence, using its central value we write
+\begin{equation}
+Q_i = \int_{a_i}^{b_i} f(x) dx = (b_i-a_i)\, f\left(\frac{a_i+b_i}{2}\right)\,\,.
+\end{equation}
+\pause
+
+This is also called the ``rectangle rule'' and is an open Newton-Cotes
+formula.  \\
+\pause
+\bigskip
+
+Note that we need to be able to evaluate $f(x)$ at the
+midpoint (knowing the value or using an interpolating polynomial).
+\end{frame}
+
+\begin{frame}[fragile]{MidPoint Rule}
+The error in the midpoint quadrature can be estimated using a Taylor expansion
+about the midpoint $m_i = (a_i + b_i) / 2$,
+\begin{equation}
+f(x) = f(m_i) + f'(m_i)(x-m_i) + 
+\frac{f''(m_i)}{2}(x-m_i)^2 + \frac{f'''(m_i)}{6}(x-m_i)^3 + ...
+\end{equation}
+Integrating this expression from $a_i$ to $b_i$, the odd-order terms drop
+out, and what is left is
+\begin{equation}
+Q_i = \int_{a_i}^{b_i} f(x)dx = f(m_i)(b_i-a_i) +
+\frac{f''(m_i)}{24}(b_i-a_i)^3 + ...\,
+\end{equation}
+\begin{equation}
+Q_i = \int_{a_i}^{b_i} f(x)dx = f(m_i)(b_i-a_i) +
+\mathcal{O}(h^3) + ...\,
+\end{equation}
+where $h = (b_i -a_i) \approx \frac{(b-a)}{N}$. 
+\end{frame}
+
+\subsection{Trapezoidal Rule}
+\begin{frame}[fragile]{Trapezoidal Rule}
+This method approximates $f(x)$ with a linear polynomial on $[a_i,b_i]$,
+\begin{equation}
+Q_i = \int_{a_i}^{b_i} f(x) dx = \frac{1}{2}(b_i - a_i)\left[ f(b_i) + f(a_i) \right] \,\,.
+\end{equation}
+\pause
+
+Using a Taylor expansion it is shown that the trapezoidal rule has a local error that, like
+the midpoint rule, goes with $h^3$. 
+\end{frame}
+
+\subsection{Simpson's Rule}
+\begin{frame}[fragile]{Simpson's Rule}
+Simpson's Rule approximates $f(x)$ on $[a_i,b_i]$ by a polynomial of degree 2. \\
+\pause
+\bigskip
+
+Writing out the interpolating
+polynomial  and integrating we get
+\begin{equation}
+Q_i = \frac{b_i-a_i}{6} \left[f(a_i) + 4f\left(\frac{a_i+b_i}{2}\right) + f(b_i) \right] + \mathcal{O}([b_i-a_i]^5)\,\,.
+\end{equation}
+ \pause
+ 
+Note that it is needed the value $f((a_i + b_i)/2)$ and that a special care must be taken at the boundaries.\\
+
+\pause
+\bigskip
+
+This method has an error going with $h^5$
+\end{frame}
+
+
+\subsection{Simpson's Rule (non-equidistant intervals)}
+\begin{frame}[fragile]{Simpson's Rule (non-equidistant intervals)}
+If $f(x)$ is non-equidistantly sampled, i.e.  $h =
+[a_i,b_i]$ is not constant, Simpson's rule modifies.
+\pause
+\bigskip
+
+Write
+\begin{equation}
+f(x) = a x^2 + b x + c\hspace{2em} \text{for } x \in [x_{i-1},x_{i+1}]\,\,,
+\end{equation}
+where,
+\begin{equation}
+\begin{aligned}
+a &= \frac{h_{i-1} f(x_{i+1}) - (h_{i-1}+h_i) f(x_{i}) + h_i f(x_{i-1})}
+{h_{i-1} h_i(h_{i-1} + h_i)}\,\,,\\
+b & = \frac{h_{i-1}^2 f(x_{i+1}) + (h_i^2 - h_{i-1}^2) f(x_i) - h_i^2 f(x_{i-1})}
+{h_{i-1} h_i (h_{i-1} + h_i)}\,\,,\\
+c & = f(x_i)\,\,,
+\end{aligned}
+\end{equation}
+with $h_i = x_{i+1} - x_i$ and $h_{i-1} = x_i - x_{i-1}$. 
+\end{frame}
+
+
+\begin{frame}[fragile]{Simpson's Rule (non-equidistant intervals)}
+Since the integral
+\begin{equation*}
+\int_{x_{i-1}}^{x_{i+1}} f(x) dx
+\end{equation*}
+is independent of the origin of the coordinates, we can choose $x_i = 0$, and hence $-h_{i-1} = x_{i-1}$, $h_i = x_{i+1}$ to obtain
+\begin{equation}
+\int_{x_{i-1}}^{x_{i+1}} f(x) dx = \int_{-h_{i-1}}^{h_i} f(x) dx = \alpha f(x_{i+1})
++ \beta f(x_i) + \gamma f(x_{i-1})\,\,,
+\end{equation}
+with 
+\begin{equation}
+\begin{aligned}
+\alpha &= \frac{2 h_i^2 + h_i h_{i-1} - h_{i-1}^2}{6 h_i}\,\,, 
+&\beta = \frac{ (h_i + h_{i-1})^3 }{6 h_i h_{i-1}}\,\,,\\
+\gamma &= \frac{-h_i^2 + h_i h_{i-1} + 2 h_{i-1}^2}{6 h_{i-1}} \; ,
+%% \gamma &= \frac{-h_i^2 + h_i h_{i-1} - 2 h_{i-1}^2}{6 h_i}\,\,.
+\end{aligned}
+\end{equation}
+\end{frame}
+
+\section{Gaussian Quadrature}
+\begin{frame}[fragile]{Gaussian Quadrature}
+Gaussian quadrature is an integration method in which there are chosen two quantities, nodes
+and weights, to maximize the degree of the
+resulting integration rule.\\
+\pause
+\bigskip
+ 
+Using $2n$ degrees of freedom, it is possible to integrate
+polynomials of degree $2n-1$. The condition is that, for a set of
+$n$ nodes $x_i$ and $n$ weights $w_i$ at which a function $f$ is known,
+
+\begin{equation}
+\label{eq:gaussian1}
+\int_a^b f(x) dx \approx \sum_{i=1}^{n} w_i f(x_i)
+\end{equation}
+\end{frame}
+
+\begin{frame}[fragile]{2-point Gaussian Quadrature}
+In the $2$-point Gaussian quadrature we consider $2$ nodes $x_i$ and $2$ weights $w_i$ on the interval $[a,b]$ to integrate exactly a polynomial of degree $3$. Hence
+\begin{equation}
+\int_a^b f(x) dx = w_1 f(x_1) + w_2 f(x_2).
+\end{equation}
+We can find the unknowns 
+$w_1$, $w_2$, $x_1$, and $x_2$ by demanding that the
+formula give exact results for integrating a general polynomial of
+degree $3$,
+\small
+\begin{equation}
+\begin{aligned}
+\label{eq:gq1}
+\int_a^b f(x) dx & = \int_a^b (c_0 + c_1 x + c_2 x^2 + c_3 x^3) dx\,\,,\\
+& = c_0 (b-a) + c_1 \left(\frac{b^2 - a^2}{2} \right)
++ c_2 \left(\frac{b^3 - a^3}{3} \right) + c_3 \left(\frac{b^4 -a^4}{4} \right).
+\end{aligned}
+\end{equation}
+\end{frame}
+
+\begin{frame}[fragile]{2-point Gaussian Quadrature}
+However, we have
+\footnotesize
+\begin{eqnarray}
+\int_a^b f(x) dx &=& w_1 f(x_1) + w_2 f(x_2) \notag \\
+&=& w_1(c_0 + c_1 x_1 + c_2 x_1^2 + c_3 x_1^3)
++ w_2 (c_0 + c_1 x_2 + c_2 x_2^2 + c_3 x_2^3).\notag
+\end{eqnarray}
+\normalsize
+Therefore, comparing these results gives
+\small
+\begin{align}
+w_1 &= \frac{b-a}{2}\,\,, \hspace*{1.5em} w_2 = \frac{b-a}{2}\,\,,\\
+x_1 &= \left( \frac{b-a}{2}\right) \left(-\frac{1}{\sqrt{3}} \right) + 
+\left(\frac{b+a}{2} \right)\,\,,\\
+x_2 &= \left( \frac{b-a}{2}\right) \left(\frac{1}{\sqrt{3}} \right) + 
+\left(\frac{b+a}{2} \right)\,\,.
+\end{align}
+\end{frame}
+
+\begin{frame}[fragile]{2-point Gaussian Quadrature}
+In the special case of the interval $[-1,1]$:
+\begin{equation}
+w_1 = w_2 = 1\,\,,\hspace{1.5em} x_1 = -\frac{1}{\sqrt{3}}\,\,,\hspace{1.5em}
+x_2 = \frac{1}{\sqrt{3}}\,\,,
+\end{equation}
+and
+\begin{equation}
+\int_{-1}^1 f(x) dx = f\left(-\frac{1}{\sqrt{3}}\right) + f\left(\frac{1}{\sqrt{3}}\right)\,\,. 
+\end{equation}
+\end{frame}
+
+\subsubsection{Change of Interval}
+\begin{frame}[fragile]{Change of Interval}
+Using an affine transformation that maps $[a,b]
+\rightarrow [-1,1]$ as 
+\begin{equation}
+t = \frac{b-a}{2} x + \frac{a+b}{2}\,\,,
+\end{equation}
+and a change of variables
+\begin{equation}
+dt = \frac{b-a}{2} dx\,\,,
+\end{equation}
+it is possible to change the interval of integration, 
+\begin{equation}
+ \int_{a}^{b} f(x) dx = \frac{b-a}{2} \int_{-1}^1 f\left(\frac{b-a}{2}x + \frac{a+b}{2}\right) dx\,\,.
+\end{equation}
+\end{frame}
+
+\begin{frame}[fragile]{Cubic Natural Spline Interpolation}
+Integration of this interpolated second derivative two times and using $f_i =
+p_i(x_i) = f(x_i)$ gives
+\begin{equation}
+p_i(x) = \alpha_i (x-x_i)^3 + \beta_i (x-x_{i+1})^3 + \gamma_i (x-x_i) + 
+\eta_i(x-x_{i+1})\,,
+\end{equation}
+where
+\begin{align}
+\alpha_i &= \frac{p_{i+1}''}{6 h_i} &\beta_i &= \frac{-p_i''}{6h_i}\,,\\
+\gamma_i &= \frac{f_{i+1}}{h_i} - \frac{h_i p''_{i+1}}{6}
+&\eta_i &= \frac{h_i p_i''}{6} - \frac{f_i}{h_i}\,\,,
+\end{align}
+
+with $h_i = x_{i+1} - x_{i}$. 
+\pause
+\bigskip
+
+Hence, all we need to find the spline is
+to know all of its second derivatives $p_i'' = p_i''(x_i)$.
+\end{frame}
+
+\begin{frame}[fragile]{Cubic Natural Spline Interpolation}
+Now apply the condition $p_{i-1}'(x_i) = p_i'(x_i)$ to the interpolated polynomial to obtain the equation
+\begin{equation}
+h_{i-1}p_{i-1}'' + 2 (h_{i-1} + h_i)p_i'' + h_i p_{i+1}'' = 
+6 \left( \frac{g_i}{h_i} - \frac{g_{i-1}}{h_{i-1}}\right)\,\,,
+\end{equation}
+where $g_i = f_{i+1} - f_i$.\\
+\pause
+\bigskip
+ 
+This is a linear system with $n-1$ unknowns:
+$p''_i$ for $i=1,\cdots,n-1$ ( remember that $p_0'' = p_n'' = 0$, as set by the natural
+spline condition.
+\end{frame}
+
+\begin{frame}[fragile]{Cubic Natural Spline Interpolation}
+Defining $d_i = 2(h_{i-1} + h_i)$ and $b_i = 6\left(\frac{g_i}{h_i} 
+- \frac{g_{i-1}}{h_{i-1}}\right)$, we can write 
+\begin{equation}
+A p'' = b \hspace{1em}\text{ with } A_{ij} = \left\{ \begin{array}{ll}
+d_i &\text{if } i=j\,,\\
+h_i &\text{if } i=j-1\,,\\
+h_{i-1}&\text{if } i=j+1\,,\\
+0&\text{otherwise}.
+\end{array}\right.
+\end{equation}
+\pause
+
+The coefficient matrix $A_{ij}$ is real, symmetric, and tri-diagonal.\\
+The solution of such a linear system of equations will be presented later in the course.
+\end{frame}
+
+\end{document}

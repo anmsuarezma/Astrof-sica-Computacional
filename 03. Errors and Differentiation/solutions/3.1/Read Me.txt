@@ -1,0 +1,5 @@
+Read Me
+
+Solution to the exercise 3.1 is given in solution3.1.py
+
+Archive derivative.py is the module that numerically derive a function using one of three possible methods.

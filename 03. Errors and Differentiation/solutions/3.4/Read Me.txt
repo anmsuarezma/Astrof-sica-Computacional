@@ -1,0 +1,9 @@
+Read Me
+
+Solution to the exercise 3.4 is given in solution3.4a.py and solution3.4b.py
+
+solution3.4a.py calculates the second derivative at a single point
+solution3.4b.py calculates the second derivative in an interval.
+
+derivative.py is the module that numerically derive a function using one of three possible methods.
+derivative2.py is the module that numerically calculates a second derivative of a function.

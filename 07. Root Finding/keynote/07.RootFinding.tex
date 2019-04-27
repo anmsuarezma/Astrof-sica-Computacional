@@ -1,0 +1,153 @@
+\documentclass[11pt]{beamer}
+\usetheme{Rochester}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+%\author{}
+%\title{}
+%\setbeamercovered{transparent} 
+%\setbeamertemplate{navigation symbols}{} 
+%\logo{} 
+%\institute{} 
+%\date{} 
+%\subject{} 
+\begin{document}
+
+\begin{frame}
+\title{Computational Astrophysics}
+\author{E. Larrañaga}
+\institute{Observatorio Astronómico Nacional\\
+Universidad Nacional de Colombia}
+\titlepage
+\end{frame}
+
+\begin{frame}{Outline}
+\tableofcontents
+\end{frame}
+
+\section{Root Finding]}
+
+\begin{frame}[fragile]{Root Finding}
+To find the roots of a function, i.e., the values of 
+$x$ ($x$ could be a scalar or a vector) for which $f(x) = 0$.\\
+\pause
+\bigskip
+
+$f$ could be a single equation or a system of equations).\\
+$f$ can either explicitly depend on $x$ or have and implicit dependence on $x$.
+\end{frame}
+
+
+
+\section{Newton-Raphson Method}
+
+\begin{frame}[fragile]{Newton-Raphson Method}
+If we expand a function $f(x)$ about its root $x_r$, we get: 
+\begin{equation}
+f(x_r) = f(x) + (x_r - x) f'(x) +  \mathcal{O}( (x_r - x)^2) = 0\,\,.
+\end{equation}
+$x_r$ can be seen a trial value for the root $x_r$ at the
+$n$-th step of an iterative procedure. The $n+1$-th step is then
+\begin{equation}
+f(x_{n+1}) = f(x_n) + \underbrace{(x_{n+1} - x_{n})}_{\delta x}
+f'(x_n) \approx 0\,\,,
+\end{equation}
+and, thus,
+\begin{equation}
+x_{n+1} = x_n + \delta x = x_n - \frac{f(x_n)}{f'(x_n)}\,\,.
+\end{equation}
+\end{frame}
+
+\begin{frame}[fragile]{Newton-Raphson Method}
+The iteration is stopped when the
+fractional change between iteration $n$ and $n+1$ is smaller than some
+small number: $|[f(x_{n+1}) - f(x_{n})]/f({x_n})| < \epsilon$. One should not
+expect $\epsilon$ to be smaller than floating point accuracy.\\
+\bigskip
+
+Newton's Method as quadratic convergence, provided $f(x)$ is well
+behaved and that one has \textbf{a good initial guess for the root}. It also
+requires  to know the derivative $f'(x_n)$ directly. 
+\end{frame}
+
+\subsection{Secant Method}
+\begin{frame}[fragile]{Secant Method}
+The Secant Method is just the Newton's method but evaluating the first derivative $f'(x_n)$ numerically. 
+For example, with a backward difference, this is
+\begin{equation}
+x_{n+1} = x_{n} - f(x_n)\frac{x_n - x_{n-1}}{f(x_n) - f(x_{n-1})}\,\,.
+\end{equation}
+This method will converge less rapidly than Newton's
+method because we have introduced a first-order derivative. \\
+Note that it is needed to know two points to start the iteration.
+\end{frame}
+
+\section{Bisection Method}
+\begin{frame}[fragile]{Bisection Method}
+The intermediate-value theorem states that a continuous function
+$f(x)$ has at least one root in the interval $[a,b]$ if $f(a)$ and
+$f(b)$ are of opposite sign.\\
+\bigskip
+
+The bisection method exploits the intermediate-value theorem. 
+\end{frame}
+
+\begin{frame}[fragile]{Bisection Method}
+\begin{enumerate}
+\item Pick initial values of $a$ and $b$ so that $f(a)$ and $f(b)$
+  have opposite sign.
+\item Compute the midpoint $c = \frac{a+b}{2}$. If $f(c) = 0$ or
+  $|[f(c) - f(a)]/f(a)| < \epsilon$ or $|[f(c) - f(b)]/f(b)| <
+  \epsilon$, then one is done!.\\
+  
+  If not:
+  \begin{enumerate}
+    \item[a] If $f(a)$ and $f(c)$ have opposite sign, then they
+      bracket a root. Go to 1 with $a=a$, $b=c$.
+    \item[b] If $f(c)$ and $f(b)$ have opposite sign, then they
+      bracket a root. Got to 1 with $a=c$, $b=b$.
+  \end{enumerate}
+  
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]{Bisection Method}
+The bisection method is very effective, more robust, but generally not
+as fast as Newton's Method, requiring more iterations until a root
+is found.
+\end{frame}
+
+\subsection{Multi-Variate Root Finding}
+\begin{frame}[fragile]{Multi-Variate Root Finding}
+$\mathbf{f}(\mathbf{x})$ is a multi-variate vector function and we are
+looking for $\mathbf{f}(\mathbf{x}) = 0$. \\
+\bigskip
+
+Analogously to the scalar case, we
+write the multi-variate Newton's/Secant Method,
+\end{frame}
+
+\begin{frame}[fragile]{Multi-Variate Root Finding}
+\begin{equation}
+\mathbf{f}(\mathbf{x}_{n+1}) \approx \mathbf{f}(\mathbf{x}_n) 
++  \mathbf{\nabla}\otimes\mathbf{f}(\mathbf{x}_n) (\mathbf{x}_{n+1} - \mathbf{x}_n) = 0\,\,,
+\end{equation}
+and
+\begin{equation}
+\mathbf{x}_{n+1} = \mathbf{x}_n - \left[ \mathbf{\nabla}\otimes\mathbf{f}(\mathbf{x}_n) \right]^{-1} \mathbf{f}(\mathbf{x})\,\,.
+\label{eq:mvnr}
+\end{equation}
+
+Here,
+\begin{equation}
+\mathbf{J} \equiv  \mathbf{\nabla}\otimes \mathbf{f}(\mathbf{x}_n)\,\,,
+\end{equation}
+is the Jacobian matrix. In index notation, it is given by
+\begin{equation}
+J_{ij} = \frac{\partial f_i}{\partial x_j}\,\,.
+\end{equation}
+\end{frame}
+
+\end{document}

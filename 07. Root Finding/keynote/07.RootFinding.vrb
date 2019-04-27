@@ -1,0 +1,19 @@
+\frametitle{Multi-Variate Root Finding}
+\begin{equation}
+\mathbf{f}(\mathbf{x}_{n+1}) \approx \mathbf{f}(\mathbf{x}_n)
++  \mathbf{\nabla}\otimes\mathbf{f}(\mathbf{x}_n) (\mathbf{x}_{n+1} - \mathbf{x}_n) = 0\,\,,
+\end{equation}
+and
+\begin{equation}
+\mathbf{x}_{n+1} = \mathbf{x}_n - \left[ \mathbf{\nabla}\otimes\mathbf{f}(\mathbf{x}_n) \right]^{-1} \mathbf{f}(\mathbf{x})\,\,.
+\label{eq:mvnr}
+\end{equation}
+
+Here,
+\begin{equation}
+\mathbf{J} \equiv  \mathbf{\nabla}\otimes \mathbf{f}(\mathbf{x}_n)\,\,,
+\end{equation}
+is the Jacobian matrix. In index notation, it is given by
+\begin{equation}
+J_{ij} = \frac{\partial f_i}{\partial x_j}\,\,.
+\end{equation}

@@ -1,0 +1,5 @@
+\beamer@sectionintoc {1}{Root Finding]}{3}{0}{1}
+\beamer@sectionintoc {2}{Newton-Raphson Method}{5}{0}{2}
+\beamer@subsectionintoc {2}{1}{Secant Method}{7}{0}{2}
+\beamer@sectionintoc {3}{Bisection Method}{8}{0}{3}
+\beamer@subsectionintoc {3}{1}{Multi-Variate Root Finding}{11}{0}{3}

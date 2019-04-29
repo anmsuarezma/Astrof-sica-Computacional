@@ -1,0 +1,6 @@
+Read Me
+
+In these extra files we show the behavior of the first and second derivatives of a function depending on the parameter delta to show the apparition of truncation error.
+
+ectra3a.py displays the error in the first derivative depending on delta
+ectra3b.py displays the error in the second derivative depending on delta

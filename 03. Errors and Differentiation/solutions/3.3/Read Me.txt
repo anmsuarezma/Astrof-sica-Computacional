@@ -1,0 +1,3 @@
+Read Me
+
+Solution to the exercise 3.3 is given in 3.3.tex

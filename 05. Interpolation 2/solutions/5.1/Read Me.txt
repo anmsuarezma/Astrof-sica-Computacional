@@ -1,0 +1,5 @@
+Read Me
+
+Solution to the exercise 5.1 is given with the archive solution5.1.py
+
+Archive lagrangeInterpolation.py is the module that interpolates a polynomial of order n following the Lagrangian method

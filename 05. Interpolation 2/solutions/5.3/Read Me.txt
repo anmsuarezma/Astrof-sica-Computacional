@@ -1,0 +1,6 @@
+Read Me
+
+Solution to the exercise 5.3 is given with the archive
+solution5.3.py
+
+Archive piecewiseHermiteInterpolation.py is the module that interpolates following the Hermite method owith order 3.

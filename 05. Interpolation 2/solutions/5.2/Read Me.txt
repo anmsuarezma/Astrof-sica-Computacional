@@ -1,0 +1,5 @@
+Read Me
+
+Solution to the exercise 5.2 is given with the archive solution5.2.py
+
+Archive piecewiseLinearInterpolation.py is the module that linearly interpolates a polynomial 

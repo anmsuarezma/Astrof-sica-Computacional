@@ -1,0 +1,5 @@
+Read Me
+
+Solution to the exercise 3.2 is given in solution3.2.py. It writes an output file called outfile.txt
+
+Archive derivative.py is the module that numerically derive a function using one of three possible methods.

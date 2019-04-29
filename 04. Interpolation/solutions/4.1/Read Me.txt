@@ -1,0 +1,8 @@
+Read Me
+
+Solution to the exercise 4.1 is given with the archive solution4.1alln.py
+
+In solution4.py a single polynomial of order n is interpolated.
+In solution4alln.py polynomials of various orders are interpolated.
+
+Archive lagrangeInterpolation.py is the module that interpolates a polynomial of order n following the Lagrangian method

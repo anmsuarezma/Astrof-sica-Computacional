@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  28 APR 2019 13:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  3 MAY 2019 12:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**Exercises06.tex
-(./Exercises06.tex
+**solution6.2.tex
+(./solution6.2.tex
 LaTeX2e <2018-04-01> patch level 2
 Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
 (/usr/local/texlive/2018/texmf-dist/tex/latex/base/article.cls
@@ -117,6 +117,30 @@ Package: array 2018/04/07 v2.4g Tabular extension package (FMi)
 \backup@length=\skip47
 \ar@cellbox=\box29
 )
+(/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks21
+)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 99.
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen115
+\Gin@req@width=\dimen116
+)
 (/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/color.sty
 Package: color 2016/07/10 v1.1e Standard LaTeX Color (DPC)
 
@@ -124,10 +148,7 @@ Package: color 2016/07/10 v1.1e Standard LaTeX Color (DPC)
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: pdftex.def on input line 147.
-
-(/usr/local/texlive/2018/texmf-dist/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
-))
+)
 (/usr/local/texlive/2018/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2018/02/06 v6.86b Hypertext links for LaTeX
 
@@ -175,10 +196,6 @@ Package: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
 Package: refcount 2016/05/16 v3.5 Data extraction from label references (HO)
 Package: hycolor 2016/05/16 v1.8 Color options for hyperref/bookmark (HO)
 )
-(/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/keyval.sty
-Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
-\KV@toks@=\toks21
-)
 (/usr/local/texlive/2018/texmf-dist/tex/generic/ifxetex/ifxetex.sty
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
@@ -188,7 +205,7 @@ Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
 (/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/kvoptions.sty
 Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
 )
-\@linkdim=\dimen115
+\@linkdim=\dimen117
 \Hy@linkcounter=\count100
 \Hy@pagecounter=\count101
 
@@ -217,10 +234,10 @@ Package hyperref Info: Bookmarks ON on input line 4762.
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 5115.
-\XeTeXLinkMargin=\dimen116
+\XeTeXLinkMargin=\dimen118
 \Fld@menulength=\count104
-\Field@Width=\dimen117
-\Fld@charsize=\dimen118
+\Field@Width=\dimen119
+\Fld@charsize=\dimen120
 Package hyperref Info: Hyper figures OFF on input line 6369.
 Package hyperref Info: Link nesting OFF on input line 6374.
 Package hyperref Info: Hyper index ON on input line 6377.
@@ -248,23 +265,6 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip48
 )
-(/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
-
-(/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
-
-(/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/trig.sty
-Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
-)
-(/usr/local/texlive/2018/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
-File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
-)
-Package graphics Info: Driver file: pdftex.def on input line 99.
-)
-\Gin@req@height=\dimen119
-\Gin@req@width=\dimen120
-)
 (/usr/local/texlive/2018/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2018/04/06 v1.3b Input encoding file
 \inpenc@prehook=\toks22
@@ -291,8 +291,12 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count110
 )
-(./Exercises06.aux)
-\openout1 = `Exercises06.aux'.
+(./solution6.2.aux
+
+LaTeX Warning: Label `eq:spectrumEquation' multiply defined.
+
+)
+\openout1 = `solution6.2.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
 LaTeX Font Info:    ... okay on input line 23.
@@ -309,8 +313,7 @@ LaTeX Font Info:    ... okay on input line 23.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 23.
 LaTeX Font Info:    ... okay on input line 23.
 LaTeX Font Info:    Try loading font information for T1+ppl on input line 23.
-
-(/usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/t1ppl.fd
+ (/usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/t1ppl.fd
 File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
 )
 (/usr/local/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -358,9 +361,9 @@ LaTeX Info: Redefining \ref on input line 23.
 LaTeX Info: Redefining \pageref on input line 23.
 LaTeX Info: Redefining \nameref on input line 23.
 
-(./Exercises06.out) (./Exercises06.out)
+(./solution6.2.out) (./solution6.2.out)
 \@outlinefile=\write3
-\openout3 = `Exercises06.out'.
+\openout3 = `solution6.2.out'.
 
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <12> not available
 (Font)              Font shape `T1/ppl/b/n' tried instead on input line 25.
@@ -415,34 +418,49 @@ File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
 
 Package amsmath Warning: Foreign command \over;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 62.
+(amsmath)                 on input line 45.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 98--101
+Underfull \hbox (badness 10000) in paragraph at lines 80--83
 
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 109.
+<plotIntegrand.pdf, id=5, 462.52798pt x 346.89601pt>
+File: plotIntegrand.pdf Graphic file (type pdf)
+<use plotIntegrand.pdf>
+Package pdftex.def Info: plotIntegrand.pdf  used on input line 92.
+(pdftex.def)             Requested size: 231.26341pt x 173.44757pt.
 [1
 
 {/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 109.
-
-(./Exercises06.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 109.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 109.
-Package rerunfilecheck Info: File `Exercises06.out' has not changed.
+[2 <./plotIntegrand.pdf>]
+<plotSpectrum.pdf, id=57, 462.52798pt x 346.89601pt>
+File: plotSpectrum.pdf Graphic file (type pdf)
+<use plotSpectrum.pdf>
+Package pdftex.def Info: plotSpectrum.pdf  used on input line 143.
+(pdftex.def)             Requested size: 231.26341pt x 173.44757pt.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 163.
+ [3 <./plotSpectrum.pdf>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 163.
+ (./solution6.2.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 163.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 163.
+Package rerunfilecheck Info: File `solution6.2.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 109.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 163.
  ) 
 Here is how much of TeX's memory you used:
- 6695 strings out of 492649
- 94701 string characters out of 6129622
- 186718 words of memory out of 5000000
- 10454 multiletter control sequences out of 15000+600000
- 28149 words of font info for 74 fonts, out of 8000000 for 9000
+ 6726 strings out of 492649
+ 95250 string characters out of 6129622
+ 187097 words of memory out of 5000000
+ 10471 multiletter control sequences out of 15000+600000
+ 30011 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 28i,5n,28p,225b,321s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 28i,11n,28p,416b,331s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/te
 xlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/tex
@@ -454,10 +472,10 @@ xmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/201
 8/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf
 -dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/f
 onts/type1/urw/palatino/uplri8a.pfb>
-Output written on Exercises06.pdf (1 page, 96199 bytes).
+Output written on solution6.2.pdf (3 pages, 117294 bytes).
 PDF statistics:
- 62 PDF objects out of 1000 (max. 8388607)
- 48 compressed objects within 1 object stream
- 8 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 132 PDF objects out of 1000 (max. 8388607)
+ 89 compressed objects within 1 object stream
+ 20 named destinations out of 1000 (max. 500000)
+ 11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

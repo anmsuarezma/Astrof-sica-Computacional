@@ -1,0 +1,7 @@
+Read Me
+
+plotIntegrand.py plots the function in the adimensional integral to show its decreasing behavior.
+
+Solution to part a of exercise 6.2 is given in solution6.sa.py. The total density of electron is calculated using the midPoint rule and an estimated upper limit .
+
+solution6.2b.py integrates in energy itnervals to obtain the spectrum el electrons. The sum of these terms gives again the total number of electrons. It also plots the spectrum as a bar graph.

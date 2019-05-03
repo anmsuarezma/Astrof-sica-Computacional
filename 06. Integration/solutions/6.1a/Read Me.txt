@@ -1,0 +1,10 @@
+Read Me
+
+Solution to the exercise 6.1 is given in solution6.1a.py and solution6.1b.py
+
+solution6.1a.py  integrates a function between two points a and b with the three methods.
+
+solution6.1b.py integrates a function following the three methids and plots the difference with the analytic integration depending on the widht of the intervals h.
+
+integrationMethods.py is the module that integrates following the minpoint, trapezoid and Simpson rules.
+

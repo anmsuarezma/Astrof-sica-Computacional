@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  27 APR 2019 15:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  3 MAY 2019 18:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**Exercises07.tex
-(./Exercises07.tex
+**Exercises08.tex
+(./Exercises08.tex
 LaTeX2e <2018-04-01> patch level 2
 Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
 (/usr/local/texlive/2018/texmf-dist/tex/latex/base/article.cls
@@ -291,8 +291,8 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count110
 )
-(./Exercises07.aux)
-\openout1 = `Exercises07.aux'.
+(./Exercises08.aux)
+\openout1 = `Exercises08.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
 LaTeX Font Info:    ... okay on input line 23.
@@ -358,98 +358,121 @@ LaTeX Info: Redefining \ref on input line 23.
 LaTeX Info: Redefining \pageref on input line 23.
 LaTeX Info: Redefining \nameref on input line 23.
 
-(./Exercises07.out) (./Exercises07.out)
+(./Exercises08.out) (./Exercises08.out)
 \@outlinefile=\write3
-\openout3 = `Exercises07.out'.
+\openout3 = `Exercises08.out'.
 
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <12> not available
 (Font)              Font shape `T1/ppl/b/n' tried instead on input line 25.
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <10.95> not available
 (Font)              Font shape `T1/ppl/b/n' tried instead on input line 32.
-<orbit.png, id=4, 187.4202pt x 116.5956pt>
-File: orbit.png Graphic file (type png)
-<use orbit.png>
-Package pdftex.def Info: orbit.png  used on input line 34.
-(pdftex.def)             Requested size: 266.03473pt x 165.51352pt.
-LaTeX Font Info:    Try loading font information for OT1+ppl on input line 39.
+LaTeX Font Info:    Try loading font information for OT1+ppl on input line 32.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/ot1ppl.fd
 File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
 )
-LaTeX Font Info:    Try loading font information for OML+zplm on input line 39.
+LaTeX Font Info:    Try loading font information for OML+zplm on input line 32.
 
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/omlzplm.fd
 File: omlzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OML/zplm.
 )
-LaTeX Font Info:    Try loading font information for OMS+zplm on input line 39.
+LaTeX Font Info:    Try loading font information for OMS+zplm on input line 32.
 
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/omszplm.fd
 File: omszplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMS/zplm.
 )
-LaTeX Font Info:    Try loading font information for OMX+zplm on input line 39.
+LaTeX Font Info:    Try loading font information for OMX+zplm on input line 32.
 
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/omxzplm.fd
 File: omxzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMX/zplm.
 )
-LaTeX Font Info:    Try loading font information for U+lasy on input line 39.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 32.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 11.40997pt on input line 39.
+(Font)              scaled to size 11.40997pt on input line 32.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 8.33606pt on input line 39.
+(Font)              scaled to size 8.33606pt on input line 32.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 6.25204pt on input line 39.
+(Font)              scaled to size 6.25204pt on input line 32.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 11.40997pt on input line 39.
+(Font)              scaled to size 11.40997pt on input line 32.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 8.33606pt on input line 39.
+(Font)              scaled to size 8.33606pt on input line 32.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 6.25204pt on input line 39.
-LaTeX Font Info:    Try loading font information for OT1+zplm on input line 39.
+(Font)              scaled to size 6.25204pt on input line 32.
+LaTeX Font Info:    Try loading font information for OT1+zplm on input line 32.
 
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/ot1zplm.fd
 File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
-) [1
+)
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 40.
 
-{/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./orbit
-.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 105.
+(/usr/local/texlive/2018/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+<msigma.png, id=7, 1091.07625pt x 1024.82875pt>
+File: msigma.png Graphic file (type png)
+<use msigma.png>
+Package pdftex.def Info: msigma.png  used on input line 46.
+(pdftex.def)             Requested size: 266.03473pt x 249.87332pt.
 
-[2]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 105.
- (./Exercises07.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 105.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 105.
-Package rerunfilecheck Info: File `Exercises07.out' has not changed.
+Underfull \hbox (badness 10000) in paragraph at lines 53--58
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 59--60
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 61--63
+
+ []
+
+[1
+
+{/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./msigm
+a.png>]
+LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <14.4> not available
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 82.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 85.
+ [2]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 85.
+ (./Exercises08.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 85.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 85.
+Package rerunfilecheck Info: File `Exercises08.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 105.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 85.
  ) 
 Here is how much of TeX's memory you used:
- 6693 strings out of 492649
- 94761 string characters out of 6129622
- 185744 words of memory out of 5000000
- 10462 multiletter control sequences out of 15000+600000
- 25652 words of font info for 62 fonts, out of 8000000 for 9000
+ 6716 strings out of 492649
+ 95432 string characters out of 6129622
+ 183804 words of memory out of 5000000
+ 10481 multiletter control sequences out of 15000+600000
+ 27469 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 28i,7n,28p,225b,418s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
-exlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/tex
+ 28i,6n,28p,297b,481s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
+{/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/tex
 live/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texl
 ive/2018/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/local/texlive/
-2018/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/te
-xmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dis
-t/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on Exercises07.pdf (2 pages, 92785 bytes).
+2018/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb></usr/local/texlive/20
+18/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texm
+f-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/
+fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on Exercises08.pdf (2 pages, 120648 bytes).
 PDF statistics:
- 55 PDF objects out of 1000 (max. 8388607)
- 42 compressed objects within 1 object stream
- 10 named destinations out of 1000 (max. 500000)
+ 57 PDF objects out of 1000 (max. 8388607)
+ 45 compressed objects within 1 object stream
+ 7 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

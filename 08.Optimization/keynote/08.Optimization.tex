@@ -210,6 +210,38 @@ Y = \ln Z\,\,,\hspace{1em} a_1 = \ln
 \end{equation}
 \end{frame}
 
+\subsection{Astropy}
+\begin{frame}[fragile]{Astropy}
+ Astropy (\href{http://www.astropy.org/}) is a python package
+intended to contain much of the core functionality and some common tools
+needed for performing astronomy and astrophysics with Python. \\
+- The Anaconda Python Distribution includes {\tt Astropy} !. \\ 
+- If you are using the virtual machine (or a modern Linux distribution), {\tt AstroPy}
+is avaiabble from the package management systems.  In the virtual machine
+ do\\
+ {\tt sudo apt-get update ; sudo apt-get install python-astropy}.\\ 
+- On OSX using MacPorts please do\\ 
+{\tt sudo port install py-astropy}\\
+ if using HomeBrew please follow the instructions at
+\url{http://docs.astropy.org/en/stable/install.html}.
+\end{frame}
+
+\begin{frame}[fragile]{Astropy}
+\begin{semiverbatim}
+from astropy.io import ascii
+import numpy as np
+
+data = ascii.read("table1.dat",readme="ReadMe")  
+logsigma = np.array(np.log10(data["sigma*"]))
+logM = np.array(data["logM"])
+\end{semiverbatim}
+\end{frame}
+
+\begin{frame}[fragile]{Astropy}
+\begin{figure}
+\includegraphics[scale=0.2]{msigma.png}
+\end{figure}
+\end{frame}
 
 \begin{frame}[fragile]{Next Class}
 Ordinary Differential Equations

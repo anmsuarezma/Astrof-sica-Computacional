@@ -1,5 +1,9 @@
-#!/usr/bin/env python
+'''
+Computational Astrophysics 
+2019
 
+Astropy example of reading data from a file
+'''
 from astropy.io import ascii
 import numpy as np
 import matplotlib.pyplot as pl

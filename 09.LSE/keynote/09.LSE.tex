@@ -1,0 +1,519 @@
+\documentclass[11pt]{beamer}
+\usetheme{Rochester}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+%\author{}
+%\title{}
+%\setbeamercovered{transparent} 
+%\setbeamertemplate{navigation symbols}{} 
+%\logo{} 
+%\institute{} 
+%\date{} 
+%\subject{} 
+\begin{document}
+
+\begin{frame}
+\title{Computational Astrophysics}
+\author{E. Larrañaga}
+\institute{Observatorio Astronómico Nacional\\
+Universidad Nacional de Colombia}
+\titlepage
+\end{frame}
+
+\begin{frame}{Outline}
+\tableofcontents
+\end{frame}
+
+\section{Linear Systems of Equations}
+\begin{frame}[fragile]{Linear Systems of Equations }
+Linear systems of equations (LSEs) are everywhere:
+\begin{itemize}
+  \item Interpolation (e.g., for the computation of the spline
+    coefficients).
+  \item ODEs (implicit time integration).
+  \item Solution methods for elliptic PDEs.
+  \item Solution methods for non-linear equations by linearization
+    and Newton iterations.
+\end{itemize}
+
+Example applications in astrophysics are: 
+\begin{itemize}
+\item Stellar structure and evolution
+\item Poisson solvers
+\item radiation transport and
+radiation-matter coupling
+\item nuclear reaction networks
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]{Linear Systems of Equations }
+A system of linear equations can be written in matrix form
+\begin{equation}
+A \mathbf{x} = \mathbf{b}\,\,,
+\label{eq:lse}
+\end{equation}
+
+where, $A$ is a real $n\times n$ matrix with coefficients $a_{ij}$.
+$\mathbf{b}$ is a given real vector and $\mathbf{x}$ is the vector of
+$n$ unknowns.
+\end{frame}
+
+\begin{frame}[fragile]{Linear Systems of Equations}
+If $\det{A} = |A| \ne 0$ and $\mathbf{b} \ne 0$, the  LSE has a unique solution
+\begin{equation}
+\mathbf{x} = A^{-1} \mathbf{b}\,\,,
+\end{equation}
+where $A^{-1}$ is the inverse of $A$ with $AA^{-1}=A^{-1}
+A=\mathbf{I}$.  \\
+\bigskip
+
+If $\det{A} = 0$, the equations either
+have no solution or an infinite number of solutions.
+\end{frame}
+
+\section{Solving a Linear System of Equations}
+\subsection{Matrix Inversion}
+\begin{frame}[fragile]{Matrix Inversion}
+The inverse of a matrix $A$ is given by
+\begin{equation}
+A^{-1} = \frac{1}{|A|} \,\, \underbrace{\mathrm{adj}{A}}_\text{adjugate}\,\,.
+\end{equation}
+the adjugate of $A$ is the transpose of $A$'s cofactor matrix $C$:
+\begin{equation}
+\mathrm{adj}{A} = C^T\,\,.
+\end{equation}
+So the problem becomes finding $C$ and $\det A$. 
+\end{frame}
+
+\subsection{Cramer's Rule}
+\begin{frame}[fragile]{Cramer's Rule}
+LSEs of the kind
+\begin{equation}
+A \mathbf{x} = \mathbf{b}\,\,,
+\label{eq:lse2}
+\end{equation}
+provided $A$ is invertible (i.e., has non-zero $\det A$). The solution
+ is
+\begin{equation}
+x_i = \frac{\det A_i}{\det A}\,\,,
+\end{equation}
+where $A_i$ is the matrix formed from $A$ by replacing its $i$-th
+column by the column vector $\mathbf{b}$.
+
+Cramer's rule is more efficient than matrix inversion. The latter
+scales in complexity with $n!$ (where n is the number of rows/columns of $A$),
+while Cramer's rule has been shown to scale with $n^3$, so is more efficient
+for large matrixes and has comparable efficiency to direct methods
+such as Gauss Elimination.
+\end{frame}
+
+\begin{frame}[fragile]{Cramer's Rule. Example}
+Consider the system
+\begin{equation}
+\begin{pmatrix}
+5&3&4\\
+2&1&5\\
+5&4&1
+\end{pmatrix}
+\begin{pmatrix} 
+x_1\\ x_2\\ x_3  
+\end{pmatrix}
+= \begin{pmatrix}3\\4\\2\end{pmatrix}\,\,.
+\end{equation}
+The determinant of the matrix $A$ is
+\begin{equation}
+\det A = -14.
+\end{equation}
+Therefore we will use Cramer's Rule to solve.
+\end{frame}
+
+\begin{frame}[fragile]{Cramer's Rule. Example}
+The solution for variable $x_1$ is given by 
+\begin{equation}
+x_1 = \frac{\det A_1}{\det A}\,\,,
+\end{equation}
+where $A_1$ is the matrix formed from $A$ by replacing its first
+column by the column vector $\mathbf{b}$, i.e.
+\begin{equation}
+A_1 = \begin{pmatrix}
+3&3&4\\
+4&1&5\\
+2&4&1
+\end{pmatrix}.
+\end{equation}
+This matrix has $\det A_1 = 17$ and therefore
+\begin{equation}
+x_1 =- \frac{17}{14}.
+\end{equation}
+\end{frame}
+
+\begin{frame}[fragile]{Cramer's Rule. Example}
+The solution for variable $x_2$ is given by 
+\begin{equation}
+x_2 = \frac{\det A_2}{\det A}\,\,,
+\end{equation}
+where $A_2$ is
+\begin{equation}
+A_2 = \begin{pmatrix}
+5&3&4\\
+2&4&5\\
+5&2&1
+\end{pmatrix}.
+\end{equation}
+This matrix has $\det A_2 = -25$ and therefore
+\begin{equation}
+x_2 = \frac{25}{14}.
+\end{equation}
+\end{frame}
+
+\begin{frame}[fragile]{Cramer's Rule. Example}
+The solution for variable $x_3$ is given by 
+\begin{equation}
+x_3 = \frac{\det A_3}{\det A}\,\,,
+\end{equation}
+where $A_3$ is
+\begin{equation}
+A_3 = \begin{pmatrix}
+5&3&3\\
+2&1&4\\
+5&4&2
+\end{pmatrix}.
+\end{equation}
+This matrix has $\det A_3 = -13$ and therefore
+\begin{equation}
+x_3 = \frac{13}{14}.
+\end{equation}
+\end{frame}
+
+\begin{frame}[fragile]{Cramer's Rule. Example}
+The complete solution is
+\begin{equation}
+\textbf{x}
+= \frac{1}{14} \begin{pmatrix} -17 \\ 25 \\ 13 \end{pmatrix}\,\,.
+\end{equation}
+\end{frame}
+
+\section{Direct LSE Solvers}
+\begin{frame}[fragile]{Direct LSE Solvers}
+Direct methods consist of a finite set of transformations
+of the original coefficient matrix that reduce the LSE to one that is
+easily solved.
+\end{frame}
+
+\subsection{Gauss Elimination}
+\begin{frame}[fragile]{ Gauss Elimination}
+Consider the following system,
+\begin{equation}
+A\mathbf{x} = \begin{pmatrix}
+a_{11}&a_{12}&a_{13}\\
+0 &a_{22}&a_{23}\\
+0 &0 &a_{33} \end{pmatrix}\begin{pmatrix}x_1\\x_2\\x_3\end{pmatrix}
+= \begin{pmatrix}b_1\\b_2\\b_3\end{pmatrix}\,\,.
+\end{equation}
+This LSE is solved trivially by simple back-substitution:
+\begin{equation}
+x_3 = \frac{b_3}{a_{33}},\hspace{0.3cm}x_2 = \frac{1}{a_{22}}(b_2 - a_{23} x_3), \hspace{0.3cm} x_1 = \frac{1}{a_{11}} ( b_1 - a_{12} x_2 - a_{13} x_3).
+\end{equation}
+\end{frame}
+
+\begin{frame}[fragile]{Gauss Elimination}
+The Gauss algorithm consists of a series of steps to bring any $n \times n$
+matrix into the  upper triangular form.
+
+\begin{enumerate}
+\item Sort the rows of $A$ so that the diagonal coefficient $a_{ii}$
+  (called \emph{the pivot}) of row $i$ (for all $i$) is non-zero. If this
+  is not possible, the LSE cannot be solved.
+\item Replace the $j$-th equation with
+\begin{equation}
+-\frac{a_{j1}}{a_{11}} \times (\text{1-st equation}) + (j\text{-th equation})\,\,,
+\end{equation}
+where $j$ runs from $2$ to $n$. This will zero-out column 1 for $i>1$.
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}[fragile]{Gauss Elimination}
+\begin{enumerate}\addtocounter{enumi}{2}
+\item Repeat the previous step, but starting with the next row down and with 
+$j >$ (current row number). The current row be row $k$. Then we must replace
+  rows $j$, $j > k$, with 
+  \begin{equation}
+    -\frac{a_{jk}}{a_{kk}} \times (k\text{-th equation}) + (j\text{-th equation})\,\,,
+  \end{equation}
+where $k < j \le n$.
+
+\item Repeat (3) until all rows have been reduced and the matrix is in upper
+triangular form.
+
+\item Back-substitute to find $\mathbf{x}$.
+
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]{Gauss Elimination. Example}
+Consider the system
+\begin{equation}
+\begin{pmatrix}
+5&3&4\\
+2&1&5\\
+5&4&1
+\end{pmatrix}
+\begin{pmatrix} 
+x_1\\ x_2\\ x_3  
+\end{pmatrix}
+= \begin{pmatrix}3\\4\\2\end{pmatrix}\,\,.
+\end{equation}
+
+\begin{enumerate}
+\item The pivots $a_{ii}$ are all non-zero.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]{Gauss Elimination. Example}
+\begin{enumerate}\addtocounter{enumi}{1}
+\item Now we replace the second equation with
+\begin{equation}
+-\frac{a_{21}}{a_{11}} \times (\text{First equation}) + (\text{Second equation}),
+\end{equation}
+which gives:
+\begin{eqnarray}
+-\frac{2}{5} \times (5x_1 + 3x_2 + 4x_3) + (2x_1 + x_2 +5x_3) &=& -\frac{2}{5} \times 3 +4 \notag \\
+\left(-\frac{6}{5} + 1 \right)x_2  + \left(-\frac{8}{5} + 5 \right)x_3 &=& -\frac{6}{5}  +4 \notag \\
+-\frac{1}{5} x_2  + \frac{17}{5} x_3 &=& \frac{14}{5} \notag \\
+- x_2  + 17 x_3 &=& 14
+\end{eqnarray}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]{Gauss Elimination. Example}
+Hence the system becomes 
+\begin{equation}
+\begin{pmatrix}
+5&3&4\\
+0&-1&17\\
+5&4&1
+\end{pmatrix}
+\begin{pmatrix} 
+x_1\\ x_2\\ x_3  
+\end{pmatrix}
+= \begin{pmatrix}3\\ 14 \\2\end{pmatrix}\,\,.
+\end{equation}
+\end{frame}
+
+\begin{frame}[fragile]{Gauss Elimination. Example}
+\begin{enumerate}\addtocounter{enumi}{1}
+\item Similarly, the third equation is replaced by
+\begin{equation}
+-\frac{a_{31}}{a_{11}} \times (\text{First equation}) + (\text{Third equation}),
+\end{equation}
+which gives
+\begin{eqnarray}
+-\frac{5}{5} \times (5x_1 + 3x_2 + 4x_3) + (5x_1 + 4x_2 +x_3) &=& -\frac{5}{5} \times 3 + 2  \notag \\
+\left(-\frac{15}{5} + 4 \right)x_2  + \left(-\frac{20}{5} + 1 \right)x_3 &=& -3 + 2 \notag \\
+ x_2  - 3 x_3 &=& -1 
+\end{eqnarray}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]{Gauss Elimination. Example}
+The system is now 
+\begin{equation}
+\begin{pmatrix}
+5&3&4\\
+0&-1&17\\
+0&1&-3
+\end{pmatrix}
+\begin{pmatrix} 
+x_1\\ x_2\\ x_3  
+\end{pmatrix}
+= \begin{pmatrix}3\\ 14 \\ -1\end{pmatrix}\,\,.
+\end{equation}
+\end{frame}
+
+\begin{frame}[fragile]{Gauss Elimination. Example}
+\begin{enumerate}\addtocounter{enumi}{2}
+\item Now the third equation is replaced by the expression
+\begin{equation}
+-\frac{a_{32}}{a_{22}} \times (\text{Second equation}) + (\text{Third equation}),
+\end{equation}
+which gives
+\begin{eqnarray}
+-\frac{1}{-1} \times \left( - x_2 + 17 x_3 \right) + (x_2 -3x_3) &=& -\frac{1}{-1} \times 14 +(-1) \notag \\
+\left(-1 + 1 \right)x_2  + \left(17 - 3 \right)x_3 &=& 14 -1 \notag \\
+14 x_3 &=& 13 
+\end{eqnarray}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]{Gauss Elimination. Example}
+The  diagonalized system is finally 
+\begin{equation}
+\begin{pmatrix}
+5&3&4\\
+0&-1&17\\
+0&0&14
+\end{pmatrix}
+\begin{pmatrix} 
+x_1\\ x_2\\ x_3  
+\end{pmatrix}
+= \begin{pmatrix}3\\ 14 \\ 13\end{pmatrix}\,\,.
+\end{equation}
+\end{frame}
+
+\begin{frame}[fragile]{Gauss Elimination. Example}
+Back substitution gives
+\begin{equation}
+x_3 = \frac{13}{14} 
+\end{equation}
+\begin{equation}
+x_2 = 17x_3 - 14 = 17\frac{13}{14} -14 = \frac{25}{14}
+\end{equation}
+\begin{equation}
+x_1 = \frac{1}{5} \left( -3x_2 -4x_3 +3  \right) =  \frac{1}{5} \left( -3\frac{25}{14} -4\frac{13}{14} +3  \right) =-\frac{17}{14}
+\end{equation}
+
+
+\end{frame}
+
+\subsection{Decomposition Methods (LU Decomposition)}
+
+\begin{frame}[fragile]{Decomposition Methods (LU Decomposition)}
+Decomposition methods want to split a given LSE into smaller,
+considerably easier to solve parts. \\
+
+The simplest such method is the
+Lower-Upper (LU) decomposition.
+\bigskip
+
+Given $A\mathbf{x} = \mathbf{b}$, suppose we can write the matrix $A$
+as 
+\begin{equation}
+A = L U\,\,,
+\end{equation}
+where $L$ is lower triangular and $U$ is upper triangular.
+\end{frame}
+
+
+\begin{frame}[fragile]{Decomposition Methods (LU Decomposition)}
+The solution of the LSE becomes
+\begin{equation}
+A\mathbf{x} = \mathbf{b} \longrightarrow (LU)\mathbf{x}=\mathbf{b} \longrightarrow
+L(U\mathbf{x})=\mathbf{b}\,\,.
+\end{equation}
+Defining $\mathbf{y} = U\mathbf{x}$, the
+original system is transformed into two systems
+\begin{equation}
+\begin{aligned}
+(1)\hspace{1em} & L\mathbf{y} = \mathbf{b}\,\,,\\
+(2)\hspace{1em} & U\mathbf{x} = \mathbf{y}\,\,.
+\end{aligned}
+\end{equation}
+
+Both these LSEs are triangular. (1) can be trivially solved by
+forward-substitution and (2) can be trivially solved by
+back-substitution.  \\
+
+The difficult part is now to find the
+$L$ and $U$ parts of $A$! This is done via matrix factorization.
+\end{frame}
+
+\begin{frame}[fragile]{Factorization of a Matrix}
+The process of decomposing $A$ into $L$ and $U$ parts is called
+factorization. This decomposition
+is not generally unique and there are multiple ways of factorizing $A$.
+
+$A$ is an $n\times n$ matrix with $n^2$ coefficients. $L$ and $U$ are
+triangular and have $n(n+1)/2$ entries each for a total of $n^2 + n$
+entries. Hence, $L$ and $U$ together have $n$ coefficients more than
+$A$ and these can be chosen to our own liking.
+
+To derive the $LU$ factorization, we begin by writing out $A = LU$ in
+coefficients:
+\begin{equation}
+a_{ij} = \sum_{s=1}^n l_{is} u_{sj} = \sum_{s = 1}^{\min(i,j)} l_{is} u_{sj}\,\,,
+\end{equation}
+where we have used that $l_{is} = 0$ for $s > i$ and $u_{sj} = 0$ for $s>j$.
+\end{frame}
+
+\begin{frame}[fragile]{Factorization of a Matrix}
+Let's start with entry $a_{ij} = a_{11}$:
+\begin{equation}
+a_{11} = l_{11} u_{11}\,\,.
+\end{equation}
+We can now make use of the freedom of choosing $n$ coefficients
+of $L$ and $U$. \\
+
+In \emph{Doolittle's factorization}, one sets $l_{ii} = 1$, which
+makes $L$ \emph{unit triangular}.\\
+
+ In \emph{Crout's factorization},
+one sets $u_{ii} = 1$, which means that $U$ is unit triangular.
+\end{frame}
+
+\begin{frame}[fragile]{Factorization of a Matrix}
+ Following Doolittle, we set $l_{11} = 1$ and, with this, $u_{11} =
+a_{11}$.  We can now compute all the elements of the first row of $U$
+and of the first column of $L$ by setting $i=1$ or $j=1$,
+\begin{align}
+u_{1j} &= a_{1j} &\hspace{-2.5cm}i=1, j > 1\,\,,\nonumber\\
+l_{i1} &= \frac{a_{i1}}{u_{11}} &\hspace{-2.5cm} j=1, i>1\,\,.
+\end{align}
+\end{frame}
+
+
+\begin{frame}[fragile]{Factorization of a Matrix}
+Consider now $a_{22}$:
+\begin{equation}
+a_{22} = l_{21} u_{12} + l_{22} u_22\,\,.
+\end{equation}
+With Doolittle, $l_{22} = 1$, thus $u_{22} = a_{22} - l_{21} u_{12}$,
+where $u_{12}$ and $l_{21}$ are known from the previous steps. The
+second row of $U$ and the second column of $L$ are now calculated
+by setting either $i=2$ or $j=2$:
+\begin{align}
+u_{2j} &= a_{2j} -l_{21} u_{1j}&\hspace{-2.5cm}i=2, j > 2\,\,,\nonumber\\
+l_{i2} &= \frac{a_{i2} - l_{i1}u_{12}}{u_{22}} &\hspace{-2.5cm} j=2, i>2\,\,.
+\end{align}
+\end{frame}
+
+\begin{frame}[fragile]{Factorization of a Matrix}
+This procedure can be repeated for all the rows and columns of $U$ and $L$.
+In the following, we provide a compact form of the algorithm in
+pseudocode.
+\end{frame}
+
+\begin{frame}[fragile]{Factorization of a Matrix}
+For $k=1, 2, \cdots, n$ do
+\small
+\begin{itemize}
+  \item Choose either $l_{kk}$ (Doolittle) or $u_{kk}$ (Crout) [the choice
+    must be non-zero] and compute the other from
+    \begin{equation}
+      l_{kk} u_{kk} = a_{kk} - \sum_{s=1}^{k-1} l_{ks} u_{sk}\,\,.
+    \end{equation}
+
+  \item Build the $k$-th row of $U$:\\
+    For $j=k+1,\cdots,n$ do:
+    \begin{equation}
+      u_{kj} = \frac{1}{l_{kk}} \left(a_{kj} - \sum_{s=1}^{k-1} l_{ks} u_{sj} \right)\,\,.
+    \end{equation}
+
+  \item Build the $k$-th column of $L$:\\
+    For $i=k+1,\cdots,n$ do:
+    \begin{equation}
+      l_{ik} = \frac{1}{u_{kk}} \left(a_{ik} - \sum_{s=1}^{k-1} l_{is} u_{sk} \right)\,\,.
+    \end{equation}
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Next Class}
+Ordinary Differential Equations
+\end{frame}
+
+\end{document}

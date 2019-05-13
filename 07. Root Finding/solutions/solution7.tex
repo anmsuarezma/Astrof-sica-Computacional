@@ -1,0 +1,189 @@
+\documentclass[11pt]{article}
+\pagestyle{plain}
+\usepackage{latexsym,exscale,amsfonts,amsmath,amssymb,array}
+\usepackage{color}
+\usepackage[colorlinks]{hyperref}
+\setlength{\topmargin}{-2.3cm}
+\setlength{\textheight}{23.8cm}
+\setlength{\oddsidemargin}{-0.5cm}
+\setlength{\textwidth}{17cm}
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{.4cm}
+\newcommand{\totaldiffx}{\frac{d}{dx}}
+\newcommand{\pardiffx}{\frac{\partial}{\partial x}}
+\newcommand{\luft}{\:\!}
+
+\usepackage{graphicx}
+\usepackage[latin1]{inputenc}
+\usepackage{mathpazo}
+\usepackage[T1]{fontenc}
+\usepackage[comma,numbers,sort&compress]{natbib}
+
+
+\begin{document}
+\begin{center}
+\large \bf Computational Astrophysics \rm \\
+2019\\
+{\small Exercises 06. Root Finding}
+\end{center}
+
+\begin{enumerate}
+
+\item {\bf Eccentric Anomaly}
+\begin{center}
+\includegraphics[width=0.55\textwidth]{orbit.png}
+\vspace*{-0.5cm}
+\end{center}
+
+A planet is moving around the sun in an elliptic Keplerian orbit with
+semi-major axis $a$, semi-minor axis $b$, and eccentricity $e =
+\sqrt{1 - b^2/a^2}$.  The planet last perihelion occur at $t=0$.  The angular frequency of the motion is $\omega = 2\pi / T$, where $T$ is the duration of its orbit (period).
+
+If we define a 2D coordinate system $(x,y)$ with origin at the center
+of the ellipse, then the points on the ellipse are described by the
+equation
+\begin{equation}
+\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1\,\,.
+\end{equation}
+The location of the planet in the $(x,y)$ coordinate system is given
+by 
+\begin{equation}
+\begin{aligned}
+x &= a \cos E\,\,,\\
+y &= b \sin E\,\,,
+\end{aligned}
+\end{equation}
+where $E$ is the \emph{eccentric anomaly}, which is defined by
+\begin{equation}
+E = \omega t + e \sin E\,\,.
+\label{eq:int}
+\end{equation}
+
+
+The interesting equation here is Eq.~(\ref{eq:int}), which gives an \emph{implicit}
+non-linear relationship for E. In order to find $E$ for a given $\omega t$ and
+$e$, we will need to find the solution to the following equation:
+\begin{equation}
+0 = E - \omega t - e \sin E\,\,,
+\end{equation}
+in other words, we have to find this equation's root!
+
+
+\begin{enumerate}
+\item[(a)] The Earth has an orbital period of $365.25635\,\text{days}$,
+a semi-major axis $a = 1.496\times 10^8\,\mathrm{km} = 1\,\mathrm{AU}$,
+and its orbit has an eccentricity of $e = 0.0167$. Compute $E$, $x$ and $y$
+for $t = 91\,\text{days}$, $t = 182\,\text{days}$, and $t = 273\,\text{days}$
+using your favorite root finding method. The fractional error in $E$ at the end
+of your computation (from one iteration to the next) should be less than
+$10^{-10}$. How many iterations does your method need, i.e, how quickly does it
+converge?
+
+\item[(b)] Now suppose that something (very bad) happened,
+  putting Earth on a pretty eccentric orbit, say $e = 0.99999$. How
+  many iterations does your algorithm need now? How could you
+  accelerate convergence?
+\end{enumerate}
+
+\item {\bf Polynomials with Multiple Roots}
+
+Find all real roots of
+\begin{equation}
+f(x) = 3x^5 + 5x^4 - x^3\,\,.
+\end{equation}
+How many are there and how can you construct an algorithm that finds
+all of them? This method should be general and should work for real
+roots of any polynomial in one variable with at least on real
+root. You may ask the internet for help!
+
+Implement your method and be ready to be tested in class to demonstrate its capabilities
+with a few examples.
+\end{enumerate}
+
+\textbf{Solution}\\
+1. (a) The function to be analyzed is
+\begin{equation}
+f(E) = E- e \sin E - \omega t. 
+\end{equation}
+
+In order to apply the NEwton-Raphson Method we need the derivative
+\begin{equation}
+\frac{df}{dE} = 1-e \cos E.
+\end{equation}
+
+Using these relations, the Newton-Raphson method for finding roots is implemented in solution7.1a.py. The resulting position coordinates and number of iterations for the times in the exercise are given in Table \ref{tab:Results1}. 
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+$t$ (days) & $E$  & $x$ (AU) & $y$ (AU) & Iterations \\
+\hline
+$91$ & $1.582092288991627$ &$-0.011295721973131013$ & $0.9997967554706361$ & $3$\\
+$182$ & $3.1309642006817358$  & $-0.9999435185260914$ & $0.010626770643682799$ &$3$\\
+$273$ & $4.679489100532153$ & $-0.03289394502393073$ & $-0.999319468509937$ & $4$\\
+$365.25635$ & $6.283185307179586$ & $1.0$ & $-2.4489520327324266e-16$ & $4$\\
+\hline
+\end{tabular}
+\caption{Results of the Newton-Raphson method finding the eccentric anomaly of the Earth}
+\label{tab:Results1}
+\end{table}
+\bigskip
+ 
+ 1. (b) In the code solution7.1b.py the eccentricity is changed to the value $e=0.99999$ and the resulting values for the motion of the planet are presented in Table \ref{tab:Results2}. Note that the number of iterations increased notably from point (a).
+ 
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+$t$ (days) & $E$  & $x$ (AU) & $y$ (AU) & Iterations \\
+\hline
+$91$ & $2.3066463874889322$ &$-0.67121751444286$ & $0.003315009203508128$ & $13$\\
+$182$ & $3.1361896410659678$  & $-0.9999854037633422$ & $2.41628286026531e-05$ &$12$\\
+$273$ & $3.9636437776514932$ & $-0.6807201024458955$ & $-0.0032760264315865183$ & $12$\\
+$365.25635$ & $6.283185307197494$ & $1.0$ & $8.008327018991285e-14$ & $23$\\
+\hline
+\end{tabular}
+\caption{Results of the Newton-Raphson method finding the eccentric anomaly of the Earth}
+\label{tab:Results2}
+\end{table} 
+ 
+ \bigskip
+ 2. In order to obtain the roots of the polynomial, in solution7.2.py it is implemented the Weierstrass (or Druand-Kerner) algorithm. To define the procedure, consider the monic \footnote{The coefficient of the highest degree term equals one.} general polynomial of order 5
+ \begin{equation}
+ f(x) = x^5 + a_4 x^4 + a_3 x^3 + a_2 x^2 + a_1 x + a_0.
+ \end{equation}
+ 
+ Let the roots of this polynomial to be the complex numbers $r_1, r_2, r_3, r_4, r_5$, so that the polynomial may be written as
+\begin{equation}
+f(x) = (x - r_1)(x - r_2)(x - r_3)(x - r_4)(x - r_5).
+\end{equation}
+ From this equation it is possible to isolate the root $r_1$ as
+ \begin{equation}
+ r_1 = x - \frac{f(x)}{(x - r_2)(x - r_3)(x - r_4)(x - r_5)}.
+ \end{equation}
+ 
+This equation  may be used as an iteration relation to obtain the root if we begin with some approximated value $x^{(k)}$ and with approximated values for the other roots, $r_i^{(0)}$ for ($i=2,3,4,5$), as
+ \begin{equation}
+ x^{(k+1)} = x^{(k)} - \frac{f(x)}{(x - r_2^{(0)})(x - r_3^{(0)})(x - r_4^{(0)})(x - r_5^{(0)})}.
+ \end{equation}
+ 
+ The method proposed by Weierstrass (and later by Druand and Kerner) is to combine this iteration with similar relations for the other roots, i.e.
+ \begin{eqnarray}
+ r^{(k)}_1 &=& r^{(k-1)}_1 - \frac{f(r^{(k-1)}_1)}{(r^{(k-1)}_1 - r_2^{(k-1)})(r^{(k-1)}_1 - r_3^{(k-1)})(r^{(k-1)}_1 - r_4^{(k-1)})(r^{(k-1)}_1 - r_5^{(k-1)})}\\
+ r^{(k)}_2 &=& r^{(k-1)}_2 - \frac{f(r^{(k-1)}_2)}{(r^{(k-1)}_2 - r_1^{(k-1)})(r^{(k-1)}_2 - r_3^{(k-1)})(r^{(k-1)}_2 - r_4^{(k-1)})(r^{(k-1)}_2 - r_5^{(k-1)})}\\
+ r^{(k)}_3 &=& r^{(k-1)}_3 - \frac{f(r^{(k-1)}_3)}{(r^{(k-1)}_3 - r_1^{(k-1)})(r^{(k-1)}_3 - r_2^{(k-1)})(r^{(k-1)}_3 - r_4^{(k-1)})(r^{(k-1)}_3 - r_5^{(k-1)})}\\
+ r^{(k)}_4 &=& r^{(k-1)}_4 - \frac{f(r^{(k-1)}_4)}{(r^{(k-1)}_4 - r_1^{(k-1)})(r^{(k-1)}_4 - r_2^{(k-1)})(r^{(k-1)}_4 - r_3^{(k-1)})(r^{(k-1)}_4 - r_5^{(k-1)})}\\
+  r^{(k)}_5 &=& r^{(k-1)}_5 - \frac{f(r^{(k-1)}_5)}{(r^{(k-1)}_5 - r_1^{(k-1)})(r^{(k-1)}_5 - r_2^{(k-1)})(r^{(k-1)}_5 - r_3^{(k-1)})(r^{(k-1)}_5 - r_4^{(k-1)})},
+ \end{eqnarray}
+or in general,
+\begin{equation}
+r^{(k)}_i = r^{(k-1)}_i - \frac{f(r^{(k-1)}_i)}{\prod_{j \neq i} \left( r^{(k-1)}_i - r^{(k-1)}_j  \right)}
+\end{equation}
+for $i= 1,2,...,n$.
+
+[1] \url{http://homepages.math.uic.edu/~jan/mcs471f03/Project_Two/proj2/node2.html}\\
+
+[2] \url{https://en.wikipedia.org/wiki/Durand\%E2\%80\%93Kerner_method}
+\end{document}
+

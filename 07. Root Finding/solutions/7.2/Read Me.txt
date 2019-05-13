@@ -1,0 +1,3 @@
+Read Me
+
+solution7.2.py finds the roots of a polynomial of order 5 using the Weierstrass (Druand-Kerner) method described in the solution7.tex file 

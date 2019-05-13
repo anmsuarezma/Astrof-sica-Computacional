@@ -1,0 +1,7 @@
+Read Me
+
+Solution to the exercise 7.1 is given in solution7.1a.py and solution7.1b.py
+
+solution7.1a.py finds the root of the eccentric anomaly equation and calculates the position of the planet at some given time.
+
+solution7.1b.py is a modification of the code solution7.1b.py using another eccentricity.

@@ -1,0 +1,65 @@
+\documentclass[11pt]{article}
+\pagestyle{plain}
+\usepackage{latexsym,exscale,amsfonts,amsmath,amssymb,array}
+\usepackage{color}
+\usepackage[colorlinks]{hyperref}
+\setlength{\topmargin}{-2.3cm}
+\setlength{\textheight}{23.8cm}
+\setlength{\oddsidemargin}{-0.5cm}
+\setlength{\textwidth}{17cm}
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{.4cm}
+\newcommand{\totaldiffx}{\frac{d}{dx}}
+\newcommand{\pardiffx}{\frac{\partial}{\partial x}}
+\newcommand{\luft}{\:\!}
+
+\usepackage{graphicx}
+\usepackage[latin1]{inputenc}
+\usepackage{mathpazo}
+\usepackage[T1]{fontenc}
+\usepackage[comma,numbers,sort&compress]{natbib}
+
+
+\begin{document}
+\begin{center}
+\large \bf Computational Astrophysics \rm \\
+2019\\
+{\small Exercises 09. Linear System of Equations}
+\end{center}
+
+\begin{enumerate}
+
+\item {\bf Solving Large Linear Systems of Equations}
+
+In the data directory you will find 5 different Linear Systems of Equations of the form
+\begin{equation}
+ A \mathbf{x} = \mathbf{b}\,\,.
+  \end{equation} 
+For each of them there is a file named "LSEi\_ A.dat" with the information of the matrix $A$ and a file "LSEi\_ b.dat" with the information of the vector $\textbf{b}$ (with $i = 1,...,5$).
+
+
+\begin{enumerate}
+\item[(1)] Write a script that can read in $A$ and $\mathbf{b}$ of
+  each LSE and allows you to inspect them. How big are they? Can they
+  be solved? (Note that to answer this question you'll need to calculate the determinant of each matrix) \\
+  
+  Hint: Note that if you compute the determinant of the largest matrix,
+    you'll run into floating point overflow!. Hence you may need to use  a {\tt NumPy} function
+    that computes the log-determinant...
+
+\item[(2)] Use Gauss elimination and back-substitution to solve the problems. \\
+
+  You may test the code on a simple problem, say the 3 x 3 LSE that we present in class.
+   Then run it on the 5 LSEs in the data directory.  Use timing (you may need to search how to do this with python) to
+  keep track of how long it takes.
+
+\item[(3)] If Gauss elimination is not  an
+  efficient way to deal with some of the large LSEs, find a {\tt NumPy} 
+  fast linear solver.  Search how to use it and compare your
+  timing results with those from {\tt Numpy}. What method is
+  the {\tt NumPy} solver of your choice for solving the LSE?
+\end{enumerate}
+\end{enumerate}
+Happy Coding :) !
+
+\end{document}

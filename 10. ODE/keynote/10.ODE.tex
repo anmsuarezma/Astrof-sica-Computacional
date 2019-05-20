@@ -1,0 +1,268 @@
+\documentclass[11pt]{beamer}
+\usetheme{Rochester}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+%\author{}
+%\title{}
+%\setbeamercovered{transparent} 
+%\setbeamertemplate{navigation symbols}{} 
+%\logo{} 
+%\institute{} 
+%\date{} 
+%\subject{} 
+\begin{document}
+
+\begin{frame}
+\title{Computational Astrophysics}
+\author{E. Larrañaga}
+\institute{Observatorio Astronómico Nacional\\
+Universidad Nacional de Colombia}
+\titlepage
+\end{frame}
+
+\begin{frame}{Outline}
+\tableofcontents
+\end{frame}
+
+\section{Ordinary Differential Equations}
+\begin{frame}[fragile]{Ordinary Differential Equations }
+A system of first-order ordinary differential equations (ODEs)
+is a relationship between an unknown (vectorial) function
+$y(x)$ and its derivative $y^\prime(x)$. The
+general system of first-order ODEs has the form
+\begin{equation}
+y^\prime (x) =f(x,y(x))\,.
+\label{eq:odebasics}
+\end{equation}
+A solution to the differential equation is,
+obviously, any function $y(x)$ that satisfies it.
+\end{frame}
+
+\begin{frame}[fragile]{Ordinary Differential Equations }
+\noindent There are two general classes of first-order ODE problems:
+\begin{enumerate}
+\item Initial value problems: $y(x_i)$ is given at some starting
+  point $x_i$.
+
+\item Two-point boundary value problems: $y$ is known at two ends
+  (``boundaries'') of the domain and these ``boundary conditions'' must
+  be satisfied simultaneously.
+\end{enumerate}
+\end{frame}
+
+
+\subsection{Reduction to First-Order ODE}
+\begin{frame}[fragile]{Reduction to First-Order ODE}
+Any ODE can be reduced to first-order form by introducing  additional
+variables. \\
+\bigskip
+
+\textbf{Example}
+\begin{equation}
+y''(x) + q(x) y'(x) = r(x)\,\,.
+\end{equation}
+Introducing a new function $z(x)$ this can be written as
+\begin{equation}
+\begin{aligned}
+\text{(1)}\hspace*{0.3cm} y'(x) &= z(x)\,,\nonumber\\
+\text{(2)}\hspace*{0.3cm} z'(x) &= r(x) - q(x) z(x)\,\,.
+\end{aligned}
+\end{equation}
+\end{frame}
+
+\subsection{Errors and ODEs}
+\begin{frame}[fragile]{Errors and ODEs}
+All procedures to solve numerically an ODE consist of transforming
+a continuous differential equation into a discrete iteration procedure
+that starts from the initial conditions and returns the values of the
+dependent variable $y(x)$ at points $x_m = x_0 + m * h$, where $h$
+is the discretization step size  assumed to be constant here).
+\end{frame}
+
+\begin{frame}[fragile]{Errors and ODEs}
+Two kinds of errors can arise in this procedure:
+\begin{enumerate}
+\item \textbf{Round-off error}. Due to limited float point accuracy. The global round-off
+  is the sum of the local float point errors.
+
+\item {\bf Truncation error}. 
+
+  Local: The error made in one step when we replace a continuous process
+  (e.g. a derivative) with a discrete one (e.g., a forward difference).\\
+
+  Global: If the local truncation error is $\mathcal{O}(h^{n+1})$, then the
+  global truncation error must be $\mathcal{O}(h^n)$, since the number of steps
+  used in evaluating the derivatives to reach an arbitrary point
+  $x_f$, having started at $x_0$, is $\frac{x_f - x_0}{h}$.
+
+\end{enumerate}
+\end{frame}
+
+\section{Euler's Method}
+\begin{frame}[fragile]{Euler's Method}
+We want to solve $y' = f(x,y)$ with $y(x_0) = y_0$. We introduce
+a fixed stepsize $h$ and we first obtain an estimate of $y(x)$ at
+$x_1 = x_0 + h$ using Taylor's theorem:
+
+\begin{equation}
+\begin{aligned}
+y(x_1) &= y(x_0+h) = y(x_0) + y'(x_0) h + \mathcal{O}(h^2)\,,\\
+       &= y(x_0) + h f(x_0,y(x_0)) +  \mathcal{O}(h^2)\,.
+\end{aligned}
+\end{equation}
+By analogy, we obtain that the value $y_{n+1}$ of the function at the
+point $x_{n+1} = x_0 + (n+1) h$ is given by
+\begin{equation}
+y_{n+1} = y(x_{n+1}) = y_n + h f(x_n,y(x_n)) + \mathcal{O}(h^2)\,.
+\end{equation}
+This is called the \emph{forward Euler Method}.
+\end{frame}
+
+\begin{frame}[fragile]{Euler's Method}
+Euler's method is extremely simple, but rather inaccurate and potentially unstable.\\
+
+The error scales $\propto h^2$ locally. However, if $L$ is
+the length of the domain, then $h = L / N$, where $N$ is the number of points
+used to cover it. Since we are taking $N$ integration steps, the global
+error is $\propto N h^2 = N L^2 / N^2 = L L/N \propto h$. \\
+\bigskip
+
+Hence, forward
+Euler is a first-order accurate method.
+\end{frame}
+
+\section{Predictor-Corrector Method}
+\begin{frame}[fragile]{Predictor-Corrector Method}
+Consider the modification
+\begin{equation}
+y_{n+1} = y_{n} + h\, \frac{f(x_n, y_n) + f(x_{n+1},y_{n+1})}{2}\,\,.
+\label{eq:pc}
+\end{equation}
+
+This may be a better estimate as it is using the ``average slope''
+of $y$. However, we don't know $y_{n+1}$ yet.
+\end{frame}
+
+\begin{frame}[fragile]{Predictor-Corrector Method}
+We can get around this problem by using forward Euler to estimate
+$y_{n+1}$ and then use Eq.~(\ref{eq:pc}) for a better estimate:
+\begin{equation}
+\begin{aligned}
+y_{n+1}^{(\mathrm{P})} &= y_n + h f(x_n,y_n)\,\,, & \text{(predictor)}\\
+y_{n+1} &= y_n + \frac{h}{2} \left[f(x_n,y_n) + f(x_{n+1}, y^{(\mathrm{P})}_{n+1}) \right]\,\,. & \text{(corrector)}
+\end{aligned}
+\end{equation}
+
+One can show that the error of the predictor-corrector method
+decreases locally with $h^3$, but globally with $h^2$.  One says it is
+\emph{second-order accurate} as opposed to the Euler method, which is
+first-order accurate. 
+\end{frame}
+
+
+\section{Runge-Kutta Methods}
+\begin{frame}[fragile]{Runge-Kutta Methods}
+The idea behind Runge-Kutta (RK) methods is to match the Taylor expansion
+of $y(x)$ at $x=x_n$ up to the highest possible order.
+\end{frame}
+
+\subsection{RK2}
+\begin{frame}[fragile]{Second Order RK Method}
+ For
+\begin{equation}
+\frac{dy}{dx} = f(x,y)\,\,,
+\end{equation}
+we have 
+\begin{equation}
+\label{eq:rk2}
+y_{n+1} = y_n + a k_1 + b k_2\,\,,
+\end{equation}
+with
+\begin{align}
+k_1 &= h\,f(x_n,y_n)\,\,,\nonumber\\
+k_2 &= h\,f(x_n+\alpha h,y_n + \beta k_1)\,\,.
+\end{align}
+\end{frame}
+
+\begin{frame}[fragile]{Second Order RK Method}
+The four parameters $a,b,\alpha,\beta$ will be fixed so that
+Eq.~(\ref{eq:rk2}) agrees as well as possible with the Taylor series expansion
+of $y' = f(x,y)$:
+\begin{align}
+y_{n+1} &= y_n + h y_n' + \frac{h^2}{2} y_n'' + \mathcal{O}(h^3)\,\,,\nonumber\\
+&= y_n + h f(x_n,y_n) + \frac{h^2}{2} \frac{d}{dx} f(x_n,y_n) + \mathcal{O}(h^3)\,\,,\nonumber\\
+&= y_n + h f_n + h^2 \frac{1}{2}\left( \frac{\partial f_n}{\partial x} + \frac{\partial f_n}{\partial y} f_n \right) + \mathcal{O}(h^3)\,\,,
+\end{align}
+where $f_n = f(x_n,y_n)$.
+\end{frame}
+
+\begin{frame}[fragile]{Second Order RK Method}
+Using Eq.~(\ref{eq:rk2}),
+\begin{equation}
+y_{n+1} = y_n + a h f_n + b h f(x_n + \alpha h, y_n + \beta h f_n)\,\,.
+\label{eq:rk2c}
+\end{equation}
+Now we expand the last term of Eq.~(\ref{eq:rk2c}) in a Taylor
+series to first order in terms of $(x_n,y_n)$,
+\begin{equation}
+y_{n+1} = y_n + a h f_n + bh\left[ f_n + \frac{\partial f}{\partial x}(x_n,y_n) \alpha h + 
+\frac{\partial f}{\partial y}(x_n,y_n) \beta h f_n \right]\,\,,
+\end{equation}
+and can now compare this with Eq.~(\ref{eq:rk2}) to read off:
+\begin{equation}
+a+b = 1\,\,,\hspace{2em} \alpha b = \frac{1}{2}\,\,\hspace{2em} \beta b = \frac{1}{2}\,\,.
+\end{equation}
+\end{frame}
+
+\begin{frame}[fragile]{Second Order RK Method}
+So there are only 3 equations for 4 unknowns and we can assign an arbitrary
+value to one of the unknowns. Typical choices are:
+\begin{equation}
+\alpha = \beta = \frac{1}{2}\,\,,\hspace{2em} a=0\,\,, \hspace{2em} b = 1\,\,.
+\end{equation}
+With this, we have for RK2:
+\begin{align}
+k_1 & = h f(x_n,y_n)\,\,,\\
+k_2 & = h f(x_n + \frac{1}{2}h, y_n + \frac{1}{2}k_1)\,\,,\\
+y_{n+1} & = y_n + k_2 + \mathcal{O}(h^3)\,\,.
+\end{align}
+This method is locally $\mathcal{O}(h^3)$, but globally
+only $\mathcal{O}(h^2)$. \\
+\tiny 
+Note that using 
+$a=b=1/2$ and $\alpha=\beta=1$ we recover the predictor-corrector method!
+\end{frame}
+
+
+
+\subsection{RK3}
+\begin{frame}[fragile]{RK3}
+\begin{align}
+k_1 &=h f(x_n,y_n)\,\,\nonumber\\
+k_2 &= h f(x_n + \frac{h}{2},y_n + \frac{1}{2} k_1)\,\,,\nonumber\\
+k_3 &= h f(x_n + h, y_n - k_1 + 2 k_2)\,\,,\nonumber\\
+y_{n+1} &= y_n + \frac{1}{6}(k_1 + 4 k_2 + k_3) + \mathcal{O}(h^4)\,\,.
+\end{align}
+\end{frame}
+
+\subsubsection{RK4}
+\begin{frame}[fragile]{RK4}
+\begin{align}
+k_1 &=h f(x_n,y_n)\,\,,\\
+k_2 &=h f(x_n + \frac{h}{2},y_n + \frac{1}{2}k_1)\,\,,\nonumber\\
+k_3 &=h f(x_n + \frac{h}{2},y_n + \frac{1}{2}k_2)\,\,,\nonumber\\
+k_4 &=h f(x_n+h,y_n + k_3)\,\,,\nonumber\\
+y_{n+1} &= y_n + \frac{1}{6}(k_1 + 2 k_2 + 2 k_3 + k_4) + \mathcal{O}(h^5)\,\,.
+\end{align}
+\end{frame}
+
+
+
+\begin{frame}[fragile]{Next Class}
+Ordinary Differential Equations. Boundary Value Problems
+\end{frame}
+
+\end{document}

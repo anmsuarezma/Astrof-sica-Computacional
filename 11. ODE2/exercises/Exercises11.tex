@@ -1,0 +1,63 @@
+\documentclass[11pt]{article}
+\pagestyle{plain}
+\usepackage{latexsym,exscale,amsfonts,amsmath,amssymb,array}
+\usepackage{color}
+\usepackage[colorlinks]{hyperref}
+\setlength{\topmargin}{-2.3cm}
+\setlength{\textheight}{23.8cm}
+\setlength{\oddsidemargin}{-0.5cm}
+\setlength{\textwidth}{17cm}
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{.4cm}
+\newcommand{\totaldiffx}{\frac{d}{dx}}
+\newcommand{\pardiffx}{\frac{\partial}{\partial x}}
+\newcommand{\luft}{\:\!}
+
+\usepackage{graphicx}
+\usepackage[latin1]{inputenc}
+\usepackage{mathpazo}
+\usepackage[T1]{fontenc}
+\usepackage[comma,numbers,sort&compress]{natbib}
+
+
+\begin{document}
+\begin{center}
+\large \bf Computational Astrophysics \rm \\
+2019\\
+{\small Exercises 11. ODE. Boundary values.}
+\end{center}
+
+ {\bf A simple Boundary-Value Problem}
+
+Consider the Boundary-Value Problem (BVP)
+
+\begin{equation}
+\frac{d^2 y}{dx^2} = 12x - 4\,,\hspace*{0.3cm}y(0) = 0\,,\,\hspace{0.3cm}y(1) = 0.1\,\,.
+\end{equation}
+
+{\bf (1)} Solve the BVP ODE with the shooting method.
+
+First, we need to rewrite the second-order ODE as two first-order ODEs:
+\begin{align}
+\frac{dy}{dx} &= u(x)\,\,,\nonumber\\
+\frac{du}{dx} &= 12x - 4\,\,.
+\end{align}
+This is a really simple BVP and therefore it will require only very few
+shooting iterations for reasonable initial guesses. Hence use the initial values $u(0) = z_0 = -1100000.0$
+and $u(0) = z_1 = -10000000.0$ as initial guesses so that you get to do at least two
+iterations of shooting. 
+
+In the code directory you will find  a skeleton that you may use.  A
+forward Euler integrator is already implemented. Solve the problem
+by implementing an RK2 (or higher) integrator. Demonstrate convergence. Make a
+plot of your solution for $y(x)$ and compare it with the true solution
+is $y(x) = 2x^3 - 2x^2 + 0.1x$.
+
+
+\noindent {\bf (2)} Solve the BVP
+ODE with the finite-difference  method.
+  
+
+Happy Coding :) !
+
+\end{document}

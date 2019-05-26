@@ -59,23 +59,28 @@ the correct known outer boundary value.
 Given the system in Eq.~\ref{eq:ode_bvp1}, the value of $y'(a)$ is
 unknown.\\
 
-We can make a guess $y'(a) = z$ to write $z' = f(a,y(a),y'(a))$. \\
+We can make an initial guess $y'(a) = z_0$ to reduce
+the second-order problem to two first-order problems.
+\begin{eqnarray}
+y' = u(x) &,& y'(a) = z_0\\
+u' = f(x,y,u) &,& y(a) = A.
+\end{eqnarray}
 
-This reduces
-the second-order problem to two first-order problems. 
+
 \end{frame}
 
 \begin{frame}[fragile]{Shooting Method}
 Then we just need to integrate
-the two ODEs out to $b$. Since we have chosen $z$, we have now solved
-$y=y(x,z)$, but our goal is to find $y$ such that $y(b,z) = B$.
+the two ODEs out to $b$. Since we have chosen $z_0$, we have now solved 
+to obtain the function
+$y=y(x,z_0)$, but our goal is to find $y$ such that it satisfies the other boundary condition: $y(b,z_0) = B$.
 
 In other words, we can define a new function 
 \begin{equation}
-\Phi(z) = y(b,z) - B
+\Phi(z_0) = y(b,z_0) - B
 \end{equation}
-and search for a $z$ so that $\Phi(z) = 0$. Hence, we are looking
-for the root of $\Phi(z)$!
+and search for a $z_0$ so that $\Phi(z_0) = 0$. Hence, we are looking
+for the root of $\Phi(z_0)$!
 \end{frame}
 
 \begin{frame}[fragile]{Shooting Method}
@@ -127,6 +132,21 @@ where $x_i = a + i h$, $(i = 0, ... , n+1)$, and
 h = \frac{b-a}{n+1}.
 \end{equation}
 \end{frame}
+
+\begin{frame}[fragile]{Finite-Difference Method}
+The discrete version of Eq.~(\ref{eq:ode_bvp2}) is then a system
+of $n+2$ linear algebraic equations,
+\begin{equation}
+\begin{aligned}
+y_0 &= A\,\,\\
+\left(1-\frac{h}{2}p_i \right)  y_{i-1} - \left(2-h^2q_i \right) y_i +  \left(1+\frac{h}{2}p_i \right) y_{i+1} &= h^2 g_i\,\,\\
+y_{n+1} &= B\,\,,
+\end{aligned}
+\end{equation}
+where $p_i = p(x_i)$, $g_i = g(x_i)$, and $q_i = q(x_i)$.
+\end{frame}
+
+
 
 \begin{frame}[fragile]{Finite-Difference Method}
 The system is a tri-diagonal matrix of dimension $n \times n$:

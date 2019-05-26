@@ -30,8 +30,10 @@
 \headcommand {\beamer@framepages {11}{11}}
 \headcommand {\slideentry {2}{1}{4}{12/12}{Finite-Difference Method}{0}}
 \headcommand {\beamer@framepages {12}{12}}
-\headcommand {\beamer@partpages {1}{12}}
-\headcommand {\beamer@subsectionpages {9}{12}}
-\headcommand {\beamer@sectionpages {4}{12}}
-\headcommand {\beamer@documentpages {12}}
-\headcommand {\gdef \inserttotalframenumber {12}}
+\headcommand {\slideentry {2}{1}{5}{13/13}{Finite-Difference Method}{0}}
+\headcommand {\beamer@framepages {13}{13}}
+\headcommand {\beamer@partpages {1}{13}}
+\headcommand {\beamer@subsectionpages {9}{13}}
+\headcommand {\beamer@sectionpages {4}{13}}
+\headcommand {\beamer@documentpages {13}}
+\headcommand {\gdef \inserttotalframenumber {13}}

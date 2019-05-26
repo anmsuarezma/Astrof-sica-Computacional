@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  25 MAY 2019 21:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  26 MAY 2019 17:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**10.ODE.tex
-(./10.ODE.tex
+**11.ODE2.tex
+(./11.ODE2.tex
 LaTeX2e <2018-04-01> patch level 2
 Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
 (/usr/local/texlive/2018/texmf-dist/tex/latex/beamer/beamer.cls
@@ -672,8 +672,8 @@ Package: inputenc 2018/04/06 v1.3b Input encoding file
 \inpenc@prehook=\toks43
 \inpenc@posthook=\toks44
 )
-(./10.ODE.aux)
-\openout1 = `10.ODE.aux'.
+(./11.ODE2.aux)
+\openout1 = `11.ODE2.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
 LaTeX Font Info:    ... okay on input line 16.
@@ -770,9 +770,9 @@ LaTeX Info: Redefining \ref on input line 16.
 LaTeX Info: Redefining \pageref on input line 16.
 LaTeX Info: Redefining \nameref on input line 16.
 
-(./10.ODE.out) (./10.ODE.out)
+(./11.ODE2.out) (./11.ODE2.out)
 \@outlinefile=\write5
-\openout5 = `10.ODE.out'.
+\openout5 = `11.ODE2.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 16.
@@ -850,7 +850,7 @@ Dictionary: translator-numbers-dictionary, Language: English
 (/usr/local/texlive/2018/texmf-dist/tex/latex/translator/translator-theorem-dic
 tionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
-) (./10.ODE.nav)
+) (./11.ODE2.nav)
 
 Package hyperref Warning: Option `pdfauthor' has already been used,
 (hyperref)                setting the option has no effect on input line 24.
@@ -858,209 +858,126 @@ Package hyperref Warning: Option `pdfauthor' has already been used,
 [1
 
 {/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-(./10.ODE.toc
-LaTeX Font Info:    Try loading font information for U+msa on input line 13.
- (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd
+(./11.ODE2.toc) [2
+
+]
+\openout4 = `11.ODE2.vrb'.
+
+ (./11.ODE2.vrb
+LaTeX Font Info:    Try loading font information for U+msa on input line 4.
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 13.
+LaTeX Font Info:    Try loading font information for U+msb on input line 4.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Try loading font information for OT1+mathkerncmss on input 
-line 13.
+line 4.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
 File: ot1mathkerncmss.fd 2013/03/27 Fontinst v1.933 font definitions for OT1/ma
 thkerncmss.
-)) [2
+)) [3
 
 ]
-\openout4 = `10.ODE.vrb'.
+\openout4 = `11.ODE2.vrb'.
 
- (./10.ODE.vrb) [3
-
-]
-\openout4 = `10.ODE.vrb'.
-
- (./10.ODE.vrb) [4
+ (./11.ODE2.vrb) [4
 
 ]
-\openout4 = `10.ODE.vrb'.
+\openout4 = `11.ODE2.vrb'.
 
- (./10.ODE.vrb) [5
-
-]
-\openout4 = `10.ODE.vrb'.
-
- (./10.ODE.vrb)
-[6
+ (./11.ODE2.vrb) [5
 
 ]
-\openout4 = `10.ODE.vrb'.
+\openout4 = `11.ODE2.vrb'.
 
- (./10.ODE.vrb) [7
-
-]
-\openout4 = `10.ODE.vrb'.
-
- (./10.ODE.vrb) [8
+ (./11.ODE2.vrb) [6
 
 ]
-\openout4 = `10.ODE.vrb'.
+\openout4 = `11.ODE2.vrb'.
 
- (./10.ODE.vrb) [9
+
+(./11.ODE2.vrb) [7
 
 ]
-\openout4 = `10.ODE.vrb'.
+\openout4 = `11.ODE2.vrb'.
 
- (./10.ODE.vrb)
+ (./11.ODE2.vrb) [8
+
+]
+\openout4 = `11.ODE2.vrb'.
+
+ (./11.ODE2.vrb) [9
+
+]
+\openout4 = `11.ODE2.vrb'.
+
+ (./11.ODE2.vrb)
 [10
 
 ]
-\openout4 = `10.ODE.vrb'.
+\openout4 = `11.ODE2.vrb'.
 
- (./10.ODE.vrb) [11
-
-]
-\openout4 = `10.ODE.vrb'.
-
- (./10.ODE.vrb
-Overfull \hbox (33.07513pt too wide) in paragraph at lines 6--12
-[][] 
- []
-
-) [12
+ (./11.ODE2.vrb) [11
 
 ]
-\openout4 = `10.ODE.vrb'.
+\openout4 = `11.ODE2.vrb'.
 
- (./10.ODE.vrb) [13
-
-]
-\openout4 = `10.ODE.vrb'.
-
- (./10.ODE.vrb) [14
+ (./11.ODE2.vrb) [12
 
 ]
-\openout4 = `10.ODE.vrb'.
+\openout4 = `11.ODE2.vrb'.
 
- (./10.ODE.vrb) [15
-
-]
-\openout4 = `10.ODE.vrb'.
-
-
-(./10.ODE.vrb) [16
-
-]
-\openout4 = `10.ODE.vrb'.
-
- (./10.ODE.vrb) [17
-
-]
-\openout4 = `10.ODE.vrb'.
-
- (./10.ODE.vrb) [18
-
-]
-\openout4 = `10.ODE.vrb'.
-
- (./10.ODE.vrb)
-[19
-
-]
-\openout4 = `10.ODE.vrb'.
-
- (./10.ODE.vrb) [20
-
-]
-\openout4 = `10.ODE.vrb'.
-
- (./10.ODE.vrb) [21
-
-]
-\openout4 = `10.ODE.vrb'.
-
- (./10.ODE.vrb) [22
-
-]
-\openout4 = `10.ODE.vrb'.
-
- (./10.ODE.vrb) [23
-
-]
-\openout4 = `10.ODE.vrb'.
-
- (./10.ODE.vrb) [24
-
-]
-\openout4 = `10.ODE.vrb'.
-
- (./10.ODE.vrb) [25
-
-]
-\openout4 = `10.ODE.vrb'.
-
- (./10.ODE.vrb) [26
-
-]
-\openout4 = `10.ODE.vrb'.
-
- (./10.ODE.vrb) [27
-
-]
-\openout4 = `10.ODE.vrb'.
-
- (./10.ODE.vrb) [28
+ (./11.ODE2.vrb) [13
 
 ]
 \tf@nav=\write6
-\openout6 = `10.ODE.nav'.
+\openout6 = `11.ODE2.nav'.
 
 \tf@toc=\write7
-\openout7 = `10.ODE.toc'.
+\openout7 = `11.ODE2.toc'.
 
 \tf@snm=\write8
-\openout8 = `10.ODE.snm'.
+\openout8 = `11.ODE2.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 403.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 403.
- (./10.ODE.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 403.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 403.
-Package rerunfilecheck Info: File `10.ODE.out' has not changed.
-(rerunfilecheck)             Checksum: B303594B0AE0057CFAF3B7580833396B;570.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 185.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 185.
+
+(./11.ODE2.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 185.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 185.
+Package rerunfilecheck Info: File `11.ODE2.out' has not changed.
+(rerunfilecheck)             Checksum: 1D8C1D8931470063132CBBA2B870E334;214.
  ) 
 Here is how much of TeX's memory you used:
- 17246 strings out of 492649
- 329550 string characters out of 6129622
- 403124 words of memory out of 5000000
- 20600 multiletter control sequences out of 15000+600000
- 19335 words of font info for 70 fonts, out of 8000000 for 9000
+ 17067 strings out of 492649
+ 327265 string characters out of 6129622
+ 413091 words of memory out of 5000000
+ 20503 multiletter control sequences out of 15000+600000
+ 12635 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 56i,14n,70p,793b,557s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 56i,14n,60p,794b,557s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
-></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
-</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></
-usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr
-/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/
-local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/l
-ocal/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/loc
-al/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/local
-/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/loca
-l/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/loca
-l/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb></usr/loca
-l/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/local
-/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi9.pfb></usr/local/
-texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/t
-exlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/tex
-live/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on 10.ODE.pdf (28 pages, 206221 bytes).
+></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.
+pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.p
+fb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pf
+b></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb
+></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb><
+/usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb>
+</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb>
+</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb><
+/usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></
+usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></us
+r/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/
+local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on 11.ODE2.pdf (13 pages, 139910 bytes).
 PDF statistics:
- 876 PDF objects out of 1000 (max. 8388607)
- 815 compressed objects within 9 object streams
- 74 named destinations out of 1000 (max. 500000)
- 115 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 428 PDF objects out of 1000 (max. 8388607)
+ 390 compressed objects within 4 object streams
+ 32 named destinations out of 1000 (max. 500000)
+ 67 words of extra memory for PDF output out of 10000 (max. 10000000)
 

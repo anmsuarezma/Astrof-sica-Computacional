@@ -134,6 +134,52 @@ Hence, forward
 Euler is a first-order accurate method.
 \end{frame}
 
+\subsubsection{Stability of Forward Euler}
+\begin{frame}[fragile]{Stability of Euler's Method}
+Forward Euler is an \emph{explicit} method. This means that 
+$y_{n+1}$ is given explicitly in terms of known quantities
+$y_n$ and $f(x_n,y_n)$.
+\bigskip
+ 
+Explicit methods are simple and efficient, but the drawback is that
+the step size must be small for stability.
+\end{frame}
+
+\begin{frame}[fragile]{Stability of Euler's Method}
+ \textbf{Example}
+\begin{equation}
+y' = -a y\,\,, \hspace{1cm}\text{with}\hspace{0.5cm} 
+y(0) = 1\,,\,\, a > 0\,,\,\, y' = \frac{dy}{dt}\,\,.
+\end{equation}
+
+The exact solution to this problem is $y = e^{-at}$,
+which is stable and  smooth with $y(0) = 1$ and
+$y(\infty) = 0$.
+
+Applying forward Euler,
+\begin{equation}
+y_{n+1} = y_n - a\, h\, y_n = (1-ah) y_{n} 
+\end{equation}
+\begin{equation}
+y_{n+1}  = (1-ah)^2 y_{n-1} = \cdots = (1-ah)^{n+1} y_0\,\,.
+\end{equation}
+\end{frame}
+
+\begin{frame}[fragile]{Stability of Euler's Method}
+This implies that in order to prevent any potential amplification of
+errors, we must require that $|1-ah|<1$.\\
+In fact, there are  3 cases,
+
+\begin{tabular}{rccl}
+(i)  &$0 < 1-ah < 1$  &:& $(1-ah)^{n+1}$ decays (good!).\\
+(ii) &$-1 < 1-ah < 0$ &:& $(1-ah)^{n+1}$ oscillates (not so good!).\\
+(iii)&$1-ah < -1$     &:& $(1-ah)^{n+1}$ oscillates and diverges (bad!).
+\end{tabular}
+\vspace{1cm}
+
+This gives the stability criterion of $0< h < \frac{2}{a}$.
+\end{frame}
+
 \section{Predictor-Corrector Method}
 \begin{frame}[fragile]{Predictor-Corrector Method}
 Consider the modification
@@ -259,6 +305,95 @@ y_{n+1} &= y_n + \frac{1}{6}(k_1 + 2 k_2 + 2 k_3 + k_4) + \mathcal{O}(h^5)\,\,.
 \end{align}
 \end{frame}
 
+\subsection{Runge-Kutta Methods with Adaptive Step Size}
+\begin{frame}[fragile]{RK Methods with Adaptive Step Size}
+The RK methods above require choosing a fixed step
+size $h$ but, how should one choose this parameter? 
+
+It would be better to choose an \emph{error tolerance} and let $h$ be chosen
+automatically to satisfy this error tolerance. \\
+
+This implies that  we need
+
+\begin{enumerate}
+\item A method for estimating the error.
+\item A way to adjust the stepsize $h$, if the error is too large (or too small).
+\end{enumerate}
+\end{frame}
+
+\subsubsection{Embedded Runge-Kutta Formulae}
+
+\begin{frame}[fragile]{Embedded Runge-Kutta Formulae}
+
+Embedded RK formulae provide an error estimator.  Now we will present the scheme for  3rd/4th order embedded RK (Bogaki and Shampine)
+\small
+\begin{equation}
+\begin{aligned}
+k_1 &= h f(x_n, y_n)\,\,,\\
+k_2 &= h f(x_n + \frac{1}{2} h, y_n + \frac{1}{2} k_1)\,\,,\\
+k_3 &= h f(x_n + \frac{3}{4} h, y_n + \frac{3}{4} k_2)\,\,,\\
+y_{n+1} &= y_n + \frac{2}{9} k_1 + \frac{1}{3} k_2 + \frac{4}{9} k_3 + \mathcal{O}(h^4)\,\,\\
+k_4 &= h f(x_n + h, y_{n+1})\,\,\\
+y^*_{n+1} &= y_n + \frac{7}{24} k_1 + \frac{1}{4}k_2 + \frac{1}{3}k_3 + \frac{1}{8} k_4 + \mathcal{O}(h^3)\,\,.
+\end{aligned}
+\end{equation}
+
+The error is 
+\begin{equation}
+\delta y_{n+1} = y_{n+1} - y^*_{n+1}\,\,.
+\end{equation}
+\end{frame}
+
+\begin{frame}[fragile]{Embedded Runge-Kutta Formulae}
+
+In this scheme, $k_4$ of step $n$ is the same as $k_1$ of step $n+1$. Therefore, 
+$k_1$ does not need to be recomputed on step $n+1$; simply
+save $k_4$ and re-use it on the next step.\\
+This trick is called 
+FSAL (First Same As Last).
+\end{frame}
+
+\subsubsection{Adjusting the Step Size $h$}
+\begin{frame}[fragile]{Adjusting the Step Size $h$}
+Given the error estimate $\delta y_{n+1} = y_{n+1} - y^*_{n+1}$
+we want that it says smaller than some tolerance, $|\delta y_{n+1}| \le
+\epsilon$ by adjusting $h$.\\
+
+Usually, one sets 
+\begin{equation}
+\epsilon = \underbrace{\epsilon_a}_{\parbox{2cm}{\footnotesize \centering absolute error tolerance}}
++ |y_{n+1}|\underbrace{\epsilon_r}_{\parbox{2cm}{\footnotesize \centering relative error tolerance}}\,\,.
+\end{equation}
+\end{frame}
+
+\begin{frame}[fragile]{Adjusting the Step Size $h$}
+We define 
+\begin{equation}
+\Delta = \frac{|\delta y_{n+1}|}{\epsilon}\,\,,
+\end{equation}
+and we want $\Delta \approx 1$.
+
+Note that for a $p$-th-order formula, $\Delta \sim \mathcal{O}(h^p)$.
+So if you took a step $h$ and got a value $\Delta$, then you change the step to $h_\text{desired}$,
+\begin{equation}
+h_\text{desired} = h \left|\frac{\Delta_\text{desired}}{\Delta} \right| ^\frac{1}{p}\,\,,
+\end{equation}
+to get the new  $\Delta_\text{desired} = 1$.
+\end{frame}
+
+\begin{frame}[fragile]{Adjusting the Step Size $h$}
+The algorithm to adjust $h$ can be written as follows:
+\begin{enumerate}
+\item Take step $h$, measure $\Delta$.
+\item If $\Delta > 1$ (error too large), then\\
+  - set $h_\text{new} = h \left| \frac{1}{\Delta} \right|^{\frac{1}{p}} S$, where
+  $S$ is a fudge factor ($\sim$ $0.9$ or so).\\
+  - \emph{reject} the old step, redo with $h_\mathrm{new}$.
+\item If $\Delta < 1$ (error too small), then\\
+  - set $h_\text{new} = h \left| \frac{1}{\Delta} \right|^{\frac{1}{p}} S$.\\
+  - accept old step, take next step with $h_\text{new}$.
+\end{enumerate}
+\end{frame}
 
 
 \begin{frame}[fragile]{Next Class}

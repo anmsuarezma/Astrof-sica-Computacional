@@ -4,5 +4,6 @@
 \BOOKMARK [2][]{Outline0.2}{Euler's Method}{}% 4
 \BOOKMARK [2][]{Outline0.3}{Predictor-Corrector Method}{}% 5
 \BOOKMARK [2][]{Outline0.4}{Runge-Kutta Methods}{}% 6
-\BOOKMARK [3][]{Outline0.4.1.13}{RK2}{Outline0.4}% 7
-\BOOKMARK [3][]{Outline0.4.2.17}{RK3}{Outline0.4}% 8
+\BOOKMARK [3][]{Outline0.4.1.16}{RK2}{Outline0.4}% 7
+\BOOKMARK [3][]{Outline0.4.2.20}{RK3}{Outline0.4}% 8
+\BOOKMARK [3][]{Outline0.4.3.22}{Runge-Kutta Methods with Adaptive Step Size}{Outline0.4}% 9

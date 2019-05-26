@@ -2,8 +2,12 @@
 \beamer@subsectionintoc {1}{1}{Reduction to First-Order ODE}{5}{0}{1}
 \beamer@subsectionintoc {1}{2}{Errors and ODEs}{6}{0}{1}
 \beamer@sectionintoc {2}{Euler's Method}{8}{0}{2}
-\beamer@sectionintoc {3}{Predictor-Corrector Method}{10}{0}{3}
-\beamer@sectionintoc {4}{Runge-Kutta Methods}{12}{0}{4}
-\beamer@subsectionintoc {4}{1}{RK2}{13}{0}{4}
-\beamer@subsectionintoc {4}{2}{RK3}{17}{0}{4}
-\beamer@subsubsectionintoc {4}{2}{1}{RK4}{18}{0}{4}
+\beamer@subsubsectionintoc {2}{0}{1}{Stability of Forward Euler}{10}{0}{2}
+\beamer@sectionintoc {3}{Predictor-Corrector Method}{13}{0}{3}
+\beamer@sectionintoc {4}{Runge-Kutta Methods}{15}{0}{4}
+\beamer@subsectionintoc {4}{1}{RK2}{16}{0}{4}
+\beamer@subsectionintoc {4}{2}{RK3}{20}{0}{4}
+\beamer@subsubsectionintoc {4}{2}{1}{RK4}{21}{0}{4}
+\beamer@subsectionintoc {4}{3}{Runge-Kutta Methods with Adaptive Step Size}{22}{0}{4}
+\beamer@subsubsectionintoc {4}{3}{1}{Embedded Runge-Kutta Formulae}{23}{0}{4}
+\beamer@subsubsectionintoc {4}{3}{2}{Adjusting the Step Size $h$}{25}{0}{4}

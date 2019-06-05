@@ -1,0 +1,459 @@
+\documentclass[11pt]{beamer}
+\usetheme{Rochester}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+%\author{}
+%\title{}
+%\setbeamercovered{transparent} 
+%\setbeamertemplate{navigation symbols}{} 
+%\logo{} 
+%\institute{} 
+%\date{} 
+%\subject{} 
+\begin{document}
+
+\begin{frame}
+\title{Computational Astrophysics}
+\author{E. Larrañaga}
+\institute{Observatorio Astronómico Nacional\\
+Universidad Nacional de Colombia}
+\titlepage
+\end{frame}
+
+\begin{frame}{Outline}
+\tableofcontents
+\end{frame}
+
+\section{Partial Differential Equations }
+\begin{frame}[fragile]{Partial Differential Equations}
+\begin{itemize}
+\item A PDE is a relation between the partial derivatives of an unknown
+function and the independent variables.
+\item The order of the highest derivative sets the \emph{order} of the PDE.
+If the highest derivative is a second derivative, we are dealing with
+a second-order PDE.
+\item A PDE is \emph{linear} if it is of the first degree in the dependent 
+variable (i.e. the unknown function) and in its partial derivatives.
+\item If each term of a PDE contains either the dependent variable
+or one of its partial derivatives, the PDE is called \emph{homogeneous}.
+Otherwise it is \emph{non-homogeneous}.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]{Types of Partial Differential Equations}
+There are three general types of PDEs
+\begin{itemize}
+\item hyperbolic
+\item parabolic
+\item elliptic
+\end{itemize}  
+
+Not all PDEs fall into one of these three types, but many
+PDEs used in practice do. \\
+
+These classes of PDEs model different sorts
+of phenomena, display different behavior, and require different numerical
+techniques for their solution.\\
+
+It is not always straighforward to see (to show and proof) what type
+of PDE a given PDE one is dealing with is. 
+\end{frame}
+
+\begin{frame}[fragile]{Linear Second Order Differential Equation}
+\begin{equation}
+a \partial^2_{xx} u + b \partial^2_{xy} u + c \partial^2_{yy} u + d \partial_x u + e \partial_y u + f u = g\,\,,
+\end{equation}
+This equation is straightforwardly categorized based on the discriminant,
+\begin{equation}
+b^2 - 4ac \left\{ \begin{array}{lcr}
+< 0 & \rightarrow & \text{elliptic},\\
+= 0 & \rightarrow & \text{parabolic},\\
+> 0 & \rightarrow & \text{hyperbolic}.
+\end{array}\right.
+\end{equation}
+The names come from analogy with conic sections in the theory of
+ellipses.
+\end{frame}
+
+\section{Hyperbolic PDEs}
+\begin{frame}[fragile]{Hyperbolic PDEs}
+Hyperbolic equations in physics and astrophysics
+describe \emph{dynamical} processes and systems that generally start
+at some initial time $t_0=0$ with some initial conditions. \\
+The equations are then integrated in time. \\
+\bigskip
+
+The prototypical linear second-order hyperbolic equation is the
+homogeneous wave equation,
+\begin{equation}
+c^2 \partial^2_{xx} u - \partial^2_{tt} u = 0\,\,,
+\end{equation}
+where $c$ is the wave speed.
+\end{frame}
+
+\begin{frame}[fragile]{Hyperbolic PDEs}
+Another  class of hyperbolic equations are the \emph{first-order
+hyperbolic systems}. In one space dimension and assuming a linear
+problem, we have
+\begin{equation}
+\partial_t u + A \partial_x u = 0\,\,,
+\label{eq:pde_linear1}
+\end{equation}
+where $u(x,t)$ is the state vector with $s$ components and $A$
+is a $s \times s$ matrix. \\
+The problem is called \emph{hyperbolic} if
+$A$ has only real eigenvalues and is diagonizable, i.e., has a complet set
+of linearly independent eigenvectors so that one can construct a 
+matrix
+\begin{equation}
+\Lambda = Q^{-1} A Q\,\,,
+\end{equation}
+where $\Lambda$ is diagonal and has real numbers on its diagonal. 
+\end{frame}
+
+\begin{frame}[fragile]{Hyperbolic PDEs}
+An example
+of these equations is the linear \emph{advection equation}:
+\begin{equation}
+\partial_t u + v \partial_x u = 0\,\,,
+\end{equation}
+which is first order, linear, and homogeneous.
+\end{frame}
+
+\begin{frame}[fragile]{Hyperbolic PDEs}
+Other example is given by the non-linear first-order systems. Consider the equation
+\begin{equation}
+\partial_t u + \partial_x F(u) = 0\,\,,
+\end{equation}
+where $F(u)$ is the \emph{flux} and may or may not be non-linear in $u$.
+We can re-write this PDE in \emph{quasi-linear} form, by introducing
+the Jacobian
+\begin{equation}
+\bar{A} = \frac{\partial F}{\partial u}\,\,,
+\end{equation}
+and writing
+\begin{equation}
+\partial_t u + \bar{A}\partial_x u = 0\,\,.
+\label{eq:pde_quasilin1}
+\end{equation}
+
+This PDE is hyperbolic if $\bar{A}$ has real eigenvalues and is
+diagonizable. \\
+\bigskip
+
+The \emph{equations of hydrodynamics} are a key example
+of a non-linear, first-order hyperbolic PDE system.
+\end{frame}
+
+\begin{frame}[fragile]{Hyperbolic PDEs Conditions}
+ \textbf{Initial Conditions for Hyperbolic Problems} \\
+One must specify $u(x,t=0)$ (at all $x$) and (order 1)
+time derivatives.
+\vskip.2cm
+\noindent {\bf Boundary Conditions for Hyperbolic Problems}
+
+\noindent One must specify either von Neumann, Dirichlet, or Robin boundary
+conditions:
+\begin{enumerate}
+\item[1] {\bf Dirichlet Boundary Conditions}.  \\
+\begin{equation}
+\begin{aligned}
+u(x=0,t) &= \Phi_1(t)\,\,,\\
+u(x=L,t) &= \Phi_2(t)\,\,.
+\end{aligned}
+\end{equation}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]{Hyperbolic PDEs Conditions}
+\begin{enumerate}
+\item[2] {\bf von Neumann Boundary Conditions}.\\ 
+      \begin{equation}
+      \begin{aligned}
+      \partial_x u(x=0,t) &= \Psi_1(t)\,\,,\\
+      \partial_x u(x=L,t) &= \Psi_2(t)\,\,.
+      \end{aligned}
+      \end{equation}
+      Note that in a multi-D problem $\partial_x$ turns into
+      the derivative in the direction of the normal to the boundary.
+
+\item[3] {\bf Robin Boundary Conditions}.\\  $a_1, b_1, a_2, b_2$ be
+      real numbers, not $a_i = b_i = 0$. \\
+      \begin{equation}
+      \begin{aligned}
+      a_1 u(x=0,t) + b_1 \partial_x u(x=0,t) &= \Psi_1(t)\,\,,\\
+      a_2 u(x=L,t) + b_2 \partial_x u(x=L,t) &= \Psi_2(t)\,\,.
+      \end{aligned}
+      \end{equation}
+      Dirichlet and von Neuman boundary conditions are recovered if either
+      both $a_i$ or both $b_i$ vanish.
+      Note that in a multi-D problem $\partial_x$ turns into
+      the derivative in the direction of the normal to the boundary.
+\end{enumerate}
+\end{frame}
+
+
+\section{Parabolic PDEs}
+\begin{frame}[fragile]{Parabolic PDEs}
+Parabolic PDEs describe processes that are slowly changing, such as
+the slow diffusion of heat in a medium, sediments in ground water, and
+radiation in an opaque medium. Parabolic PDEs are second order and
+have generally the shape
+\begin{equation}
+\partial_t u - k \partial^2_{xx} u = f\,\,.
+\label{eq:pde_para1}
+\end{equation}
+\end{frame}
+
+\begin{frame}[fragile]{Parabolic PDEs Conditions}
+\noindent {\bf Initial Conditions for Parabolic Problems}
+
+\noindent One must specify $u(x,t=0)$ at all $x$.
+
+
+\vskip.2cm
+\noindent {\bf Boundary Conditions for Parabolic Problems}
+
+\noindent Dirichlet, von Neumann or Robin boundary conditions.
+If the boundary conditions are independent of time, the system will
+evolve towards a steady state ($\partial_t u = 0$). In this case, 
+one may set $\partial_t u = 0$ for all times and treat Eq.~(\ref{eq:pde_para1})
+as an elliptic equation.
+\end{frame}
+
+
+\section{Elliptic PDEs}
+\begin{frame}[fragile]{Elliptic PDEs}
+Elliptic equations describe systems that are static, in steady state
+and/or in equilibrium. There is no time dependence. A typical elliptic
+equation is the Poisson equation:
+\begin{equation}
+\nabla^2 u = f\,\,,
+\end{equation}
+which one encounters in Newtonian gravity and in electrodynamics.
+$\nabla^2$ is the Laplace operator, and $f$ is a given scalar function
+of position. Elliptic problems may be linear ($f$ does not depend on
+$u$ or its derivatives) or non-linear ($f$ depends on $u$ or its
+derivatives).
+\end{frame}
+
+\begin{frame}[fragile]{Elliptic PDEs Conditions}
+\noindent {\bf Initial Conditions for Elliptic Problems}
+
+\noindent Do not apply, since there is no time dependence.
+
+
+\vskip.2cm
+\noindent {\bf Boundary Conditions for Elliptic Problems}
+
+\noindent Dirichlet, von Neumann or Robin boundary conditions.
+\end{frame}
+
+\section{Numerical Methods for PDEs}
+\begin{frame}[fragile]{Numerical Methods for PDEs}
+There is no such thing as a general robust method for the solution of 
+generic PDEs. Each type (and each sub-type) of PDE requires a different
+approach. Real-life PDEs may be of mixed type or may have special 
+properties that require knowledge about the underlying physics for their
+successful solution.\\
+
+\bigskip
+There are three general classes of approaches to solving PDEs
+
+\end{frame}
+
+\begin{frame}[fragile]{Numerical Methods for PDEs}
+\textbf{1. Finite Difference Methods.}\\
+      
+      The differential operators are approximated using their finite-difference
+      representation on a given grid. A sub-class of finite-difference methods,
+      so-called finite-volume methods, can be used for PDEs arising from
+      conservation laws (e.g., the hydrodynamics equations).
+
+      Finite difference/volume methods have polynomial convergence for
+      smooth functions.
+\end{frame}
+
+\begin{frame}[fragile]{Numerical Methods for PDEs}
+ \textbf{2. Finite Element Methods.}\\
+      The domain is divided into cells (``\emph{elements}''). The solution
+      is represented as a single function (e.g., a polynomial) on each
+      cell and the PDE is transformed to an algebraic problem for the matching
+      conditions of the simple functions at cell interfaces.
+
+      Finite element methods can have polynomial or exponential convergence
+      for smooth functions.
+\end{frame}
+
+\begin{frame}[fragile]{Numerical Methods for PDEs}
+ \textbf{3. Spectral Methods.}\\
+      The solution is represented by a linear combination of known
+      functions (e.g. trigonometric functions or special
+      polynomials). The PDE is transformed to a set of algebraic
+      equations (or ODEs) for the amplitudes of the component
+      functions. A sub-class of these methods are the collocation
+      methods. In them, the solution is represented on a grid and the
+      spectral decomposition of the solution in known functions is
+      used to estimate to a high degree of accuracy the partial
+      derivatives of the solution on the grid points.
+\end{frame}
+
+\section{Linear Advection Equation}
+\begin{frame}[fragile]{}
+\textbf{Linear Advection Equation }
+\end{frame}
+
+\begin{frame}[fragile]{Linear Advection Equation}
+Consider the linear advection equation,
+\begin{equation}
+\frac{\partial u}{\partial t}  + v \frac{\partial u}{\partial x} = 0\,\,.
+\end{equation}
+This is the simplest example of a hyperbolic equation and its exact
+solution is simply given by
+\begin{equation}
+u(t,x) = u(t=0,x-vt)\,\,,
+\label{eq:pde_advect1}
+\end{equation}
+hence, the advection equation does (as one might expect) just translate
+the given data along the x-axis with constant advection velocity $v$.
+\end{frame}
+
+\subsection{Solution Methods for the Linear Advection Equation}
+\begin{frame}[fragile]{FTCS Discretization}
+First-order in Time, Centered in Space (FTCS) Discretization gives
+\begin{equation}
+  u^{(n+1)}_j = u^{(n)}_j - \frac{v \Delta t}{2\Delta x} \left(u^{(n)}_{j+1} - u^{(n)}_{j-1}\right)\,\,.
+\end{equation}
+\end{frame}
+
+\begin{frame}[fragile]{FTCS Discretization}
+Introducing $u(x,t^{n}) = e^{ikx}$ into the discretized  equation,
+\begin{equation}
+\begin{aligned}
+u^{(n+1)}_j &= e^{ik\Delta x j} - \frac{v \Delta t}{2\Delta x} \left(e^{ik\Delta x (j+1)} - e^{ik\Delta x (j-1)}\right)\,\,,\\
+&= \left(1 - \frac{v\Delta t}{2 \Delta x} \left( e^{ik\Delta x} - e^{-ik\Delta x} \right) \right) e^{ik\Delta x j}\,\,,\\
+&= \underbrace{\left( 1- \frac{v\Delta t}{\Delta x} i \sin(k\Delta x) \right)}_{\parbox{3cm}{\centering $=\xi$}} e^{ik\Delta x j}\,\,,
+\end{aligned}
+\end{equation}
+and 
+\begin{equation}
+|\xi| = \sqrt{\xi \xi^*} = \sqrt{1 + \left(\frac{v\Delta t}{\Delta x} \sin(k\Delta x)\right)^2} > 1\,\,.
+\end{equation}
+Hence, the FTCS method is \emph{unconditionally unstable} for the
+advection equation!
+\end{frame}
+
+\begin{frame}[fragile]{Upwind Method}
+We consider now  a first-order in space, first-order in
+time method to test if it could be stable. \\
+The spatial
+derivative, to first order, has two possiblities:
+\begin{equation}
+\begin{aligned}
+\frac{\partial u}{\partial x} &\approx \frac{1}{\Delta x}(u_j - u_{j-1}) \hspace{1cm}\text{upwind finite difference,}\\
+\frac{\partial u}{\partial x} &\approx \frac{1}{\Delta x}(u_{j+1} - u_{j})
+\hspace{1cm}\text{downwind finite difference.}
+\end{aligned}
+\end{equation}
+These are both so-called one-sided approximations, because they use
+data only from one side or the other of point $x_j$. 
+\end{frame}
+
+\begin{frame}[fragile]{Upwind Method}
+Coupling one
+of these equations with forward Euler time integration yields
+\begin{equation}
+\begin{aligned}
+u_j^{(n+1)} &= u_j^{(n)} - \frac{v\Delta t}{\Delta x} \left(u_j^{(n)} - u_{j-1}^{(n)}\right) \hspace{1cm}\text{upwind,}\\
+u_j^{(n+1)} &= u_j^{(n)} - \frac{v\Delta t}{\Delta x} \left(u_{j+1}^{(n)} - u_{j}^{(n)}\right) \hspace{1cm}\text{downwind}\,\,.
+\end{aligned}
+\end{equation}
+\end{frame}
+
+\begin{frame}[fragile]{Upwind Method}
+Stability analysis shows that the upwind method is stable for
+\begin{equation}
+0 \le \frac{v \Delta t}{\Delta x} \le 1\,\,,
+\end{equation}
+while the downwind method is stable for
+\begin{equation}
+-1 \le \frac{v \Delta t}{\Delta x} \le 0\,\,,
+\end{equation}
+which just confirms that for $v > 0$ one should use the upwind
+method and for $v < 0$ the downwind method.
+\end{frame}
+
+\begin{frame}[fragile]{Upwind Method}
+The condition
+\begin{equation}
+\alpha = \left|\frac{v\Delta t}{\Delta x}\right| \le 1\,\,
+\label{eq:pde_courant1}
+\end{equation}
+ is a mathematical realization of the
+physical causality principle: the propagation of information
+(via advection) in one time step $\Delta t$ must not jump
+ahead more than one grid interval of size $\Delta x$.
+
+The demand that $\alpha \le 1$ is usually referred to as the 
+\emph{Courant-Friedrics-Lewy (CFL) condition}. The
+CFL condition is used to determine the  allowable time
+step for a spatial grid size $\Delta x$ for a certain accuracy and
+stability, 
+\begin{equation}
+\Delta t = c_\mathrm{CFL} \frac{\Delta x}{|v|}\,\,,
+\end{equation}
+where $c_\mathrm{CFL} \le 1$ is the CFL factor.
+\end{frame}
+
+\begin{frame}[fragile]{Lax-Friedrich Method}
+The Lax-Friedrichs method, like FTCS, is first order in time, but
+second order in space. It is given by
+\begin{equation}
+u_{j}^{(n+1)} = \frac{1}{2}\left(u^{(n)}_{j+1} + u^{(n)}_{j-1}\right) - 
+\frac{v \Delta t}{2\Delta x} \left(u^{(n)}_{j+1} - u^{(n)}_{j-1}\right)\,\,,
+\end{equation}
+and, compared to FTCS, has been made stable for $\alpha \le 1$
+(Eq.~\ref{eq:pde_courant1}) by using the average of the old result at
+points $j+1$ and $j-1$ to compute the update at point $j$. This is
+equivalent to adding a dissipative term to the equations (which damps
+the instability of the FTCS method) and leads to rather poor accuracy.
+\end{frame}
+
+\begin{frame}[fragile]{Leapfrog Method}
+A fully second-order method is the \emph{Leapfrog} Method (also called the
+midpoint method) given by
+\begin{equation}
+u_j^{(n+1)} = u_j^{(n-1)} - \frac{v \Delta t}{\Delta
+x} \left(u^{(n)}_{j+1} - u^{(n)}_{j-1}\right)\,\,.
+\end{equation}
+One can show that it is stable for $\alpha < 1$
+(Eq.~\ref{eq:pde_courant1}).  A special feature of this method is that
+it is \emph{non-dissipative}. This means that any initial condition
+simply translates unchanged. All modes (in a decomposition picture) travel
+unchanged, but they do not generally travel at the correct speed, which
+can lead to high-frequency oscillations that cannot damp (since there
+is no numerical viscosity).
+\end{frame}
+
+\begin{frame}[fragile]{Lax-Wendroff Method}
+The \emph{Lax-Wendroff} method is an extension of the Lax-Friedrich method
+to second order in space and time. It is given by
+\begin{equation}
+u_j^{(n+1)} = u_j^n - \frac{v\Delta t}{2\Delta x} \left(u_{j+1}^{(n)}
+- u_{j-1}^{(n)} \right) + \frac{v^2(\Delta t)^2}{2(\Delta x)^2} \left(
+u_{j-1}^{(n)} - 2 u_j^{(n)} + u_{j+1}^{(n)}\right)\,\,.
+\end{equation}
+It has considerably better accuracy than the Lax-Friedrich method and is
+stable for $\alpha \le 1$ (Eq.~\ref{eq:pde_courant1}).
+\end{frame}
+
+
+\begin{frame}[fragile]{Next Class}
+Poisson Equation
+\end{frame}
+
+\end{document}

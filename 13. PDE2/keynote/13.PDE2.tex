@@ -1,0 +1,173 @@
+\documentclass[11pt]{beamer}
+\usetheme{Rochester}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+%\author{}
+%\title{}
+%\setbeamercovered{transparent} 
+%\setbeamertemplate{navigation symbols}{} 
+%\logo{} 
+%\institute{} 
+%\date{} 
+%\subject{} 
+\begin{document}
+
+\begin{frame}
+\title{Computational Astrophysics}
+\author{E. Larrañaga}
+\institute{Observatorio Astronómico Nacional\\
+Universidad Nacional de Colombia}
+\titlepage
+\end{frame}
+
+\begin{frame}{Outline}
+\tableofcontents
+\end{frame}
+
+\section{Elliptic Partial Differential Equations }
+\begin{frame}[fragile]{Elliptic Partial Differential Equations}
+The simplest elliptic partial differential equation is the linear Poisson equation.\\
+For the Newtonian gravitational potential $\Phi$, this is
+\begin{equation}
+\nabla^2 \Phi =  4\pi G \rho\,\,.
+\label{eq:pde_poisson1}
+\end{equation}
+\end{frame}
+
+
+\begin{frame}[fragile]{Poisson Equation with Spherical Symmetry}
+Consider a spherically symmetric mass
+distribution. The Laplacian
+$\nabla^2$ reduces to
+\begin{equation}
+\begin{aligned}
+\nabla^2 [\cdot] &= \frac{1}{r^2} \frac{\partial}{\partial r}\left(r^2 \frac{\partial}{\partial r} [\cdot] \right)\,\,,\\
+&= \frac{2}{r}\frac{\partial}{\partial r}[\cdot] + \frac{\partial^2}{\partial r^2} [\cdot]\,\,. 
+\end{aligned}
+\end{equation}
+\end{frame}
+  
+\section{ODE Method}
+\begin{frame}[fragile]{ODE Method}
+Since the PDE reduces to just one variable, $r$, we write it as a second-order ODE
+\begin{equation}
+\frac{d^2 \Phi}{d r^2}  + \frac{2}{r}\frac{d \Phi}{d r}  = 4 \pi G\rho\,\,.
+\end{equation}
+This equation is reduced to the system
+\begin{equation}
+\begin{aligned}
+\frac{d \Phi}{dr} &= z\,\,,\\
+\frac{dz}{dr}  + \frac{2}{r} z &= 4 \pi G \rho\,\,.
+\end{aligned}
+\end{equation}
+\end{frame}
+
+\begin{frame}[fragile]{ODE Method}
+In order to solve inside the matter distribution, we will use
+inner and outer boundary conditions,
+\begin{equation}
+\begin{aligned}
+\left . \frac{d \Phi}{dr} \right| _{r=0} & = 0\,\,,\\
+\Phi(R_\mathrm{surface}) &= - \frac{GM(R_\mathrm{surface})}{R_\mathrm{surface}}\,\,.
+\end{aligned}
+\end{equation}
+\end{frame}
+
+\begin{frame}[fragile]{ODE Method}
+In practice, one sets $\Phi(r=0) = 0$ and integrates out. Then, the 
+result is corrected by adding a constant term to obtain the outer
+boundary condition, which is the analytic value for the
+gravitational potential outside a spherical mass distribution.  \\
+\bigskip
+
+Remember that this added constant doesn't affect the field value 
+because of gauge invariance!
+\end{frame}
+
+\section{Matrix Method}
+\begin{frame}[fragile]{Matrix Method}
+In the matrix method, we discretize Poisson Equation
+with centered differences. Then, for an interior (non-boundary) grid point $i$ we have
+\begin{equation}
+\begin{aligned}
+\frac{\partial \Phi }{\partial r} \bigg|_i &\approx \frac{1}{2\Delta r} \left(\Phi_{i+1} - \Phi_{i-1}\right)\,\,,\\
+\frac{\partial^2 \Phi }{\partial r^2}  \bigg|_i &\approx \frac{1}{(\Delta r)^2} \left(\Phi_{i+1} - 2 \Phi_i + \Phi_{i-1} \right)\,\,.
+\end{aligned}
+\end{equation}
+Then, Poisson equation is
+\begin{equation}
+\begin{aligned}
+\frac{1}{r_i} \frac{\left(\Phi_{i+1} - \Phi_{i-1}\right)}{\Delta r}  + \frac{\left(\Phi_{i+1} - 2 \Phi_i + \Phi_{i-1} \right)}{(\Delta r)^2}  &= 4\pi G \rho_i\,\,.
+\end{aligned}
+\end{equation}
+\end{frame}
+
+\begin{frame}[fragile]{Matrix Method}
+\textbf{Inner boundary condition:}\\
+Because of the $1/r$ term in the Laplacian, it is clear that the behavior 
+ at $r=0$ must be regularized. \\
+ \bigskip
+ 
+ It is possible to use an expansion or we can
+stagger the grid so that there is no point exactly at $r=0$, for example 
+by moving the entire grid over by $0.5 \Delta r$.  \\
+\end{frame}
+
+\begin{frame}[fragile]{Matrix Method}
+\textbf{Inner boundary condition:}\\
+At the inner boundary, we have the condition $\frac{\partial \Phi}{ \partial r} = 0$, so we assume
+\begin{equation}
+\Phi_{-1} = \Phi_{0}\,\,.
+\end{equation}
+\end{frame}
+
+\begin{frame}[fragile]{Matrix Method}
+Hence, Poisson equation can be written as linear system
+\begin{equation}
+J \mathbf{\Phi} = \mathbf{b}\,\,,
+\label{eq:pde_poisson2}
+\end{equation}
+where $\Phi$ = $(\Phi_0, \cdots , \Phi_{n-1})^T$ (for a grid with $n$
+points labeled $0$ to $n-1$) and  $\mathbf{b} = 4\pi G
+(\rho_0, \cdots , \rho_{n-1})^T$. 
+\end{frame}
+
+\begin{frame}[fragile]{Matrix Method}
+The matrix $J$ has tri-diagonal form and can be explicitely given as:
+\begin{itemize}
+\item[(a)] $i=j=0$:
+\begin{equation}
+J_{00} = - \frac{1}{(\Delta r)^2} - \frac{1}{r_0 \Delta r}\,\,,
+\end{equation}
+\item[(b)] $i=j$:
+\begin{equation}
+J_{ij} = \frac{-2}{(\Delta r)^2}\,\,,
+\end{equation}
+\item[(c)] $i+1=j$:
+\begin{equation}
+J_{ij} = \frac{1}{(\Delta r)^2} + \frac{1}{r_i \Delta r}\,\,,
+\end{equation}
+\item[(d)] $i-1=j$:
+\begin{equation}
+J_{ij} = \frac{1}{(\Delta r)^2} - \frac{1}{r_i \Delta r}\,\,.
+\end{equation}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Matrix Method}
+After finding the solution to the linear system, it is neccesary to correct for the analytic outer boundary
+value 
+\begin{equation}
+\Phi(R_\text{surface}) = - \frac{G M}{R_\text{surface}}.
+\end{equation}
+\end{frame}
+
+
+\begin{frame}[fragile]{Next Class}
+Poisson Equation
+\end{frame}
+
+\end{document}

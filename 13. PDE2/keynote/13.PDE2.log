@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  9 JUN 2019 10:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  10 JUN 2019 18:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -941,113 +941,6 @@ thkerncmss.
 (./13.PDE2.vrb) [14
 
 ]
-\openout4 = `13.PDE2.vrb'.
-
- (./13.PDE2.vrb) [15
-
-]
-\openout4 = `13.PDE2.vrb'.
-
- (./13.PDE2.vrb) [16
-
-]
-\openout4 = `13.PDE2.vrb'.
-
- (./13.PDE2.vrb)
-[17
-
-]
-\openout4 = `13.PDE2.vrb'.
-
- (./13.PDE2.vrb) [18
-
-]
-\openout4 = `13.PDE2.vrb'.
-
- (./13.PDE2.vrb) [19
-
-]
-\openout4 = `13.PDE2.vrb'.
-
- (./13.PDE2.vrb) [20
-
-]
-\openout4 = `13.PDE2.vrb'.
-
-
-(./13.PDE2.vrb) [21
-
-]
-\openout4 = `13.PDE2.vrb'.
-
- (./13.PDE2.vrb) [22
-
-]
-\openout4 = `13.PDE2.vrb'.
-
- (./13.PDE2.vrb) [23
-
-]
-\openout4 = `13.PDE2.vrb'.
-
- (./13.PDE2.vrb)
-[24
-
-]
-\openout4 = `13.PDE2.vrb'.
-
- (./13.PDE2.vrb) [25
-
-]
-\openout4 = `13.PDE2.vrb'.
-
- (./13.PDE2.vrb) [26
-
-]
-\openout4 = `13.PDE2.vrb'.
-
- (./13.PDE2.vrb) [27
-
-]
-\openout4 = `13.PDE2.vrb'.
-
-
-(./13.PDE2.vrb) [28
-
-]
-\openout4 = `13.PDE2.vrb'.
-
- (./13.PDE2.vrb) [29
-
-]
-\openout4 = `13.PDE2.vrb'.
-
- (./13.PDE2.vrb) [30
-
-]
-\openout4 = `13.PDE2.vrb'.
-
- (./13.PDE2.vrb)
-[31
-
-]
-\openout4 = `13.PDE2.vrb'.
-
- (./13.PDE2.vrb
-Overfull \hbox (9.43121pt too wide) detected at line 8
-\OT1/mathkerncmss/m/sl/10.95 u[] \OT1/cmss/m/n/10.95 = \OT1/mathkerncmss/m/sl/1
-0.95 u[] \OMS/cmsy/m/n/10.95 ^^@ [] [] \OT1/cmss/m/n/10.95 + [] []   \OML/cmm/m
-/it/10.95 :
- []
-
-) [32
-
-]
-\openout4 = `13.PDE2.vrb'.
-
- (./13.PDE2.vrb) [33
-
-]
 \tf@nav=\write6
 \openout6 = `13.PDE2.nav'.
 
@@ -1057,38 +950,78 @@ Overfull \hbox (9.43121pt too wide) detected at line 8
 \tf@snm=\write8
 \openout8 = `13.PDE2.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 428.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 428.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 173.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 173.
  (./13.PDE2.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 428.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 428.
-Package rerunfilecheck Info: File `13.PDE2.out' has not changed.
-(rerunfilecheck)             Checksum: D6D20C7566EDB05CBDAC2BCFCF264FCE;486.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 173.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 173.
+
+
+Package rerunfilecheck Warning: File `13.PDE2.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `13.PDE2.out':
+(rerunfilecheck)             Before: D6D20C7566EDB05CBDAC2BCFCF264FCE;486
+(rerunfilecheck)             After:  E090AA1E3339D7AABD6FF211F0D2A4B8;168.
  ) 
 Here is how much of TeX's memory you used:
- 17214 strings out of 492649
- 328629 string characters out of 6129622
+ 17139 strings out of 492649
+ 327817 string characters out of 6129622
  402228 words of memory out of 5000000
- 20561 multiletter control sequences out of 15000+600000
- 12839 words of font info for 46 fonts, out of 8000000 for 9000
+ 20560 multiletter control sequences out of 15000+600000
+ 12483 words of font info for 45 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 56i,16n,60p,794b,557s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
-></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
-</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></
-usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr
-/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/
-local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/l
-ocal/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/loc
-al/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/lo
-cal/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/lo
-cal/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/loc
-al/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/loca
-l/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on 13.PDE2.pdf (33 pages, 181252 bytes).
+ 56i,14n,60p,794b,557s stack positions out of 5000i,500n,10000p,200000b,80000s
+pdfTeX warning (dest): name{Navigation15} has been referenced but does not ex
+ist, replaced by a fixed one
+
+pdfTeX warning (dest): name{Navigation24} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Navigation22} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Navigation18} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Navigation16} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Navigation33} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Outline0.7.1.24} has been referenced but does not e
+xist, replaced by a fixed one
+
+pdfTeX warning (dest): name{Outline0.7} has been referenced but does not exist,
+ replaced by a fixed one
+
+pdfTeX warning (dest): name{Outline0.6} has been referenced but does not exist,
+ replaced by a fixed one
+
+pdfTeX warning (dest): name{Outline0.5} has been referenced but does not exist,
+ replaced by a fixed one
+
+pdfTeX warning (dest): name{Outline0.4} has been referenced but does not exist,
+ replaced by a fixed one
+
+</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
+/usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
+usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></us
+r/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/l
+ocal/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/lo
+cal/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/loc
+al/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local
+/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/loca
+l/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/loca
+l/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/local
+/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/
+texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on 13.PDE2.pdf (14 pages, 133897 bytes).
 PDF statistics:
- 975 PDF objects out of 1000 (max. 8388607)
- 912 compressed objects within 10 object streams
- 80 named destinations out of 1000 (max. 500000)
+ 482 PDF objects out of 1000 (max. 8388607)
+ 443 compressed objects within 5 object streams
+ 45 named destinations out of 1000 (max. 500000)
  107 words of extra memory for PDF output out of 10000 (max. 10000000)
 

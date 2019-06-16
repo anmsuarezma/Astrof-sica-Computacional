@@ -1,0 +1,90 @@
+\documentclass[11pt]{article}
+\pagestyle{plain}
+\usepackage{latexsym,exscale,amsfonts,amsmath,amssymb,array}
+\usepackage{color}
+\usepackage[colorlinks]{hyperref}
+\setlength{\topmargin}{-2.3cm}
+\setlength{\textheight}{23.8cm}
+\setlength{\oddsidemargin}{-0.5cm}
+\setlength{\textwidth}{17cm}
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{.4cm}
+\newcommand{\totaldiffx}{\frac{d}{dx}}
+\newcommand{\pardiffx}{\frac{\partial}{\partial x}}
+\newcommand{\luft}{\:\!}
+
+\usepackage{graphicx}
+\usepackage[latin1]{inputenc}
+\usepackage{mathpazo}
+\usepackage[T1]{fontenc}
+\usepackage[comma,numbers,sort&compress]{natbib}
+
+
+\begin{document}
+\begin{center}
+\large \bf Computational Astrophysics \rm \\
+2019\\
+{\small Exercises 14. Burguer's Equation}
+\end{center}
+
+\noindent{\bf Burguer's Equation}\\
+Burger's equation:
+\begin{equation}
+\frac{\partial u}{\partial t} + u\frac{\partial u}{\partial x} = 0\,\,,
+\end{equation}
+ is often used as a first step into hydrodynamics. It is almost
+identical to the advection equation treated before, but this time the wave speed is 
+NOT a constant $v$ but is
+given by the field $u$ itself. This fact may lead to shocks, which are typical in
+hydrodynamic situations.
+
+\begin{enumerate}
+\item Use Burger's equation to evolve a sine profile,
+\begin{equation}
+\Psi_0 = \Psi(x,t=0) = \frac{1}{8} \sin \left( \frac{2\pi x}{L} \right)
+\end{equation}
+in a $[0,L]$ domain with $L=100$. \\
+Use ``outflow'' boundary conditions  (these copy the data of the last interior grid point into the
+boundary points).
+\begin{center}
+\begin{minipage}{0.4\textwidth}\includegraphics[width=1\textwidth]{burgers_plot.pdf}
+\end{minipage}
+\end{center}
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+Implement the upwind scheme and demonstrate by experiment
+that the solution to Burger's equation forms a shock after $t \gtrsim 140$
+time has passed. Remember that upwind means ``in the direction opposite of the
+velocity''.
+  \vspace{0.1cm}
+%\item[(1; 20pts)] Using the same code and settings evolve
+%\begin{equation}
+%\Phi_0(x) = 1-x^2
+%\end{equation}
+%in the domain [-1:1].
+%{\color{red} For this one can compute the solution analytically using the
+%characteristics. One has $u(x,t) = u(\eta,0)$ where $\eta$ is found from the
+%equation $0 = x - \eta - t u(\eta,0)$ which for the choice of $\Phi_0$ above
+%is solvable with solutions of the form $\eta(x,t) = \frac{A}{2t} \pm
+%\sqrt{\frac{A^2}{4t^2} - \frac{B(x-t)}{t}}$.}
+%  \vspace{0.1cm}
+
+\item Use Burger's equation to evolve a step profile,
+\begin{equation}
+\Phi_0 = \Phi(x,t=0) = 
+\begin{cases}
+1 \text{ if } x<0.5 \\
+2 \text{ if } x>0.5
+\end{cases}
+\end{equation}
+in the domain $[0,1]$. \\
+
+Implement the upwind scheme and demonstrate by experiment
+that the solution to Burger's equation presents rarefaction.
+
+\end{enumerate}
+
+Happy Coding :) !
+
+
+\end{document}

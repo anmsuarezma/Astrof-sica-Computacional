@@ -154,87 +154,9 @@ state.
 \end{center}
 \end{frame}
 
-\section{Matrix Method}
-\begin{frame}[fragile]{Matrix Method}
-In the matrix method, we discretize Poisson Equation
-with centered differences. Then, for an interior (non-boundary) grid point $i$ we have
-\begin{equation}
-\begin{aligned}
-\frac{\partial \Phi }{\partial r} \bigg|_i &\approx \frac{1}{2\Delta r} \left(\Phi_{i+1} - \Phi_{i-1}\right)\,\,,\\
-\frac{\partial^2 \Phi }{\partial r^2}  \bigg|_i &\approx \frac{1}{(\Delta r)^2} \left(\Phi_{i+1} - 2 \Phi_i + \Phi_{i-1} \right)\,\,.
-\end{aligned}
-\end{equation}
-Then, Poisson equation is
-\begin{equation}
-\begin{aligned}
-\frac{1}{r_i} \frac{\left(\Phi_{i+1} - \Phi_{i-1}\right)}{\Delta r}  + \frac{\left(\Phi_{i+1} - 2 \Phi_i + \Phi_{i-1} \right)}{(\Delta r)^2}  &= 4\pi G \rho_i\,\,.
-\end{aligned}
-\end{equation}
-\end{frame}
-
-\begin{frame}[fragile]{Matrix Method}
-\textbf{Inner boundary condition:}\\
-Because of the $1/r$ term in the Laplacian, it is clear that the behavior 
- at $r=0$ must be regularized. \\
- \bigskip
- 
- It is possible to use an expansion or we can
-stagger the grid so that there is no point exactly at $r=0$, for example 
-by moving the entire grid over by $0.5 \Delta r$.  \\
-\end{frame}
-
-\begin{frame}[fragile]{Matrix Method}
-\textbf{Inner boundary condition:}\\
-At the inner boundary, we have the condition $\frac{\partial \Phi}{ \partial r} = 0$, so we assume
-\begin{equation}
-\Phi_{-1} = \Phi_{0}\,\,.
-\end{equation}
-\end{frame}
-
-\begin{frame}[fragile]{Matrix Method}
-Hence, Poisson equation can be written as linear system
-\begin{equation}
-J \mathbf{\Phi} = \mathbf{b}\,\,,
-\label{eq:pde_poisson2}
-\end{equation}
-where $\Phi$ = $(\Phi_0, \cdots , \Phi_{n-1})^T$ (for a grid with $n$
-points labeled $0$ to $n-1$) and  $\mathbf{b} = 4\pi G
-(\rho_0, \cdots , \rho_{n-1})^T$. 
-\end{frame}
-
-\begin{frame}[fragile]{Matrix Method}
-The matrix $J$ has tri-diagonal form and can be explicitely given as:
-\begin{itemize}
-\item[(a)] $i=j=0$:
-\begin{equation}
-J_{00} = - \frac{1}{(\Delta r)^2} - \frac{1}{r_0 \Delta r}\,\,,
-\end{equation}
-\item[(b)] $i=j$:
-\begin{equation}
-J_{ij} = \frac{-2}{(\Delta r)^2}\,\,,
-\end{equation}
-\item[(c)] $i+1=j$:
-\begin{equation}
-J_{ij} = \frac{1}{(\Delta r)^2} + \frac{1}{r_i \Delta r}\,\,,
-\end{equation}
-\item[(d)] $i-1=j$:
-\begin{equation}
-J_{ij} = \frac{1}{(\Delta r)^2} - \frac{1}{r_i \Delta r}\,\,.
-\end{equation}
-\end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]{Matrix Method}
-After finding the solution to the linear system, it is neccesary to correct for the analytic outer boundary
-value 
-\begin{equation}
-\Phi(R_\text{surface}) = - \frac{G M}{R_\text{surface}}.
-\end{equation}
-\end{frame}
 
 
 \begin{frame}[fragile]{Next Class}
-Poisson Equation
 \end{frame}
 
 \end{document}

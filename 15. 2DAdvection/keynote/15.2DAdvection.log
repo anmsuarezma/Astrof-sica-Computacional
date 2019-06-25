@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  17 JUN 2019 18:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  25 JUN 2019 18:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**14.PDE3.tex
-(./14.PDE3.tex
+**15.2DAdvection.tex
+(./15.2DAdvection.tex
 LaTeX2e <2018-04-01> patch level 2
 Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
 (/usr/local/texlive/2018/texmf-dist/tex/latex/beamer/beamer.cls
@@ -672,8 +672,8 @@ Package: inputenc 2018/04/06 v1.3b Input encoding file
 \inpenc@prehook=\toks43
 \inpenc@posthook=\toks44
 )
-(./14.PDE3.aux)
-\openout1 = `14.PDE3.aux'.
+(./15.2DAdvection.aux)
+\openout1 = `15.2DAdvection.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
 LaTeX Font Info:    ... okay on input line 16.
@@ -770,9 +770,9 @@ LaTeX Info: Redefining \ref on input line 16.
 LaTeX Info: Redefining \pageref on input line 16.
 LaTeX Info: Redefining \nameref on input line 16.
 
-(./14.PDE3.out) (./14.PDE3.out)
+(./15.2DAdvection.out) (./15.2DAdvection.out)
 \@outlinefile=\write5
-\openout5 = `14.PDE3.out'.
+\openout5 = `15.2DAdvection.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 16.
@@ -850,7 +850,7 @@ Dictionary: translator-numbers-dictionary, Language: English
 (/usr/local/texlive/2018/texmf-dist/tex/latex/translator/translator-theorem-dic
 tionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
-) (./14.PDE3.nav)
+) (./15.2DAdvection.nav)
 
 Package hyperref Warning: Option `pdfauthor' has already been used,
 (hyperref)                setting the option has no effect on input line 24.
@@ -858,12 +858,12 @@ Package hyperref Warning: Option `pdfauthor' has already been used,
 [1
 
 {/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-(./14.PDE3.toc) [2
+(./15.2DAdvection.toc) [2
 
 ]
-\openout4 = `14.PDE3.vrb'.
+\openout4 = `15.2DAdvection.vrb'.
 
- (./14.PDE3.vrb
+ (./15.2DAdvection.vrb
 LaTeX Font Info:    Try loading font information for U+msa on input line 3.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd
@@ -883,139 +883,133 @@ thkerncmss.
 )) [3
 
 ]
-\openout4 = `14.PDE3.vrb'.
+\openout4 = `15.2DAdvection.vrb'.
 
- (./14.PDE3.vrb) [4
+ (./15.2DAdvection.vrb
+<2DGrid.jpeg, id=104, 640.3925pt x 606.265pt>
+File: 2DGrid.jpeg Graphic file (type jpg)
+<use 2DGrid.jpeg>
+Package pdftex.def Info: 2DGrid.jpeg  used on input line 3.
+(pdftex.def)             Requested size: 192.11923pt x 181.8809pt.
+) [4
 
-]
-\openout4 = `14.PDE3.vrb'.
+ <./2DGrid.jpeg>]
+\openout4 = `15.2DAdvection.vrb'.
 
- (./14.PDE3.vrb) [5
-
-]
-\openout4 = `14.PDE3.vrb'.
-
- (./14.PDE3.vrb
-<advectioncharact.jpeg, id=162, 569.12625pt x 606.265pt>
-File: advectioncharact.jpeg Graphic file (type jpg)
-<use advectioncharact.jpeg>
-Package pdftex.def Info: advectioncharact.jpeg  used on input line 3.
-(pdftex.def)             Requested size: 170.73918pt x 181.8809pt.
-) [6
-
- <./advectioncharact.jpeg>]
-\openout4 = `14.PDE3.vrb'.
-
- (./14.PDE3.vrb) [7
+ (./15.2DAdvection.vrb)
+[5
 
 ]
-\openout4 = `14.PDE3.vrb'.
+\openout4 = `15.2DAdvection.vrb'.
 
- (./14.PDE3.vrb) [8
-
-]
-\openout4 = `14.PDE3.vrb'.
-
- (./14.PDE3.vrb) [9
+ (./15.2DAdvection.vrb) [6
 
 ]
-\openout4 = `14.PDE3.vrb'.
+\openout4 = `15.2DAdvection.vrb'.
 
-
-(./14.PDE3.vrb
-<burguerscharact.jpeg, id=265, 552.0625pt x 616.3025pt>
-File: burguerscharact.jpeg Graphic file (type jpg)
-<use burguerscharact.jpeg>
-Package pdftex.def Info: burguerscharact.jpeg  used on input line 3.
-(pdftex.def)             Requested size: 165.62003pt x 184.89217pt.
-) [10
-
- <./burguerscharact.jpeg>]
-\openout4 = `14.PDE3.vrb'.
-
- (./14.PDE3.vrb) [11
+ (./15.2DAdvection.vrb) [7
 
 ]
-\openout4 = `14.PDE3.vrb'.
+\openout4 = `15.2DAdvection.vrb'.
 
-
-(./14.PDE3.vrb
-<burguershock.jpeg, id=316, 634.37pt x 455.7025pt>
-File: burguershock.jpeg Graphic file (type jpg)
-<use burguershock.jpeg>
-Package pdftex.def Info: burguershock.jpeg  used on input line 3.
-(pdftex.def)             Requested size: 190.31245pt x 136.71179pt.
-) [12
-
- <./burguershock.jpeg>]
-\openout4 = `14.PDE3.vrb'.
-
- (./14.PDE3.vrb) [13
+ (./15.2DAdvection.vrb) [8
 
 ]
-\openout4 = `14.PDE3.vrb'.
+\openout4 = `15.2DAdvection.vrb'.
 
- (./14.PDE3.vrb
-<burguerscharact2.jpeg, id=369, 570.13pt x 618.31pt>
-File: burguerscharact2.jpeg Graphic file (type jpg)
-<use burguerscharact2.jpeg>
-Package pdftex.def Info: burguerscharact2.jpeg  used on input line 3.
-(pdftex.def)             Requested size: 171.04031pt x 185.49443pt.
+ (./15.2DAdvection.vrb) [9
+
+]
+\openout4 = `15.2DAdvection.vrb'.
+
+ (./15.2DAdvection.vrb) [10
+
+]
+\openout4 = `15.2DAdvection.vrb'.
+
+
+(./15.2DAdvection.vrb) [11
+
+]
+\openout4 = `15.2DAdvection.vrb'.
+
+ (./15.2DAdvection.vrb) [12
+
+]
+\openout4 = `15.2DAdvection.vrb'.
+
+ (./15.2DAdvection.vrb)
+[13
+
+]
+\openout4 = `15.2DAdvection.vrb'.
+
+ (./15.2DAdvection.vrb
+<Gaussian.jpeg, id=368, 611.28375pt x 496.85625pt>
+File: Gaussian.jpeg Graphic file (type jpg)
+<use Gaussian.jpeg>
+Package pdftex.def Info: Gaussian.jpeg  used on input line 3.
+(pdftex.def)             Requested size: 183.38654pt x 149.05801pt.
 ) [14
 
- <./burguerscharact2.jpeg>]
-\openout4 = `14.PDE3.vrb'.
+ <./Gaussian.jpeg>]
+\openout4 = `15.2DAdvection.vrb'.
 
- (./14.PDE3.vrb
-<burguersrarefaction.jpeg, id=395, 639.38875pt x 437.635pt>
-File: burguersrarefaction.jpeg Graphic file (type jpg)
-<use burguersrarefaction.jpeg>
-Package pdftex.def Info: burguersrarefaction.jpeg  used on input line 3.
-(pdftex.def)             Requested size: 191.8181pt x 131.2915pt.
-) [15
+ (./15.2DAdvection.vrb
+<Gaussian2.jpeg, id=394, 826.08624pt x 587.19376pt>
+File: Gaussian2.jpeg Graphic file (type jpg)
+<use Gaussian2.jpeg>
+Package pdftex.def Info: Gaussian2.jpeg  used on input line 3.
+(pdftex.def)             Requested size: 247.82777pt x 176.15948pt.
+)
+[15
 
- <./burguersrarefaction.jpeg>]
-\openout4 = `14.PDE3.vrb'.
+ <./Gaussian2.jpeg>]
+\openout4 = `15.2DAdvection.vrb'.
 
- (./14.PDE3.vrb) [16
+ (./15.2DAdvection.vrb) [16
 
 ]
 \tf@nav=\write6
-\openout6 = `14.PDE3.nav'.
+\openout6 = `15.2DAdvection.nav'.
 
 \tf@toc=\write7
-\openout7 = `14.PDE3.toc'.
+\openout7 = `15.2DAdvection.toc'.
 
 \tf@snm=\write8
-\openout8 = `14.PDE3.snm'.
+\openout8 = `15.2DAdvection.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 162.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 162.
- (./14.PDE3.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 162.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 162.
-Package rerunfilecheck Info: File `14.PDE3.out' has not changed.
-(rerunfilecheck)             Checksum: 9B62C25E814C0A1E03723AAF675C6A39;160.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 195.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 195.
+ (./15.2DAdvection.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 195.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 195.
+Package rerunfilecheck Info: File `15.2DAdvection.out' has not changed.
+(rerunfilecheck)             Checksum: 42ED21417E51F9D64F3A4C856249D0A1;58.
  ) 
 Here is how much of TeX's memory you used:
- 17049 strings out of 492649
- 326219 string characters out of 6129622
- 399010 words of memory out of 5000000
- 20468 multiletter control sequences out of 15000+600000
+ 17064 strings out of 492649
+ 326925 string characters out of 6129622
+ 403179 words of memory out of 5000000
+ 20483 multiletter control sequences out of 15000+600000
  11357 words of font info for 41 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 56i,14n,55p,794b,557s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
-></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb>
-</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb><
-/usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></u
-sr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></u
-sr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></us
-r/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on 14.PDE3.pdf (16 pages, 343103 bytes).
+ 56i,14n,55p,801b,557s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
+></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
+</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></
+usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></u
+sr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></us
+r/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/
+local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/
+local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/l
+ocal/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/lo
+cal/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/loca
+l/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on 15.2DAdvection.pdf (16 pages, 287458 bytes).
 PDF statistics:
- 479 PDF objects out of 1000 (max. 8388607)
- 438 compressed objects within 5 object streams
- 36 named destinations out of 1000 (max. 500000)
- 84 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 493 PDF objects out of 1000 (max. 8388607)
+ 450 compressed objects within 5 object streams
+ 38 named destinations out of 1000 (max. 500000)
+ 66 words of extra memory for PDF output out of 10000 (max. 10000000)
 

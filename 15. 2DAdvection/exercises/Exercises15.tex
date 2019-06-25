@@ -1,0 +1,55 @@
+\documentclass[11pt]{article}
+\pagestyle{plain}
+\usepackage{latexsym,exscale,amsfonts,amsmath,amssymb,array}
+\usepackage{color}
+\usepackage[colorlinks]{hyperref}
+\setlength{\topmargin}{-2.3cm}
+\setlength{\textheight}{23.8cm}
+\setlength{\oddsidemargin}{-0.5cm}
+\setlength{\textwidth}{17cm}
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{.4cm}
+\newcommand{\totaldiffx}{\frac{d}{dx}}
+\newcommand{\pardiffx}{\frac{\partial}{\partial x}}
+\newcommand{\luft}{\:\!}
+
+\usepackage{graphicx}
+\usepackage[latin1]{inputenc}
+\usepackage{mathpazo}
+\usepackage[T1]{fontenc}
+\usepackage[comma,numbers,sort&compress]{natbib}
+
+
+\begin{document}
+\begin{center}
+\large \bf Computational Astrophysics \rm \\
+2019\\
+{\small Exercises 15. 2 Dimensional Advection}
+\end{center}
+
+\noindent{\bf 2 Dimensional Advection Equation}\\
+The two-dimensional linear advection equation is
+\begin{equation}
+\partial_t a + u \partial_x a + v \partial_y a = 0
+\label{eq:advect2d}
+\end{equation}
+where $u$ is the velocity in the $x$-direction and $v$ is the velocity in
+the $y$-direction. 
+
+As a first example in solving  a 2 dimensional partial differential equation, you will advect a Gaussian profile
+\begin{equation}
+ \Psi_0 = \Psi(x,y,t=0) = e^{-\frac{(x-x_0)^2 + (y-y_0)^2 }{(2 \sigma^2)}},
+ \end{equation}
+with $x_0 = y_0= 30$, $\sigma = \sqrt{15}$, with positive
+velocities $ u = v = 0.8$ in a $[0,100] \times [0,100]$ domain.\\ 
+In order to handle the boundaries, we will choose ``outflow'' boundary
+conditions, that simply copy the data of the last interior grid point into the
+boundary points.
+
+
+
+
+Happy Coding :) !
+
+
+\end{document}

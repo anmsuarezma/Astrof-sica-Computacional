@@ -1,0 +1,162 @@
+\documentclass[11pt]{beamer}
+\usetheme{Rochester}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+%\author{}
+%\title{}
+%\setbeamercovered{transparent} 
+%\setbeamertemplate{navigation symbols}{} 
+%\logo{} 
+%\institute{} 
+%\date{} 
+%\subject{} 
+\begin{document}
+
+\begin{frame}
+\title{Computational Astrophysics}
+\author{E. Larrañaga}
+\institute{Observatorio Astronómico Nacional\\
+Universidad Nacional de Colombia}
+\titlepage
+\end{frame}
+
+\begin{frame}{Outline}
+\tableofcontents
+\end{frame}
+
+\section{Linear Advection Equation}
+\begin{frame}[fragile]{Linear Advection Equation}
+The linear advection equation is 
+\begin{equation}
+\label{eq:advect}
+\partial_t u + v \partial_x u = 0
+\end{equation}
+where $u(t,x)$ is some scalar quantity and $v$ is the constant velocity at
+which it is advected ($v > 0$ advects to the right).\\ 
+
+The solution to
+this equation is to simply take the initial data, $u(t=0,x)$,
+and displace it to the right at a speed $v$.  The shape of the initial
+data is preserved in the advection. 
+\end{frame}
+
+\begin{frame}[fragile]{Linear Advection Equation}
+ Many hyperbolic systems of PDEs,
+e.g.\ the equations of hydrodynamics, can be written in a form that
+looks like a system of (nonlinear) advection equations, so the
+advection equation provides important insight into the methods used
+for these systems.
+\end{frame}
+
+\begin{frame}[fragile]{Linear Advection Equation}
+Direct substitution shows that $u(x - vt)$ is a solution to
+advection equation for any choice of u.\\
+\bigskip 
+
+This means that
+the solution is constant along the lines $x = v t$
+(the curves along which the solution is constant are called the
+characteristics).
+\end{frame}
+
+\begin{frame}[fragile]{Linear Advection Equation}
+\begin{center}
+\includegraphics[scale=0.3]{advectioncharact}
+\end{center}
+\end{frame}
+
+
+\section{Non-linear Hyperbolic Differential Equations. Burguer's Equation }
+\begin{frame}[fragile]{Non-linear Hyperbolic Differential Equations. Burguer's Equation }
+Burgers' equation is the simplest {\em nonlinear} hyperbolic
+equation,
+\begin{equation}
+\partial_t u + u \partial_x u = 0.
+\end{equation}
+It is almost identical to the advection equation treated before, but this time the wave speed is 
+NOT a constant $v$ but is
+given by the field $u$ itself. 
+\bigskip
+
+Hence, $u$ is both the quantity being advected and the speed at which
+it is moving.
+\end{frame}
+
+\begin{frame}[fragile]{Non-linear Hyperbolic Differential Equations. Burguer's Equation }
+For the linear advection equation, the solution was constant along lines $x = vt + x_0$, which are
+parallel, since $v$ is spatially constant.  
+\bigskip
+
+For Burgers' equation,
+this is no longer the case, and the characteristic lines are now
+given by $\frac{dx}{dt} = u$, with $x(0) = x_0$.  \\
+
+Since $u = u(t)$, we cannot integrate this directly.
+\end{frame}
+  
+\begin{frame}[fragile]{Burguer's Equation. Shocks}
+ If we take $u_0 = u(t=0)$, then we can look at how the characteristic
+behave over a small time interval (before $u(x,t)$ changes
+significantly).\\
+Next figure shows the behavior for
+an initial velocity with sinusoidal profile.  
+\end{frame}
+
+\begin{frame}[fragile]{Burguer's Equation. Shocks}
+\begin{center}
+\includegraphics[scale=0.3]{burguerscharact}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Burguer's Equation. Shocks}
+We see that after a
+short period of time, the characteristics intersect.  At the point,
+$(x_s, t_s)$ where they intersect, there is no way to trace backwards
+along the characteristics to find a unique initial state.  \\
+\bigskip
+
+This
+merging of the characteristics in the $x$-$t$ plane is a {\em shock}, and
+represents just one way that nonlinear problems can differ from linear
+ones.
+\end{frame}
+
+\begin{frame}[fragile]{Burguer's Equation. Shocks}
+\begin{center}
+\includegraphics[scale=0.3]{burguershock}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Burguer's Equation. Rarefaction}
+Another type of wave not present in a linear system is a {\em
+  rarefaction}.  Next figure shows initial
+conditions of slower velocity to the left of faster velocity. 
+\bigskip
+
+ We see
+that the characteristics diverge in this case, and we will be left
+with having to fill in the solution inbetween as some intermediate
+state.
+\end{frame}
+
+\begin{frame}[fragile]{Burguer's Equation. Rarefaction}
+\begin{center}
+\includegraphics[scale=0.3]{burguerscharact2}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Burguer's Equation. Rarefaction}
+\begin{center}
+\includegraphics[scale=0.3]{burguersrarefaction}
+\end{center}
+\end{frame}
+
+
+
+\begin{frame}[fragile]{Next Class}
+\end{frame}
+
+\end{document}
